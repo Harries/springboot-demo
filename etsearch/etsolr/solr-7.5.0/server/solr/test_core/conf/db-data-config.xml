@@ -1,0 +1,18 @@
+<dataConfig>
+    <dataSource driver="com.mysql.jdbc.Driver" 
+				url="jdbc:mysql://127.0.0.1:3306/orders?charactorEncoding=utf-8" 
+				user="root" 
+				password="123456" />
+    <document>
+        <entity name="share" query="select * from product" 
+							deltaImportQuery="select * from product where CREATE_TIME > '${dataimporter.last_index_time}'"
+							deltaQuery="select * from product where CREATE_TIME > '${dataimporter.last_index_time}'" 
+							pk="ID" >
+            <field column="ID" name="id" />
+			<field column="PRODUCT_NAME" name="productName" />
+			<field column="PRODUCT_DESC" name="productDesc" />
+			<field column="CREATE_TIME" name="createTime" />
+			<field column="UPDATE_TIME" name="updateTime" />
+        </entity>
+    </document>
+</dataConfig>

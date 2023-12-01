@@ -1,0 +1,213 @@
+    <!DOCTYPE html>
+    <html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="" th:href="@{/static/img/fav.png}">
+        <!-- Author Meta -->
+        <meta name="author" content="colorlib">
+        <!-- Meta Description -->
+        <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>搜索</title>
+            <link rel="stylesheet" href="css/linearicons.css" th:href="@{/static/css/linearicons.css}">
+            <link rel="stylesheet" href="css/font-awesome.min.css" th:href="@{/static/css/font-awesome.min.css}">
+            <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/static/css/bootstrap.css}">
+            <link rel="stylesheet" href="css/owl.carousel.css" th:href="@{/static/css/owl.carousel.css}">
+            <link rel="stylesheet" href="css/main.css" th:href="@{/static/css/main.css}">
+        </head>
+        <body>
+
+            <!-- Start Header Area -->
+            <header class="default-header">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                          <a class="navbar-brand" href="index.html">
+                            <img src="" alt="" th:src="@{/static/img/logo.png}">
+                          </a>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>                      
+                    </div>
+                </nav>
+            </header>
+            <!-- End Header Area -->
+
+            <!-- Start Search Area -->
+            <section class="top-section-area section-gap">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center d-flex">
+                        <div class="col-lg-12">
+                            <div id="imaginary_container"> 
+                                <div class="input-group stylish-input-group input-group-prepend">
+                                    <div th:if="${type} eq 'file'">
+                                        <button type="button" class="btn btn-outline-light text-dark dropdown-toggle" data-toggle="dropdown">
+                                            搜文档
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href=""  th:href="@{/}">搜内容</a>
+                                        </div>
+                                    </div>
+
+                                    <div th:if="${type} eq 'db'">
+                                        <button type="button" class="btn btn-outline-light text-dark dropdown-toggle" data-toggle="dropdown">
+                                            搜内容
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="" th:href="@{/doc}">搜文档</a>
+                                        </div>
+                                    </div>
+
+                                    <input type="text" class="form-control"  placeholder="输入关键字搜索" value="" required="" id="keyword">
+                                    <span class="input-group-addon">
+                                        <button type="button" onclick="search();">
+                                            <span class="lnr lnr-magnifier"></span>
+                                        </button>  
+                                    </span>
+                                </div>
+                            </div> 
+                            <p class="mt-20 text-center text-white" style="display: none" id="reFileDataImport">
+                                <button type="button" class="btn btn-outline-light text-dark" onclick="reIndex()">重新生成文件索引</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+            <!-- End top-section Area -->
+
+    
+    <!-- Start post Area -->
+    <div class="post-wrapper pt-100" style="min-height: 700px;">
+        <!-- Start post Area -->
+        <section class="post-area">
+            <div class="container">
+                <div class="row justify-content-center d-flex">
+                    <div class="col-lg-12">
+                        <div class="post-lists search-list" id="coreDiv">
+                            
+							
+
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </section>
+        <!-- End post Area -->  
+    </div>
+    <!-- End post Area -->
+    
+            <!-- start footer Area -->      
+            <footer class="footer-area section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6  col-md-12">
+                            <div class="single-footer-widget newsletter">
+                                <h6>联系开发者</h6>
+								<p>微信：<code>qq11230595</code></p>
+                                <p>邮箱：<code>zhoudong611@163.com</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer Area -->
+
+            <!-- template start -->
+            <div class="single-list flex-row d-flex" id="contentDiv" style="display: none">
+                <!--<div class="thumb">
+                    <img th:src="@{/static/img/asset/l2.jpg}" alt="">
+                </div>-->
+                <div class="detail">
+                    <a href="#"><h4 class="pb-20" id="title"></h4></a>
+                    <p id="content">
+
+                    </p>
+                    <p class="footer pt-20">
+                        <a href="#" id="author"></a>  &nbsp;&nbsp;  <a href="#" id="createTime"></a>
+                    </p>
+                </div>
+            </div>
+            <!-- template end -->
+
+            <script src="js/vendor/jquery-2.2.4.min.js" th:src="@{/static/js/vendor/jquery-2.2.4.min.js}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+            <script src="js/vendor/bootstrap.min.js" th:src="@{/static/js/vendor/bootstrap.min.js}"></script>
+            <script src="js/jquery.ajaxchimp.min.js" th:src="@{/static/js/jquery.ajaxchimp.min.js}"></script>
+            <script src="js/parallax.min.js" th:src="@{/static/js/parallax.min.js}"></script>
+            <script src="js/owl.carousel.min.js" th:src="@{/static/js/owl.carousel.min.js}"></script>
+            <script src="js/jquery.magnific-popup.min.js" th:src="@{/static/js/jquery.magnific-popup.min.js}"></script>
+            <script src="js/jquery.sticky.js" th:src="@{/static/js/jquery.sticky.js}"></script>
+            <script src="js/main.js" th:src="@{/static/js/main.js}"></script>
+
+
+        <script>
+            /*<![CDATA[*/
+            var ctxPath = /*[[@{/}]]*/ '';
+            /*]]>*/
+            var type = "[[${type}]]";
+            
+            function search(){
+                var keyword = $("#keyword").val();
+
+                if($.trim(keyword) == ""){
+                    alert("关键字不能为空。");
+                    return;
+                }
+
+                var url = "";
+                if(type == "db") url = ctxPath + "search/" + keyword;
+                else if(type == "file") url = ctxPath + "doc/search/" + keyword;
+
+                $.get(url,function (data) {
+                    $("#coreDiv").empty();
+                    $.each(data,function(i,d){
+                        var template = $("#contentDiv").clone();
+                        // 1、标题
+                        if(d.productName != '' && d.productName != undefined) template.find("#title").html("位置：" + d.productName);
+                        else{
+                            if(type == "file"){
+                                template.find("#title").html("文件位置：" + d.id);
+                            }else template.find("#title").html(d.id);
+
+                        }
+                        // 2、内容
+                        template.find("#content").html(d.productDesc + d.content);
+                        // 3、作者
+                        if(d.author != '' && d.author != undefined)  template.find("#author").html("作者：" + d.author);
+                        // template.find("#createTime").text(d.createTime);
+                        template.show();
+                        var html = template.html().replace(new RegExp('undefined','gm'),'')
+                        $("#coreDiv").append(html);
+                    })
+                })
+            }
+            
+            function isShowReIndex() {
+                if(type == "file") $("#reFileDataImport").show();
+            }
+
+            function reIndex(){
+                var url = ctxPath + "/doc/dataimport";
+                $.get(url,function(data){
+                    if(data == "success") alert(data);
+                })
+            }
+
+            $(function(){
+                isShowReIndex();
+                document.onkeydown = function(e){
+                    var ev = document.all ? window.event : e;
+                    if(ev.keyCode==13) {
+                        search();
+                    }
+                }
+            });
+
+        </script>
+        </body>
+    </html>

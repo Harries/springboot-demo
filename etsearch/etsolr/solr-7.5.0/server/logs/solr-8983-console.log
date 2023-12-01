@@ -1,0 +1,25 @@
+2023-12-01 01:23:54.594 INFO  (main) [   ] o.e.j.u.log Logging initialized @964ms to org.eclipse.jetty.util.log.Slf4jLog
+2023-12-01 01:23:54.720 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.11.v20180605; built: 2018-06-05T18:24:03.829Z; git: d5fc0523cfa96bfebfbda19606cad384d772f04c; jvm 1.8.0_251-b08
+2023-12-01 01:23:54.742 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///D:/IdeaProjects/springboot-solr/solr-7.5.0/server/contexts/] at interval 0
+2023-12-01 01:23:56.082 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2023-12-01 01:23:56.093 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2023-12-01 01:23:56.093 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2023-12-01 01:23:56.095 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 660000ms
+2023-12-01 01:23:56.127 INFO  (main) [   ] o.a.s.c.SolrResourceLoader Using system property solr.solr.home: D:\IdeaProjects\springboot-solr\solr-7.5.0\server\solr
+2023-12-01 01:23:56.129 INFO  (main) [   ] o.a.s.h.d.s.SolrDataImportProperties Instance dir = D:\IdeaProjects\springboot-solr\solr-7.5.0\server\solr
+2023-12-01 01:23:56.129 INFO  (main) [   ] o.a.s.h.d.s.BaseTimerTask +++++++++++++++++++++++++++++++++++++++++++reBuildIndexInterval< 7200 >reBuildIndexInterval+++++++++++++++++++++++++++++++++++++++++++
+2023-12-01 01:23:56.130 INFO  (main) [   ] o.a.s.h.d.s.BaseTimerTask <index update process> Multiple cores identified in dataimport.properties. Sync active for: test_core
+2023-12-01 01:23:56.130 INFO  (main) [   ] o.a.s.h.d.s.DeltaImportHTTPPostScheduler <index update process> DeltaImportHTTPPostScheduler init
+2023-12-01 01:23:56.131 INFO  (main) [   ] o.a.s.h.d.s.SolrDataImportProperties Instance dir = D:\IdeaProjects\springboot-solr\solr-7.5.0\server\solr
+2023-12-01 01:23:56.131 INFO  (main) [   ] o.a.s.h.d.s.BaseTimerTask +++++++++++++++++++++++++++++++++++++++++++reBuildIndexInterval< 7200 >reBuildIndexInterval+++++++++++++++++++++++++++++++++++++++++++
+2023-12-01 01:23:56.131 INFO  (main) [   ] o.a.s.h.d.s.BaseTimerTask <index update process> Multiple cores identified in dataimport.properties. Sync active for: test_core
+2023-12-01 01:23:56.131 INFO  (main) [   ] o.a.s.h.d.s.FullImportHTTPPostScheduler <index update process> DeltaImportHTTPPostScheduler init
+2023-12-01 01:23:56.131 INFO  (main) [   ] o.a.s.h.d.s.BaseTimerTask +++++++++++++++++++++++++++++++++++++++++++reBuildIndexInterval< 7200 >reBuildIndexInterval+++++++++++++++++++++++++++++++++++++++++++
+2023-12-01 01:23:56.157 INFO  (main) [   ] o.a.s.u.c.SSLCredentialProviderFactory Processing SSL Credential Provider chain: env;sysprop
+2023-12-01 01:23:56.179 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2023-12-01 01:23:56.183 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr? version 7.5.0
+2023-12-01 01:23:56.183 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8983
+2023-12-01 01:23:56.183 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: D:\IdeaProjects\springboot-solr\solr-7.5.0
+2023-12-01 01:23:56.184 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2023-12-01T01:23:56.184Z
+º”‘ÿ¿©’π¥ µ‰£∫ext.dic
+º”‘ÿ¿©’πÕ£÷π¥ µ‰£∫stopword.dic

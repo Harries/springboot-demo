@@ -1,0 +1,95 @@
+/**
+ * Calendar toolbar
+ */
+.availability-calendar-toolbar {
+	padding-bottom: 15px;
+	font-size: 1.4em;
+	margin-bottom:30px;
+	color:#fff;
+}
+
+.availability-calendar-toolbar span:last-child {float: right}
+
+.availability-calendar-toolbar input {
+	padding: 7px 14px;
+	background: #F5F5F5;
+	background-image: linear-gradient(to bottom, #FFF, #E6E6E6);
+	border: 1px solid #BBB;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	font-weight: bold;
+	cursor: pointer;
+	outline: 0;
+}
+
+.availability-calendar-toolbar input:first-child {
+	margin-right: 5px;
+	padding: 8px 14px;
+	border-radius: 6px;
+}
+
+.availability-calendar-toolbar input:nth-child(2) {border-radius: 6px 0 0 6px}
+
+.availability-calendar-toolbar input:last-child {
+	margin-left: -1px;
+	border-radius: 0 6px 6px 0;
+}
+
+.availability-calendar-toolbar input:hover {
+	background: #E5E5E5;
+	background-image: linear-gradient(to bottom, #EEE, #D6D6D6);
+}
+
+.availability-calendar-toolbar input:active {
+	background: #D5D5D5;
+	background-image: linear-gradient(to bottom, #DDD, #C6C6C6);
+}
+
+
+/**
+ * Calendar table and cells
+ */
+.availability-calendar {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.availability-calendar th, .availability-calendar td {
+	border: 1px solid #3c3c3d;
+	color:#fff;
+	padding: 5px;
+}
+
+.availability-calendar td {
+	height: 100px;
+	vertical-align: top;
+	text-align: right;
+}
+
+.availability-calendar .ex-month {opacity: 0.4}
+.availability-calendar .unavailable {position: relative}
+
+.availability-calendar .unavailable div {
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: -1px;
+	height: 30px;
+	background: #F88;
+	border-top: 1px solid #A33;
+	border-bottom: 1px solid #A33;
+}
+
+.availability-calendar .unavailable:last-child div {right: 0}
+
+.availability-calendar .unavailable .first {
+	left: 51%;
+	border-radius: 6px 0 0 6px;
+	border-left: 1px solid #A33;
+}
+
+.availability-calendar .unavailable .last {
+	right: 51%;
+	border-radius: 0 6px 6px 0;
+	border-right: 1px solid #A33;
+}

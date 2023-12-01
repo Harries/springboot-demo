@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "createTime": {
+      "type": "long"
+    },
+    "productDesc": {
+      "type": "text",
+      "analyzer": "ik_max_word",
+      "search_analyzer": "ik_max_word"
+    },
+    "productName": {
+      "type": "text",
+      "analyzer": "ik_max_word",
+      "search_analyzer": "ik_max_word"
+    },
+    "updateTime": {
+      "type": "long"
+    }
+  }
+}

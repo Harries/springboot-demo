@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+ contributor license agreements.  See the NOTICE file distributed with
+ this work for additional information regarding copyright ownership.
+ The ASF licenses this file to You under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with
+ the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<schema name="example-DIH-tika" version="1.6">
+
+	<uniqueKey>id</uniqueKey>
+  
+	<!-- ik 分词 -->
+    <fieldType name="text_ik" class="solr.TextField">
+		<analyzer type="index" useSmart="false" class="org.wltea.analyzer.lucene.IKAnalyzer"/>
+		<analyzer type="query" useSmart="false" class="org.wltea.analyzer.lucene.IKAnalyzer"/>
+	</fieldType>
+  
+  
+	<field name="id" type="text_ik" indexed="true" stored="true"/>
+	<field name="content" type="text_ik" indexed="true" stored="true" omitNorms="true" multiValued="false"/>
+	<field name="author" type="text_ik" indexed="true" stored="true"/>
+	<field name="title" type="text_ik" indexed="true" stored="true"/>
+	<field name="fileName" type="string" indexed="true" stored="true"/>
+	<field name="filePath" type="string" indexed="true" stored="true" multiValued="false"/>
+	<field name="size" type="plong" indexed="true" stored="true"/>
+	<field name="lastModified" type="pdate" indexed="true" stored="true"/>
+	
+	<!-- 索引复制，联合索引 -->
+	<field name="keyword" type="text_ik" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+	<copyField source="author" dest="keyword" maxChars="30000"/>
+	<copyField source="title" dest="keyword" maxChars="30000"/>
+	<copyField source="content" dest="keyword" maxChars="30000"/>
+	<copyField source="id" dest="keyword" maxChars="30000"/>
+	<copyField source="fileName" dest="keyword" maxChars="30000"/>
+
+	
+  <!-- field "text" is searchable but it is not stored to save space -->
+  <field name="text" type="text_simple" indexed="true" stored="false" multiValued="true"/>
+
+
+  <!-- Uncomment the dynamicField definition to catch any other fields
+   that may have been declared in the DIH configuration.
+   This allows to speed up prototyping.
+  -->
+  <!-- <dynamicField name="*" type="string" indexed="true" stored="true" multiValued="true"/> -->
+
+  <!-- The StrField type is not analyzed, but is indexed/stored verbatim. -->
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+
+
+	<fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+	<fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+	<fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+	<fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+
+	<fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+	<fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+	<fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+	<fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+
+	<!-- The format for this date field is of the form 1995-12-31T23:59:59Z, and
+		 is a more restricted form of the canonical representation of dateTime
+		 http://www.w3.org/TR/xmlschema-2/#dateTime    
+		 The trailing "Z" designates UTC time and is mandatory.
+		 Optional fractional seconds are allowed: 1995-12-31T23:59:59.999Z
+		 All other components are mandatory.
+
+		 Expressions can also be used to denote calculations that should be
+		 performed relative to "NOW" to determine the value, ie...
+
+			   NOW/HOUR
+				  ... Round to the start of the current hour
+			   NOW-1DAY
+				  ... Exactly 1 day prior to now
+			   NOW/DAY+6MONTHS+3DAYS
+				  ... 6 months and 3 days in the future from the start of
+					  the current day
+					  
+		 Consult the DatePointField javadocs for more information.
+	  -->
+	<!-- KD-tree versions of date fields -->
+	<fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+	<fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+
+	<!--Binary data type. The data should be sent/retrieved in as Base64 encoded Strings -->
+	<fieldType name="binary" class="solr.BinaryField"/>
+
+	<!-- The "RandomSortField" is not used to store or search any
+		 data.  You can declare fields of this type it in your schema
+		 to generate pseudo-random orderings of your docs for sorting 
+		 or function purposes.  The ordering is generated based on the field
+		 name and the version of the index. As long as the index version
+		 remains unchanged, and the same field name is reused,
+		 the ordering of the docs will be consistent.  
+		 If you want different psuedo-random orderings of documents,
+		 for the same version of the index, use a dynamicField and
+		 change the field name in the request.
+	 -->
+	<fieldType name="random" class="solr.RandomSortField" indexed="true" />
+
+  <!-- A basic text field that has reasonable, generic
+   cross-language defaults: it tokenizes with StandardTokenizer,
+   and down cases. It does not deal with stopwords or other issues.
+   See other examples for alternative definitions.
+  -->
+  <fieldType name="text_simple" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+</schema>
