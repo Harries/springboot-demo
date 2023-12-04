@@ -1,0 +1,44 @@
+version: '3'
+
+# 网桥es -> 方便相互通讯
+networks:
+  es:
+
+services:
+  elasticsearch:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/elasticsearch:7.14.1      # 原镜像`elasticsearch:7.14.1`
+    container_name: elasticsearch             # 容器名为'elasticsearch'
+    restart: unless-stopped                           # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                  # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./elasticsearch/data:/usr/share/elasticsearch/data"
+      - "./elasticsearch/logs:/usr/share/elasticsearch/logs"
+      - "./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml"
+#      - "./elasticsearch/config/jvm.options:/usr/share/elasticsearch/config/jvm.options"
+      - "./elasticsearch/plugins/ik:/usr/share/elasticsearch/plugins/ik" # IK中文分词插件
+    environment:                              # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      TAKE_FILE_OWNERSHIP: "true"  # 权限
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+      #ELASTIC_PASSWORD: "123456" # elastic账号密码
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - es
+
+  kibana:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/kibana:7.14.1       # 原镜像`kibana:7.14.1`
+    container_name: kibana
+    restart: unless-stopped
+    volumes:
+      - ./elasticsearch/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    networks:
+      - es
