@@ -1,0 +1,60 @@
+version: '3'
+services:
+  # rocket mq name server
+  rmqnamesrv:
+    image: apache/rocketmq:4.9.6
+    restart: always
+    container_name: rocket-server
+      # environment:
+      #   JAVA_OPT_EXT: "-server -Xms64m -Xmx64m -Xmn64m"
+      # volumes:
+      # 映射本地目录权限一定要设置为 777 权限，否则启动不成功
+    # - ../volumes/data/rocket/server/logs:/home/rocketmq/logs
+    networks:
+      - rocketmq
+    ports:
+      - 9876:9876
+    command: sh mqnamesrv
+  # rocket mq broker
+  rmqbroker:
+    image: apache/rocketmq:4.9.6
+    restart: always
+    container_name: rocket-broker
+    volumes:
+      # 映射本地目录权限一定要设置为 777 权限，否则启动不成功
+      # - ../volumes/data/rocket/broker/logs:/home/rocketmq/logs
+      # - ../volumes/data/rocket/broker/store:/home/rocketmq/store
+      - ./config/broker.conf:/opt/rocketmq-4.9.6/conf/broker.conf
+    environment:
+      - NAMESRV_ADDR=rmqnamesrv:9876
+      # - JAVA_OPTS:=-Duser.home=/opt
+      - JAVA_OPT_EXT=-server -Xms64m -Xmx64m -Xmn64m
+    depends_on:
+      - rmqnamesrv
+    networks:
+      - rocketmq
+    ports:
+      - 10909:10909
+      - 10911:10911
+    command: sh mqbroker -c /opt/rocketmq-4.9.6/conf/broker.conf
+  # rocket console 这个可以不需要
+  rmqdashboard:
+    image: apacherocketmq/rocketmq-dashboard:1.0.0
+    restart: always
+    container_name: rocket-dashboard
+    environment:
+      - JAVA_OPTS=-Drocketmq.config.namesrvAddr=rmqnamesrv:9876 -Dserver.port=8180 -Drocketmq.config.isVIPChannel=false
+      # - JAVA_OPT_EXT=-Xms128m -Xmx128m -Xmn128m
+    depends_on:
+      - rmqnamesrv
+    networks:
+      - rocketmq
+    ports:
+      - 8180:8180
+
+networks:
+  rocketmq:
+    driver: bridge
+  stack:
+    driver: bridge
+

@@ -16,6 +16,7 @@
     <modules>
         <module>etsearch</module>
         <module>ethanlp</module>
+        <module>etrocketmq</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
