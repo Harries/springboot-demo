@@ -1,0 +1,107 @@
+version: '3'
+
+# 网桥redis -> 方便相互通讯
+networks:
+  redis:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.22.0.0/24"
+
+services:
+  redis-6381:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-6381                                                       # 容器名为'redis-6381'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6381 --requirepass 123456 --appendonly no  # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+        - "./redis-cluster/redis-6381/data:/data"
+        - "./redis-cluster/redis-6381/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+        - "6381:6381"
+    networks:
+      redis:
+        ipv4_address: 172.22.0.11
+  redis-6382:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-6382                                                       # 容器名为'redis-6382'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6382 --requirepass 123456 --appendonly no  # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+        - "./redis-cluster/redis-6382/data:/data"
+        - "./redis-cluster/redis-6382/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+        - "6382:6382"
+    networks:
+      redis:
+        ipv4_address: 172.22.0.2
+  redis-6383:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-6383                                                       # 容器名为'redis-6383'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6383 --requirepass 123456 --appendonly no  # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+        - "./redis-cluster/redis-6383/data:/data"
+        - "./redis-cluster/redis-6383/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+        - "6383:6383"
+    networks:
+      redis:
+        ipv4_address: 172.22.0.3
+  redis-6384:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-6384                                                       # 容器名为'redis-6384'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6384 --requirepass 123456 --appendonly no  # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+        - "./redis-cluster/redis-6384/data:/data"
+        - "./redis-cluster/redis-6384/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+        - "6384:6384"
+    networks:
+      redis:
+        ipv4_address: 172.22.0.4
+  redis-6385:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-6385                                                       # 容器名为'redis-6385'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6385 --requirepass 123456 --appendonly no  # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+        - "./redis-cluster/redis-6385/data:/data"
+        - "./redis-cluster/redis-6385/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+        - "6385:6385"
+    networks:
+      redis:
+        ipv4_address: 172.22.0.5
+  redis-6386:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                    # 镜像'redis:6.0.8'
+    container_name: redis-6386                                                        # 容器名为'redis-6386'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6386 --requirepass 123456 --appendonly no  # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./redis-cluster/redis-6386/data:/data"
+      - "./redis-cluster/redis-6386/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+      - "6386:6386"
+    networks:
+      redis:
+        ipv4_address: 172.22.0.6

@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ETFramework</artifactId>
-        <groupId>com.et59</groupId>
+        <artifactId>springboot-demo</artifactId>
+        <groupId>com.et</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>etrocketmq</artifactId>
+    <artifactId>rocketmq</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

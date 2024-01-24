@@ -1,0 +1,137 @@
+version: '3'
+
+# 网桥redis -> 方便相互通讯
+networks:
+  redis:
+
+services:
+  # ============================ ↓↓↓↓↓↓ redis ↓↓↓↓↓↓ ============================
+
+  # 主
+  redis-master:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                    # 镜像'redis:6.0.8'
+    container_name: redis-master                                                      # 容器名为'redis-master'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6380 --requirepass 123456 --masterauth 123456 --appendonly no # 启动redis服务并添加密码为：123456, 当主redis下线重启后变成从redis时认证主redis密码：123456, 默认不开启redis-aof方式持久化配置
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./redis-master-slave-sentinel/redis/master/data:/data"
+      - "./redis-master-slave-sentinel/redis/master/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+      - "6380:6380"
+    networks:
+      - redis
+  # 从1
+  redis-slave-1:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-slave-1                                                    # 容器名为'redis-slave-1'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6381 --requirepass 123456 --appendonly no --slaveof redis-master 6380 --masterauth 123456 # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./redis-master-slave-sentinel/redis/slave-1/data:/data"
+      - "./redis-master-slave-sentinel/redis/slave-1/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+      - "6381:6381"
+    networks:
+      - redis
+    depends_on:
+      - redis-master
+    links:
+      - redis-master
+  # 从2
+  redis-slave-2:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                   # 镜像'redis:6.0.8'
+    container_name: redis-slave-2                                                    # 容器名为'redis-slave-2'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-server /etc/redis/redis.conf --port 6382 --requirepass 123456 --appendonly no --slaveof redis-master 6380 --masterauth 123456 # 启动redis服务并添加密码为：123456,默认不开启redis-aof方式持久化配置,连接并认证master节点
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:                            # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./redis-master-slave-sentinel/redis/slave-2/data:/data"
+      - "./redis-master-slave-sentinel/redis/slave-2/config/redis.conf:/etc/redis/redis.conf"  # `redis.conf`文件内容`http://download.redis.io/redis-stable/redis.conf`
+    ports:                              # 映射端口
+      - "6382:6382"
+    networks:
+      - redis
+    depends_on:
+      - redis-master
+    links:
+      - redis-master
+
+  # ============================ ↓↓↓↓↓↓ sentinel ↓↓↓↓↓↓ ============================
+
+  redis-sentinel-1:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                    # 镜像'redis:6.0.8'
+    container_name: redis-sentinel-1                                                  # 容器名为'redis-sentinel-1'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-sentinel /etc/redis/sentinel.conf
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    ports:
+      - "26379:26379"
+    volumes:
+      - "./redis-master-slave-sentinel/sentinel/redis-sentinel-1.conf:/etc/redis/sentinel.conf" # `sentinel.conf`文件内容`http://download.redis.io/redis-stable/sentinel.conf`
+    networks:
+      - redis
+    depends_on:
+      - redis-master
+      - redis-slave-1
+      - redis-slave-2
+    links:
+      - redis-master
+      - redis-slave-1
+      - redis-slave-2
+  redis-sentinel-2:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                    # 镜像'redis:6.0.8'
+    container_name: redis-sentinel-2                                                  # 容器名为'redis-sentinel-2'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-sentinel /etc/redis/sentinel.conf
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    ports:
+      - "26380:26380"
+    volumes:
+      - "./redis-master-slave-sentinel/sentinel/redis-sentinel-2.conf:/etc/redis/sentinel.conf" # `sentinel.conf`文件内容`http://download.redis.io/redis-stable/sentinel.conf`
+    networks:
+      - redis
+    depends_on:
+      - redis-master
+      - redis-slave-1
+      - redis-slave-2
+      - redis-sentinel-1
+    links:
+      - redis-master
+      - redis-slave-1
+      - redis-slave-2
+  redis-sentinel-3:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/redis:6.0.8                    # 镜像'redis:6.0.8'
+    container_name: redis-sentinel-3                                                  # 容器名为'redis-sentinel-3'
+    restart: unless-stopped                                                                   # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    command: redis-sentinel /etc/redis/sentinel.conf
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    ports:
+      - "26381:26381"
+    volumes:
+      - "./redis-master-slave-sentinel/sentinel/redis-sentinel-3.conf:/etc/redis/sentinel.conf" # `sentinel.conf`文件内容`http://download.redis.io/redis-stable/sentinel.conf`
+    networks:
+      - redis
+    depends_on:
+      - redis-master
+      - redis-slave-1
+      - redis-slave-2
+      - redis-sentinel-1
+      - redis-sentinel-2
+    links:
+      - redis-master
+      - redis-slave-1
+      - redis-slave-2
