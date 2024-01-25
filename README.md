@@ -1,2 +1,18 @@
-# ETFramework
-一个各种springboot工具使用范例demo，例如Lredis ，mysql，es， research，solr
+# springboot-demo
+
+a simple springboot demo with something components for example: redis,solr,rockmq and so on.
+
+
+###  Module 
+
+| Module name | Module description    |
+|-------------|-----------------------|
+| demo        | springboot with web   |
+| redis       | springboot with redis |
+| hanlp       | springboot with hanlp |
+
+
+
+### License
+
+[MIT](http://opensource.org/licenses/MIT)
