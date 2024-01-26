@@ -10,6 +10,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | demo        | springboot with web   |
 | redis       | springboot with redis |
 | hanlp       | springboot with hanlp |
+| mysql       | springboot with mysql |
 
 
 
