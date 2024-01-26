@@ -20,6 +20,8 @@
         <module>rocketmq</module>
         <module>redis</module>
         <module>demo</module>
+        <module>mysql</module>
+        <module>mysql</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

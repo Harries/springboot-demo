@@ -1,0 +1,47 @@
+version: '3'
+
+# 网桥 -> 方便相互通讯
+networks:
+  mysql:
+    driver: bridge
+
+services:
+  mysql-master:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7  # 原镜像`mysql:5.7`
+    container_name: mysql_master                                  # 容器名为'mysql_master'
+    restart: unless-stopped                                       # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                                      # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./mysql/master/my.cnf:/etc/mysql/my.cnf"
+      - "./mysql/master/data:/var/lib/mysql"
+      #      - "./mysql/master/conf.d:/etc/mysql/conf.d"
+      - "./mysql/master/log/mysql/error.log:/var/log/mysql/error.log"
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      MYSQL_ROOT_PASSWORD: root         # 设置root用户密码
+      MYSQL_DATABASE: demo              # 初始化的数据库名称
+    ports:                              # 映射端口
+      - "3306:3306"
+    networks:
+      - mysql
+
+  mysql-slave:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7  # 原镜像`mysql:5.7`
+    container_name: mysql_slave                                   # 容器名为'mysql_slave'
+    restart: unless-stopped                                       # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                                      # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./mysql/slave/my.cnf:/etc/mysql/my.cnf"
+      - "./mysql/slave/data:/var/lib/mysql"
+      #      - "./mysql/slave/conf.d:/etc/mysql/conf.d"
+      - "./mysql/slave/log/mysql/error.log:/var/log/mysql/error.log"
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      MYSQL_ROOT_PASSWORD: root         # 设置root用户密码
+      MYSQL_DATABASE: demo              # 初始化的数据库名称
+    ports:                              # 映射端口
+      - "3307:3306"
+    depends_on:
+      - mysql-master
+    networks:
+      - mysql
