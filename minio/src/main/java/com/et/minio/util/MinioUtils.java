@@ -20,7 +20,7 @@ import java.net.URLDecoder;
 import java.util.*;
 
 /**
- * MinIO工具类
+ * MinIO Utils
  *
  */
 @Slf4j
@@ -33,8 +33,8 @@ public class MinioUtils {
     /******************************  Operate Bucket Start  ******************************/
 
     /**
-     * 启动SpringBoot容器的时候初始化Bucket
-     * 如果没有Bucket则创建
+     *  init Bucket  when start SpringBoot container
+     * create bucket if the bucket is not exists
      *
      * @param bucketName
      */
@@ -46,7 +46,7 @@ public class MinioUtils {
     }
 
     /**
-     * 判断Bucket是否存在，true：存在，false：不存在
+     * verify Bucket is exist?，true：false
      *
      * @param bucketName
      * @return
@@ -57,7 +57,7 @@ public class MinioUtils {
     }
 
     /**
-     * 获得Bucket的策略
+     * get Bucket strategy
      *
      * @param bucketName
      * @return
@@ -71,7 +71,7 @@ public class MinioUtils {
     }
 
     /**
-     * 获得所有Bucket列表
+     * get all Bucket list
      *
      * @return
      */
@@ -81,7 +81,7 @@ public class MinioUtils {
     }
 
     /**
-     * 根据bucketName获取其相关信息
+     * Get related information based on bucketName
      *
      * @param bucketName
      * @return
@@ -92,7 +92,7 @@ public class MinioUtils {
     }
 
     /**
-     * 根据bucketName删除Bucket，true：删除成功； false：删除失败，文件或已不存在
+     * Delete Bucket based on bucketName, true: deletion successful; false: deletion failed, file may no longer exist
      *
      * @param bucketName
      * @throws Exception
@@ -108,7 +108,7 @@ public class MinioUtils {
     /******************************  Operate Files Start  ******************************/
 
     /**
-     * 判断文件是否存在
+     * check file is exist
      *
      * @param bucketName
      * @param objectName
@@ -119,14 +119,14 @@ public class MinioUtils {
         try {
             minioClient.statObject(StatObjectArgs.builder().bucket(bucketName).object(objectName).build());
         } catch (Exception e) {
-            log.error("[Minio工具类]>>>> 判断文件是否存在, 异常：", e);
+            log.error("[MinioUtils]>>>>check file exist, Exception：", e);
             exist = false;
         }
         return exist;
     }
 
     /**
-     * 判断文件夹是否存在
+     * check directory exist?
      *
      * @param bucketName
      * @param objectName
@@ -144,19 +144,19 @@ public class MinioUtils {
                 }
             }
         } catch (Exception e) {
-            log.error("[Minio工具类]>>>> 判断文件夹是否存在，异常：", e);
+            log.error("[MinioUtils]>>>>check file exist, Exception：", e);
             exist = false;
         }
         return exist;
     }
 
     /**
-     * 根据文件前置查询文件
+     * Query files based on file prefix
      *
-     * @param bucketName 存储桶
-     * @param prefix     前缀
-     * @param recursive  是否使用递归查询
-     * @return MinioItem 列表
+     * @param bucketName
+     * @param prefix
+     * @param recursive
+     * @return MinioItem
      */
     @SneakyThrows(Exception.class)
     public List<Item> getAllObjectsByPrefix(String bucketName,
@@ -175,11 +175,11 @@ public class MinioUtils {
     }
 
     /**
-     * 获取文件流
+     * get file InputStream
      *
-     * @param bucketName 存储桶
-     * @param objectName 文件名
-     * @return 二进制流
+     * @param bucketName
+     * @param objectName
+     * @return
      */
     @SneakyThrows(Exception.class)
     public InputStream getObject(String bucketName, String objectName) {
@@ -191,13 +191,13 @@ public class MinioUtils {
     }
 
     /**
-     * 断点下载
+     * Breakpoint download
      *
-     * @param bucketName 存储桶
-     * @param objectName 文件名称
-     * @param offset     起始字节的位置
-     * @param length     要读取的长度
-     * @return 二进制流
+     * @param bucketName
+     * @param objectName
+     * @param offset
+     * @param length
+     * @return
      */
     @SneakyThrows(Exception.class)
     public InputStream getObject(String bucketName, String objectName, long offset, long length) {
@@ -211,12 +211,12 @@ public class MinioUtils {
     }
 
     /**
-     * 获取路径下文件列表
+     * Get the list of files under the path
      *
-     * @param bucketName 存储桶
-     * @param prefix     文件名称
-     * @param recursive  是否递归查找，false：模拟文件夹结构查找
-     * @return 二进制流
+     * @param bucketName
+     * @param prefix
+     * @param recursive
+     * @return
      */
     public Iterable<Result<Item>> listObjects(String bucketName, String prefix, boolean recursive) {
         return minioClient.listObjects(
@@ -228,12 +228,12 @@ public class MinioUtils {
     }
 
     /**
-     * 使用MultipartFile进行文件上传
+     * use MultipartFile to upload files
      *
-     * @param bucketName  存储桶
-     * @param file        文件名
-     * @param objectName  对象名
-     * @param contentType 类型
+     * @param bucketName
+     * @param file
+     * @param objectName
+     * @param contentType
      * @return
      */
     @SneakyThrows(Exception.class)
@@ -249,7 +249,7 @@ public class MinioUtils {
     }
 
     /**
-     * 图片上传
+     * picture upload
      * @param bucketName
      * @param imageBase64
      * @param imageName
@@ -280,11 +280,11 @@ public class MinioUtils {
 
 
     /**
-     * 上传本地文件
+     * upload local files
      *
-     * @param bucketName 存储桶
-     * @param objectName 对象名称
-     * @param fileName   本地文件路径
+     * @param bucketName
+     * @param objectName
+     * @param fileName
      * @return
      */
     @SneakyThrows(Exception.class)
@@ -298,11 +298,11 @@ public class MinioUtils {
     }
 
     /**
-     * 通过流上传文件
+     * upload files based on stream
      *
-     * @param bucketName  存储桶
-     * @param objectName  文件对象
-     * @param inputStream 文件流
+     * @param bucketName
+     * @param objectName
+     * @param inputStream
      * @return
      */
     @SneakyThrows(Exception.class)
@@ -316,10 +316,10 @@ public class MinioUtils {
     }
 
     /**
-     * 创建文件夹或目录
+     * create file or direatory
      *
-     * @param bucketName 存储桶
-     * @param objectName 目录路径
+     * @param bucketName
+     * @param objectName
      * @return
      */
     @SneakyThrows(Exception.class)
@@ -333,10 +333,10 @@ public class MinioUtils {
     }
 
     /**
-     * 获取文件信息, 如果抛出异常则说明文件不存在
+     * get file info
      *
-     * @param bucketName 存储桶
-     * @param objectName 文件名称
+     * @param bucketName
+     * @param objectName
      * @return
      */
     @SneakyThrows(Exception.class)
@@ -349,12 +349,12 @@ public class MinioUtils {
     }
 
     /**
-     * 拷贝文件
+     * copy file
      *
-     * @param bucketName    存储桶
-     * @param objectName    文件名
-     * @param srcBucketName 目标存储桶
-     * @param srcObjectName 目标文件名
+     * @param bucketName
+     * @param objectName
+     * @param srcBucketName
+     * @param srcObjectName
      */
     @SneakyThrows(Exception.class)
     public ObjectWriteResponse copyFile(String bucketName, String objectName, String srcBucketName, String srcObjectName) {
@@ -367,10 +367,10 @@ public class MinioUtils {
     }
 
     /**
-     * 删除文件
+     * delete file
      *
-     * @param bucketName 存储桶
-     * @param objectName 文件名称
+     * @param bucketName
+     * @param objectName
      */
     @SneakyThrows(Exception.class)
     public void removeFile(String bucketName, String objectName) {
@@ -382,10 +382,10 @@ public class MinioUtils {
     }
 
     /**
-     * 批量删除文件
+     * batch delete file
      *
-     * @param bucketName 存储桶
-     * @param keys       需要删除的文件列表
+     * @param bucketName
+     * @param keys
      * @return
      */
     public void removeFiles(String bucketName, List<String> keys) {
@@ -395,17 +395,17 @@ public class MinioUtils {
             try {
                 removeFile(bucketName, s);
             } catch (Exception e) {
-                log.error("[Minio工具类]>>>> 批量删除文件，异常：", e);
+                log.error("[MinioUtil]>>>>batch delete file，Exception：", e);
             }
         });
     }
 
     /**
-     * 获取文件外链
+     * get file url
      *
-     * @param bucketName 存储桶
-     * @param objectName 文件名
-     * @param expires    过期时间 <=7 秒 （外链有效时间（单位：秒））
+     * @param bucketName
+     * @param objectName
+     * @param expires
      * @return url
      */
     @SneakyThrows(Exception.class)
@@ -415,7 +415,7 @@ public class MinioUtils {
     }
 
     /**
-     * 获得文件外链
+     * get file url
      *
      * @param bucketName
      * @param objectName
@@ -431,7 +431,7 @@ public class MinioUtils {
     }
 
     /**
-     * 将URLDecoder编码转成UTF8
+     * change URLDecoder to UTF8
      *
      * @param str
      * @return

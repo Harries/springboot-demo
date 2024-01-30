@@ -24,29 +24,29 @@ public class OSSController {
     private MinioConfig minioConfig;
     
     /**
-     * 文件上传
+     * file upload
      *
      * @param file
      */
     @PostMapping("/upload")
     public String upload(@RequestParam("file") MultipartFile file) {
         try {
-            //文件名
+            //file name
             String fileName = file.getOriginalFilename();
             String newFileName = System.currentTimeMillis() + "." + StringUtils.substringAfterLast(fileName, ".");
-            //类型
+            //type
             String contentType = file.getContentType();
             minioUtils.uploadFile(minioConfig.getBucketName(), file, newFileName, contentType);
-            return "上传成功";
+            return "upload success";
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("上传失败");
-            return "上传失败";
+            log.error("upload fail");
+            return "upload fail";
         }
     }
 
     /**
-     * 删除
+     * delete
      *
      * @param fileName
      */
@@ -56,7 +56,7 @@ public class OSSController {
     }
 
     /**
-     * 获取文件信息
+     * get file info
      *
      * @param fileName
      * @return
@@ -67,7 +67,7 @@ public class OSSController {
     }
 
     /**
-     * 获取文件外链
+     * get file url
      *
      * @param fileName
      * @return
@@ -78,7 +78,7 @@ public class OSSController {
     }
 
     /**
-     * 文件下载
+     * file download
      *
      * @param fileName
      * @param response
@@ -92,7 +92,7 @@ public class OSSController {
             response.setCharacterEncoding("UTF-8");
             IOUtils.copy(fileInputStream, response.getOutputStream());
         } catch (Exception e) {
-            log.error("下载失败");
+            log.error("download fail");
         }
     }
 
