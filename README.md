@@ -5,12 +5,15 @@ a simple springboot demo with something components for example: redis,solr,rockm
 
 ###  Module 
 
-| Module name | Module description    |
-|-------------|-----------------------|
-| demo        | springboot with web   |
-| redis       | springboot with redis |
-| hanlp       | springboot with hanlp |
-| mysql       | springboot with mysql |
+| Module name   | Module description    |
+|---------------|-----------------------|
+| demo          | springboot with web   |
+| redis         | springboot with redis |
+| hanlp         | springboot with hanlp |
+| mysql         | springboot with mysql |
+| minio         | springboot with minio |
+| elasticsearch | springboot with elasticsearch |
+| rocketmq      | springboot with rocketmq |
 
 
 
