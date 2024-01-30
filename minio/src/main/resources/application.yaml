@@ -1,0 +1,8 @@
+server:
+  port: 8088
+
+minio:
+  endpoint: http://127.0.0.1:9000 #Minio服务所在地址
+  bucketName: testbucket #存储桶名称
+  accessKey: rqvdgzBpBAYLpu9GzYdg #访问的key
+  secretKey: a00kFRjiyOks4D8Ms52cSxRHYiGx6cysbCpeI8p4 #访问的秘钥

@@ -1,0 +1,18 @@
+# 可参考 https://min.io/docs/minio/container/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html
+version: '3'
+services:
+  minio:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/minio:RELEASE.2023-01-02T09-40-09Z  # 原镜像`minio/minio:RELEASE.2023-01-02T09-40-09Z`
+    container_name: minio                                        # 容器名为'minio'
+    restart: unless-stopped                                      # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                                     # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./minio/data:/mnt/data"                      # 数据
+      - "./minio/config/config.env:/etc/config.env"   # 配置文件
+    environment:                                      # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      MINIO_CONFIG_ENV_FILE: "/etc/config.env"
+    command: server --console-address ":9090"
+    ports:                              # 映射端口
+      - "9001:9000"
+      - "9090:9090"
