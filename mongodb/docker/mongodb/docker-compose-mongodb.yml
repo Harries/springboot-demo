@@ -1,0 +1,40 @@
+version: '3'
+
+# 网桥mongo -> 方便相互通讯
+networks:
+  mongo:
+
+services:
+  # mongodb
+  mongodb:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mongo:4.4.6  # 原镜像`mongo:4.4.6`
+    restart: unless-stopped
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /data/logs
+#    volumes:
+#      - ./mongodb/db:/data/db
+#      - ./mongodb/log:/data/log
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo
+
+  # 可视化图形工具
+  adminmongo:
+    image: mrvautin/adminmongo
+    restart: unless-stopped
+    container_name: adminmongo
+    environment:
+      - HOST=0.0.0.0
+    depends_on:
+      - 'mongodb'
+    links:
+      - mongodb
+    ports:
+      - "1234:1234"
+    networks:
+      - mongo
