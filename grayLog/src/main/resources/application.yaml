@@ -1,0 +1,6 @@
+server:
+  port: 8088
+groylog:
+  ip: 127.0.0.1
+  port: 12201
+  maximumMessageSize: 8192

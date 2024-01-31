@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="GELF" class="biz.paluch.logging.gelf.logback.GelfLogbackAppender">
+        <host>udp:127.0.0.1</host><!--graylog 服务器ip-->
+        <port>12201</port><!--graylog udp端口-->
+        <version>1.1</version>
+        <facility>springboot-with-graylog</facility>
+        <extractStackTrace>true</extractStackTrace>
+        <filterStackTrace>true</filterStackTrace>
+        <mdcProfiling>true</mdcProfiling>
+        <timestampPattern>yyyy-MM-dd HH:mm:ss,SSSS</timestampPattern>
+        <maximumMessageSize>8192</maximumMessageSize>
+
+        <!-- This are fields using MDC -->
+        <mdcFields>mdcField1,mdcField2</mdcFields>
+        <dynamicMdcFields>mdc.*,(mdc|MDC)fields</dynamicMdcFields>
+        <includeFullMdc>true</includeFullMdc>
+    </appender>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="GELF"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

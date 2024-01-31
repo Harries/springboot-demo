@@ -23,6 +23,7 @@
         <module>mysql</module>
         <module>mysql</module>
         <module>minio</module>
+        <module>grayLog</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

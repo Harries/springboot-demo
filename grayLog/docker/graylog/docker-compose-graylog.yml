@@ -1,0 +1,67 @@
+# docker-compose配置参考：https://docs.graylog.org/en/3.3/pages/installation/docker.html
+version: '3'
+
+services:
+
+  mongo:
+    image: mongo:3
+    container_name: graylog_demo_mongo
+    restart: unless-stopped
+    #    volumes:
+    #      - ./graylog/mongo_data:/data/db
+    networks:
+      - graylog
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.10
+    container_name: graylog_demo_elasticsearch
+    restart: unless-stopped
+    #    volumes:
+    #      - ./graylog/es_data:/usr/share/elasticsearch/data
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+    networks:
+      - graylog
+
+  graylog:
+    image: graylog/graylog:3.3
+    container_name: graylog_demo_graylog
+    restart: unless-stopped
+    #    volumes:
+    #      - ./graylog/graylog_data_journal:/usr/share/graylog/data/journal
+    environment:
+      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper # CHANGE ME (must be at least 16 characters)!
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918 # Password: admin
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/ # TODO 这里填写自己的ip地址
+    ports:
+      # Graylog web interface and REST API
+      - 9000:9000
+      # Syslog TCP
+      - 1514:1514
+      # Syslog UDP
+      - 1514:1514/udp
+      # GELF TCP
+      - 12201:12201
+      # GELF UDP
+      - 12201:12201/udp
+    networks:
+      - graylog
+    depends_on:
+      - mongo
+      - elasticsearch
+
+# 网桥graylog -> 方便相互通讯
+networks:
+  graylog:
+    driver: bridge
