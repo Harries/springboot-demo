@@ -15,7 +15,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | elasticsearch | springboot with elasticsearch |
 | rocketmq      | springboot with rocketmq |
 | graylog       | springboot with graylog |
-
+| mongodb       | springboot with mongodb |
 
 
 ### License

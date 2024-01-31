@@ -27,25 +27,25 @@ public class MongodbTests {
     @Test
     public void createIndex() {
         String field = "name";
-        // 创建索引
+        // create index
         mongoTemplate.getCollection(COLLECTION_NAME).createIndex(Indexes.ascending(field));
     }
     @Test
     public void insert() {
-        // 设置用户信息
+        // set user info
         User user = new User()
                 .setId("10")
                 .setAge(22)
-                .setSex("男")
-                .setRemake("无")
+                .setSex("man")
+                .setRemake("nothing")
                 .setSalary(1500)
                 .setName("zhangsan")
                 .setBirthday(new Date())
                 .setStatus(new Status().setHeight(180).setWeight(150));
-        // 插入一条用户数据，如果文档信息已经存在就抛出异常
+        // insert user info,throw exception when the row record is exist
         User newUser = mongoTemplate.insert(user, COLLECTION_NAME);
-        // 输出存储结果
-        log.info("存储的用户信息为：{}", newUser);
+        // output result
+        log.info("user info：{}", newUser);
     }
 
 
