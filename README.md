@@ -14,6 +14,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | minio         | springboot with minio |
 | elasticsearch | springboot with elasticsearch |
 | rocketmq      | springboot with rocketmq |
+| graylog       | springboot with graylog |
 
 
 
