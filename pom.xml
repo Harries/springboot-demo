@@ -24,6 +24,7 @@
         <module>minio</module>
         <module>grayLog</module>
         <module>mongodb</module>
+        <module>hanlp-demo</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
