@@ -25,6 +25,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | docker        | springboot with docker        | 待补充                                                                                                                                                     |
 | flyway        | springboot with flyway        | 待补充                                                                                                                                                     |
 | WebSocket     | springboot with WebSocket     | 待补充                                                                                                                                                     |
+| Neo4j      | springboot with Neo4j      | 待补充                                                                                                                                                     |
 
 
 
