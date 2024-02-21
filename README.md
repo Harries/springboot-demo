@@ -16,7 +16,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | rocketmq      | springboot with rocketmq      | [CN](http://www.liuhaihua.cn/archives/710205.html) / [EN](https://jxausea.medium.com/springboot-integrated-rocketmq-q-quick-start-demo-96aeff8738e7)                                                                                                                                   |
 | graylog       | springboot with graylog       | [CN](http://www.liuhaihua.cn/archives/710178.html) / [EN](https://jxausea.medium.com/springboot-integrated-graylog-quick-start-demo-b10b0be04a93)       |
 | mongodb       | springboot with mongodb       | [CN](http://www.liuhaihua.cn/archives/710188.html) / [EN](https://jxausea.medium.com/springboot-integrated-mongodb-quick-start-demo-78c54e55cc88)       |
-| granafa       | springboot with granafa       | 待补充                                                                                                                                                     |
+| prometheus    | springboot with prometheus       | 待补充                                                                                                                                                     |
 | kafaka        | springboot with kafaka        | 待补充                                                                                                                                                     |
 | nacos         | springboot with nacos         | 待补充                                                                                                                                                     |
 | xxl-job       | springboot with xxl-job       | 待补充                                                                                                                                                     |
@@ -25,7 +25,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | docker        | springboot with docker        | 待补充                                                                                                                                                     |
 | flyway        | springboot with flyway        | 待补充                                                                                                                                                     |
 | WebSocket     | springboot with WebSocket     | 待补充                                                                                                                                                     |
-| Neo4j      | springboot with Neo4j      | 待补充                                                                                                                                                     |
+| Neo4j         | springboot with Neo4j      | 待补充                                                                                                                                                     |
 
 
 

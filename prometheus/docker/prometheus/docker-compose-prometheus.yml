@@ -1,0 +1,86 @@
+# 镜像版本请自行选择 https://hub.docker.com/search?q=&type=image
+version: "3"
+
+# 网桥 -> 方便相互通讯
+networks:
+  prometheus:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.22.0.0/24"
+
+services:
+  # 开源的系统监控和报警系统
+  prometheus:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/prometheus:v2.34.0             # 原镜像`prom/prometheus:v2.34.0`
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command: "--config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - node-exporter
+    networks:
+      prometheus:
+        ipv4_address: 172.22.0.11
+
+  # 采集服务器层面的运行指标
+  node-exporter:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/node-exporter:v1.3.1           # 原镜像`prom/node-exporter:v1.3.1`
+    container_name: prometheus-node-exporter
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
+    networks:
+      prometheus:
+        ipv4_address: 172.22.0.22
+
+  # 用于UI展示
+  # https://grafana.com/docs/grafana/latest/installation/docker
+  grafana:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/grafana:8.0.0               # 原镜像`grafana/grafana:8.0.0`
+    container_name: prometheus-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./prometheus/grafana/grafana.ini:/etc/grafana/grafana.ini" # 邮箱配置
+#      - "./prometheus/grafana/grafana-storage:/var/lib/grafana"
+#      - "./prometheus/grafana/public:/usr/share/grafana/public" # 这里面可处理汉化包 可参考 https://github.com/WangHL0927/grafana-chinese
+#      - "./prometheus/grafana/conf:/usr/share/grafana/conf"
+#      - "./prometheus/grafana/log:/var/log/grafana"
+#      - "/etc/localtime:/etc/localtime"
+    environment:
+      GF_EXPLORE_ENABLED: "true"
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+      GF_INSTALL_PLUGINS: "grafana-clock-panel,grafana-simple-json-datasource,alexanderzobnin-zabbix-app"
+      # 持久化到mysql数据库
+      GF_DATABASE_URL: "mysql://root:root@172.22.0.34:3306/grafana" # TODO 修改
+    depends_on:
+      - prometheus
+      - mysql
+    networks:
+      prometheus:
+        ipv4_address: 172.22.0.33
+
+  # mysql数据库 => 用于grafana持久化数据
+  mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7
+    container_name: prometheus-mysql
+    restart: unless-stopped
+    volumes:
+      - "./prometheus/mysql5.7/my.cnf:/etc/mysql/my.cnf"
+      - "./prometheus/mysql5.7/data:/var/lib/mysql"
+      - "./prometheus/mysql5.7/log/mysql/error.log:/var/log/mysql/error.log"
+    environment:
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      MYSQL_ROOT_PASSWORD: root         # 设置root用户密码
+      MYSQL_DATABASE: grafana           # 初始化数据库grafana
+    ports:
+      - "3306:3306"
+    networks:
+      prometheus:
+        ipv4_address: 172.22.0.34

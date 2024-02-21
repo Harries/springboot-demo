@@ -1,0 +1,32 @@
+# 可参考 https://prometheus.io/docs/prometheus/latest/getting_started
+global:
+  scrape_interval: 10s
+  scrape_timeout: 10s
+  evaluation_interval: 10m
+scrape_configs:
+  # springboot项目
+  - job_name: spring-boot
+    scrape_interval: 5s
+    scrape_timeout: 5s
+    metrics_path: /actuator/prometheus
+    scheme: http
+    basic_auth:
+      username: admin
+      password: 123456
+    static_configs:
+      - targets:
+          - 10.11.68.77:8088 # TODO 此处填写SpringBoot应用的IP+端口号
+
+  # prometheus
+  - job_name: prometheus
+    static_configs:
+      - targets: ['prometheus:9090']
+        labels:
+          instance: prometheus
+
+  # 采集node exporter监控数据，即linux
+  - job_name: linux
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          instance: localhost
