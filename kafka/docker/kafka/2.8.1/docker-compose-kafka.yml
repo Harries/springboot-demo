@@ -1,0 +1,45 @@
+version: '3'
+services:
+  zookepper:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/zookeeper                    # 原镜像`wurstmeister/zookeeper`
+    container_name: zookeeper                        # 容器名为'zookeeper'
+    restart: unless-stopped                                  # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                         # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "/etc/localtime:/etc/localtime"
+    ports:                                           # 映射端口
+      - "2181:2181"
+
+  kafka:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/kafka:2.13-2.8.1                                # 原镜像`wurstmeister/kafka:2.13-2.8.1`
+    container_name: kafka                                    # 容器名为'kafka'
+    restart: unless-stopped                                          # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                                 # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "/etc/localtime:/etc/localtime"
+    environment:                                                       # 设置环境变量,相当于docker run命令中的-e
+      KAFKA_ADVERTISED_HOST_NAME: www.zhengqingya.com                  # TODO 本机IP
+      KAFKA_ADVERTISED_PORT: 9092                                      # 端口
+      KAFKA_BROKER_ID: 0                                               # 在kafka集群中，每个kafka都有一个BROKER_ID来区分自己
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://www.zhengqingya.com:9092 # TODO 将kafka的地址端口注册给zookeeper
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092                        # 配置kafka的监听端口
+      KAFKA_ZOOKEEPER_CONNECT: www.zhengqingya.com:2181                # TODO zookeeper地址
+      KAFKA_CREATE_TOPICS: "hello_world"
+    ports:                              # 映射端口
+      - "9092:9092"
+    depends_on:                         # 解决容器依赖启动先后问题
+      - zookepper
+
+  # kafka集群管理工具
+  kafka-manager:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/kafka-manager                         # 原镜像`sheepkiller/kafka-manager`
+    container_name: kafka-manager                            # 容器名为'kafka-manager'
+    restart: unless-stopped                                          # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      ZK_HOSTS: www.zhengqingya.com:2181  # TODO zookeeper地址
+      APPLICATION_SECRET: zhengqing
+      KAFKA_MANAGER_AUTH_ENABLED: "true"  # 开启kafka-manager权限校验
+      KAFKA_MANAGER_USERNAME: admin       # 登陆账户
+      KAFKA_MANAGER_PASSWORD: 123456      # 登陆密码
+    ports:                              # 映射端口
+      - "9006:9000"
+    depends_on:                         # 解决容器依赖启动先后问题
+      - kafka

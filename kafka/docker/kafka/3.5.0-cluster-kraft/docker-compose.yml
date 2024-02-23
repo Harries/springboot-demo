@@ -1,0 +1,126 @@
+# https://hub.docker.com/r/bitnami/kafka
+# https://github.com/bitnami/containers/blob/main/bitnami/kafka/docker-compose-cluster.yml
+
+version: '3'
+
+# 定义通用配置
+x-kafka-common: &kafka-common
+  image: registry.cn-hangzhou.aliyuncs.com/zhengqing/kafka:3.5.0   # 原镜像`bitnami/kafka:3.5.0`
+  restart: unless-stopped                                          # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+x-kafka-common-env: &kafka-common-env
+  KAFKA_HEAP_OPTS: -Xmx1g -Xms1g # Apache Kafka 的 Java 堆大小。默认值：-Xmx1024m -Xms1024m。
+  KAFKA_ENABLE_KRAFT: yes # 是否启用Kafka Raft（KRaft）模式。默认值：是
+  KAFKA_KRAFT_CLUSTER_ID: abcdefghijklmnopqrstuv # 使用Kafka Raft（KRaft）时的Kafka集群ID。没有默认值。
+  ALLOW_PLAINTEXT_LISTENER: yes # 允许使用 PLAINTEXT 监听器。默认值：否。
+  KAFKA_CFG_PROCESS_ROLES: broker,controller
+  KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+  KAFKA_CFG_INTER_BROKER_LISTENER_NAME: BROKER   # 用于配置broker之间通信使用的监听器名称
+  KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: BROKER:PLAINTEXT,CONTROLLER:PLAINTEXT # 监听的协议集合多个。（这里BROKER指的是内部，CONTROLLER是外部，之后就不能够使用PLAINTEXT作为协议名了，只能够使用定义的BROKER、CONTROLLER）
+  KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 1@kafka-1:9091,2@kafka-2:9091,3@kafka-3:9091
+
+
+# 网桥 -> 方便相互通讯
+networks:
+  kafka:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.22.6.0/24"
+
+name: kafka
+services:
+  kafka-1:
+    container_name: kafka-1
+    <<: *kafka-common
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "./kafka/kafka-1:/bitnami/kafka"
+    environment:
+      <<: *kafka-common-env
+      KAFKA_CFG_NODE_ID: 1
+      KAFKA_CFG_BROKER_ID: 1
+      KAFKA_CFG_LISTENERS: CONTROLLER://:9091,BROKER://0.0.0.0:9092  # kafka监听地址
+      KAFKA_CFG_ADVERTISED_LISTENERS: BROKER://host.docker.internal:9092   # TODO 外网访问填写域名或主机IP -- 让客户端能够监听消息  （ host.docker.internal：自动识别主机IP，在Windows或Mac上运行Docker有效 ）
+    ports:
+      - "9092:9092"
+    networks:
+      kafka:
+        ipv4_address: 172.22.6.21
+  kafka-2:
+    container_name: kafka-2
+    <<: *kafka-common
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "./kafka/kafka-2:/bitnami/kafka"
+    environment:
+      <<: *kafka-common-env
+      KAFKA_CFG_NODE_ID: 2
+      KAFKA_CFG_BROKER_ID: 2
+      KAFKA_CFG_LISTENERS: CONTROLLER://:9091,BROKER://0.0.0.0:9093  # kafka监听地址
+      KAFKA_CFG_ADVERTISED_LISTENERS: BROKER://host.docker.internal:9093   # TODO 外网访问填写域名或主机IP -- 让客户端能够监听消息  （ host.docker.internal：自动识别主机IP，在Windows或Mac上运行Docker有效 ）
+    ports:
+      - "9093:9093"
+    networks:
+      kafka:
+        ipv4_address: 172.22.6.22
+  kafka-3:
+    container_name: kafka-3
+    <<: *kafka-common
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "./kafka/kafka-3:/bitnami/kafka"
+    environment:
+      <<: *kafka-common-env
+      KAFKA_CFG_NODE_ID: 3
+      KAFKA_CFG_BROKER_ID: 3
+      KAFKA_CFG_LISTENERS: CONTROLLER://:9091,BROKER://0.0.0.0:9094  # kafka监听地址
+      KAFKA_CFG_ADVERTISED_LISTENERS: BROKER://host.docker.internal:9094   # TODO 外网访问填写域名或主机IP -- 让客户端能够监听消息  （ host.docker.internal：自动识别主机IP，在Windows或Mac上运行Docker有效 ）
+    ports:
+      - "9094:9094"
+    networks:
+      kafka:
+        ipv4_address: 172.22.6.23
+
+  kafka-broker:
+    container_name: kafka-broker
+    <<: *kafka-common
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "./kafka/kafka-broker:/bitnami/kafka"
+    environment:
+      <<: *kafka-common-env
+      KAFKA_CFG_NODE_ID: 4
+      KAFKA_CFG_BROKER_ID: 4
+      KAFKA_CFG_PROCESS_ROLES: broker
+      KAFKA_CFG_LISTENERS: BROKER://:9095  # kafka监听地址
+      KAFKA_CFG_ADVERTISED_LISTENERS: BROKER://host.docker.internal:9095   # TODO 外网访问填写域名或主机IP -- 让客户端能够监听消息  （ host.docker.internal：自动识别主机IP，在Windows或Mac上运行Docker有效 ）
+    ports:
+      - "9095:9095"
+    networks:
+      kafka:
+        ipv4_address: 172.22.6.33
+
+  # kafka-map图形化管理工具
+  kafka-map:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/kafka-map     # 原镜像`dushixiang/kafka-map:latest`
+    container_name: kafka-map                                        # 容器名为'kafka-map'
+    restart: unless-stopped                                          # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:
+      - "./kafka/kafka-map/data:/usr/local/kafka-map/data"
+    environment:
+      DEFAULT_USERNAME: admin
+      DEFAULT_PASSWORD: 123456
+    ports:                              # 映射端口
+      - "9006:8080"
+    depends_on:                         # 解决容器依赖启动先后问题
+      - kafka-1
+      - kafka-2
+      - kafka-3
+      - kafka-broker
+    links:                              # 配置容器互相连接
+      - kafka-1
+      - kafka-2
+      - kafka-3
+    networks:
+      kafka:
+        ipv4_address: 172.22.6.30
