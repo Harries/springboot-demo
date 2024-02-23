@@ -27,7 +27,7 @@
         <module>hanlp-demo</module>
         <module>prometheus</module>
         <module>docker</module>
-        <module>kafaka</module>
+        <module>kafka</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
