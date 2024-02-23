@@ -1,0 +1,14 @@
+# https://hub.docker.com/r/nickzurich/efak
+version: '3'
+
+services:
+  efak:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/kafka-efak:3.0.1 # 原镜像`nickzurich/efak:3.0.1`
+    container_name: kafka-efak                                          # 容器名
+    restart: unless-stopped                                             # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+    environment:
+      EFAK_CLUSTER_ZK_LIST: 172.16.16.88:2181
+    ports:
+      - "8048:8048"
