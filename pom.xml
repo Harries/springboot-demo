@@ -28,6 +28,7 @@
         <module>prometheus</module>
         <module>docker</module>
         <module>kafka</module>
+        <module>websocket</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
