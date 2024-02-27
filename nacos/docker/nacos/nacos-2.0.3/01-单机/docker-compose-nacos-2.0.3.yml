@@ -1,0 +1,52 @@
+# docker-compose参考：https://github.com/nacos-group/nacos-docker/blob/master/example/standalone-mysql-5.7.yaml
+# Nacos2.0.0兼容性文档：https://nacos.io/zh-cn/docs/2.0.0-compatibility.html
+version: '3'
+
+# 网桥 -> 方便相互通讯
+networks:
+  nacos:
+    driver: bridge
+
+services:
+  nacos:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/nacos-server:2.0.3    # 原镜像`nacos/nacos-server:2.0.3`
+    container_name: nacos_server                                 # 容器名为'nacos_server'
+    restart: unless-stopped                                              # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+#    env_file:
+#      - ./nacos_2.0.3/env/nacos-standlone-mysql.env
+    volumes:                                                     # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "./nacos_2.0.3/logs:/home/nacos/logs"
+      - "./nacos_2.0.3/init.d/custom.properties:/home/nacos/init.d/custom.properties"
+      - "./nacos_2.0.3/conf/application.properties:/home/nacos/conf/application.properties"
+      # mysql8版本以上才需要额外此配置信息 -- 无效配置，暂时性保留吧...
+#      - "./nacos_2.0.3/plugins/mysql:/home/nacos/plugins/mysql"
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      - PREFER_HOST_MODE=hostname                 # 如果支持主机名可以使用hostname,否则使用ip，默认也是ip
+      - MODE=standalone                           # 单机模式启动
+      - SPRING_DATASOURCE_PLATFORM=mysql          # 数据源平台 仅支持mysql或不保存empty
+      # TODO 修改mysql连接信息
+      - MYSQL_SERVICE_HOST=www.zhengqingya.com    # 注：这里不能为`127.0.0.1`或`localhost`方式！！！
+      - MYSQL_SERVICE_DB_NAME=nacos_config        # 所需sql脚本位于 `nacos_xxx/nacos-mysql.sql`
+      # mysql5.7 连接参数
+#      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false
+      # mysql8 连接参数
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=root
+      # TODO 修改JVM调优参数
+      - JVM_XMS=128m   #-Xms default :2g
+      - JVM_XMX=128m   #-Xmx default :2g
+      - JVM_XMN=64m    #-Xmn default :1g
+      - JVM_MS=32m     #-XX:MetaspaceSize default :128m
+      - JVM_MMS=32m    #-XX:MaxMetaspaceSize default :320m
+      - NACOS_DEBUG=n  #是否开启远程debug，y/n，默认n
+      - TOMCAT_ACCESSLOG_ENABLED=false #是否开始tomcat访问日志的记录，默认false
+    ports:                              # 映射端口  (Nacos2.0版本相比1.X新增了gRPC的通信方式，因此需要增加2个端口：9848、9849)
+      - "8848:8848"
+      - "9848:9848"
+      - "9849:9849"
+      - "9555:9555"
+    networks:
+      - nacos
+    mem_limit: 1000m   # 最大使用内存

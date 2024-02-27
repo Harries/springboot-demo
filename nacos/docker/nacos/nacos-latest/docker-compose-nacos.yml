@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nacos:
+    image: nacos/nacos-server:latest                             # 镜像`nacos/nacos-server:latest`
+    container_name: nacos                                        # 容器名为'nacos'
+    restart: unless-stopped                                              # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                                     # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - ./nacos/logs:/home/nacos/logs
+#      - ./nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties
+    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+#      PREFER_HOST_MODE: hostname
+      MODE: standalone # 单机模式启动
+    ports:                              # 映射端口
+      - "8848:8848"

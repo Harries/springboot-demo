@@ -29,6 +29,7 @@
         <module>docker</module>
         <module>kafka</module>
         <module>websocket</module>
+        <module>nacos</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
