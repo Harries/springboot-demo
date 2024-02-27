@@ -24,7 +24,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 15          | logback       | springboot with logback       |  [CN](###) / [EN](###)                                                                                                                                                     |
 | 16          | docker        | springboot with docker        |  [CN](http://www.liuhaihua.cn/archives/710227.html) / [EN](https://jxausea.medium.com/springboot-integrated-docker-quick-start-demo-3638a847bf8e)                                                                                                                                                     |
 | 17          | flyway        | springboot with flyway        |  [CN](###) / [EN](###)                                                                                                                                                      |
-| 18          | webSocket     | springboot with WebSocket     |  [CN](###) / [EN](###)                                                                                                                                                    |
+| 18          | webSocket     | springboot with WebSocket     |  [CN](http://www.liuhaihua.cn/archives/710240.html) / [EN](https://jxausea.medium.com/springboot-integrated-websocket-quick-start-demo-45c889c42ec3)                                                                                                                                                    |
 | 19          | neo4j         | springboot with Neo4j      |  [CN](###) / [EN](###)                                                                                                                                                    |
 
 
