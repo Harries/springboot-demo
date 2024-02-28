@@ -1,0 +1,2 @@
+-- 开启安全模式
+-- set global sql_safe_updates=1;

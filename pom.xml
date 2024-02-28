@@ -30,6 +30,7 @@
         <module>kafka</module>
         <module>websocket</module>
         <module>nacos</module>
+        <module>xxl-job</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
