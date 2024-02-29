@@ -31,6 +31,7 @@
         <module>websocket</module>
         <module>nacos</module>
         <module>xxl-job</module>
+        <module>mail</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
