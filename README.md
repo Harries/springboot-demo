@@ -26,7 +26,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 17          | flyway        | springboot with flyway        | [CN](###) / [EN](###)                                                                                                                                                    |
 | 18          | webSocket     | springboot with WebSocket     | [CN](http://www.liuhaihua.cn/archives/710240.html) / [EN](https://jxausea.medium.com/springboot-integrated-websocket-quick-start-demo-45c889c42ec3)                                                                                                                                             |
 | 19          | neo4j         | springboot with Neo4j         |  [CN](###) / [EN](###)                                                                                                                                                   |
-| 20          | flink         | springboot with flink         |  [CN](http://www.liuhaihua.cn/archives/710270.html) / [EN](###)                                                                                                                                                   |
+| 20          | flink         | springboot with flink         |  [CN](http://www.liuhaihua.cn/archives/710270.html) / [EN](https://jxausea.medium.com/springboot-integrated-flink-quick-start-demo-1f9287770f26)                                                                                                                                                   |
 
 
 
