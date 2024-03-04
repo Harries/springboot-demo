@@ -1,0 +1,6 @@
+server:
+  port: 8088
+
+flink:
+  job-manager-host: 172.24.4.193
+  job-manager-port: 8082

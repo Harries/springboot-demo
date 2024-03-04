@@ -52,7 +52,7 @@ services:
       DEFAULT_USERNAME: admin
       DEFAULT_PASSWORD: 123456
     ports:                              # 映射端口
-      - "8080:8080"
+      - "9080:8080"
     depends_on:                         # 解决容器依赖启动先后问题
       - kafka
     networks:
