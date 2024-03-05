@@ -32,11 +32,14 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 23          | hazelcast     | springboot with hazelcast         |  [CN](###) / [EN](###)     | todo   |
 | 24          | mapstruct     | springboot with mapstruct         |  [CN](###) / [EN](###)   | todo   |
 | 25          | jpa           | springboot with jpa         |  [CN](###) / [EN](###)            | todo   |
-| 26          | mybatis-plus     | springboot with mybatis-plus         |  [CN](###) / [EN](###)    | todo   |
-| 27          | quartz     | springboot with quartz         |  [CN](###) / [EN](###)      | todo   |
-| 28          | rabbitmq     | springboot with rabbitmq         |  [CN](###) / [EN](###)     | todo   |
-| 29          | session     | springboot with session         |  [CN](###) / [EN](###)    | todo   |
-| 30          | test     | springboot with test         |  [CN](###) / [EN](###)          | todo   |
+| 26          | mybatis-plus  | springboot with mybatis-plus         |  [CN](###) / [EN](###)    | todo   |
+| 27          | quartz        | springboot with quartz         |  [CN](###) / [EN](###)      | todo   |
+| 28          | rabbitmq      | springboot with rabbitmq         |  [CN](###) / [EN](###)     | todo   |
+| 29          | session       | springboot with session         |  [CN](###) / [EN](###)    | todo   |
+| 30          | test          | springboot with test         |  [CN](###) / [EN](###)          | todo   |
+| 31          | OAuth2        | springboot with OAuth2         |  [CN](###) / [EN](###)          | todo   |
+| 32          | Swagger       | springboot with Swagger         |  [CN](###) / [EN](###)          | todo   |
+| 33          | druid         | springboot with druid         |  [CN](###) / [EN](###)          | todo   |
 
 
 
