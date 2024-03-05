@@ -23,20 +23,20 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 14          | email         | springboot with email         | [CN](http://www.liuhaihua.cn/archives/710258.html) / [EN](https://jxausea.medium.com/springboot-integrated-mail-quick-start-demo-f3001c4c52f3)              | done   |
 | 15          | logback       | springboot with logback       | [CN](http://www.liuhaihua.cn/archives/710275.html) / [EN](https://jxausea.medium.com/springboot-integrates-logback-to-print-color-logs-0062baeaae43)                   | done   |
 | 16          | docker        | springboot with docker        | [CN](http://www.liuhaihua.cn/archives/710227.html) / [EN](https://jxausea.medium.com/springboot-integrated-docker-quick-start-demo-3638a847bf8e)     | done   |
-| 17          | flyway        | springboot with flyway        | [CN](###) / [EN](###)                                                                                                                                                    | todo   |
+| 17          | flyway        | springboot with flyway        | [CN](###) / [EN](###)        | todo   |
 | 18          | webSocket     | springboot with WebSocket     | [CN](http://www.liuhaihua.cn/archives/710240.html) / [EN](https://jxausea.medium.com/springboot-integrated-websocket-quick-start-demo-45c889c42ec3)        | done   |
-| 19          | neo4j         | springboot with Neo4j         |  [CN](###) / [EN](###)                                                                                                                                                   | todo   |
+| 19          | neo4j         | springboot with Neo4j         |  [CN](###) / [EN](###)       | todo   |
 | 20          | flink         | springboot with flink         |  [CN](http://www.liuhaihua.cn/archives/710270.html) / [EN](https://jxausea.medium.com/springboot-integrated-flink-quick-start-demo-1f9287770f26)             | done   |
-| 21          | js            | springboot with js         |  [CN](###) / [EN](###)                                                                                                                                                   | todo   |
-| 22          | python        | springboot with python         |  [CN](###) / [EN](###)                                                                                                                                                   | todo   |
-| 23          | hazelcast     | springboot with hazelcast         |  [CN](###) / [EN](###)                                                                                                                                                   | todo   |
-| 24          | mapstruct     | springboot with mapstruct         |  [CN](###) / [EN](###)                                                                                   | todo   |
-| 25          | jpa           | springboot with jpa         |  [CN](###) / [EN](###)                                                                                                                                        | todo   |
-| 26          | mybatis-plus     | springboot with mybatis-plus         |  [CN](###) / [EN](###)                                                                                                                                 | todo   |
-| 27          | quartz     | springboot with quartz         |  [CN](###) / [EN](###)                                                                                                                                    | todo   |
-| 28          | rabbitmq     | springboot with rabbitmq         |  [CN](###) / [EN](###)                                                                                                                                 | todo   |
-| 29          | session     | springboot with session         |  [CN](###) / [EN](###)                                                                                                                                      | todo   |
-| 30          | test     | springboot with test         |  [CN](###) / [EN](###)                                                                                                                                | todo   |
+| 21          | js            | springboot with js         |  [CN](###) / [EN](###)      | todo   |
+| 22          | python        | springboot with python         |  [CN](###) / [EN](###)     | todo   |
+| 23          | hazelcast     | springboot with hazelcast         |  [CN](###) / [EN](###)     | todo   |
+| 24          | mapstruct     | springboot with mapstruct         |  [CN](###) / [EN](###)   | todo   |
+| 25          | jpa           | springboot with jpa         |  [CN](###) / [EN](###)            | todo   |
+| 26          | mybatis-plus     | springboot with mybatis-plus         |  [CN](###) / [EN](###)    | todo   |
+| 27          | quartz     | springboot with quartz         |  [CN](###) / [EN](###)      | todo   |
+| 28          | rabbitmq     | springboot with rabbitmq         |  [CN](###) / [EN](###)     | todo   |
+| 29          | session     | springboot with session         |  [CN](###) / [EN](###)    | todo   |
+| 30          | test     | springboot with test         |  [CN](###) / [EN](###)          | todo   |
 
 
 
