@@ -37,8 +37,8 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 28          | rabbitmq      | springboot with rabbitmq         |  [CN](###) / [EN](###)     | todo   |
 | 29          | session       | springboot with session         |  [CN](###) / [EN](###)    | todo   |
 | 30          | test          | springboot with test         |  [CN](###) / [EN](###)          | todo   |
-| 31          | OAuth2        | springboot with OAuth2         |  [CN](###) / [EN](###)          | todo   |
-| 32          | Swagger       | springboot with Swagger         |  [CN](###) / [EN](###)          | todo   |
+| 31          | oauth2        | springboot with oauth2         |  [CN](###) / [EN](###)          | todo   |
+| 32          | swagger       | springboot with swagger         |  [CN](###) / [EN](###)          | todo   |
 | 33          | druid         | springboot with druid         |  [CN](###) / [EN](###)          | todo   |
 
 
