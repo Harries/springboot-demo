@@ -35,6 +35,7 @@
         <module>flink</module>
         <module>logback</module>
         <module>flyway</module>
+        <module>neo4j</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
