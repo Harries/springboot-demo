@@ -23,9 +23,9 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 14          | email              | springboot with email         | [CN](http://www.liuhaihua.cn/archives/710258.html) / [EN](https://jxausea.medium.com/springboot-integrated-mail-quick-start-demo-f3001c4c52f3)              | done   |
 | 15          | logback            | springboot with logback       | [CN](http://www.liuhaihua.cn/archives/710275.html) / [EN](https://jxausea.medium.com/springboot-integrates-logback-to-print-color-logs-0062baeaae43)                   | done   |
 | 16          | docker             | springboot with docker        | [CN](http://www.liuhaihua.cn/archives/710227.html) / [EN](https://jxausea.medium.com/springboot-integrated-docker-quick-start-demo-3638a847bf8e)     | done   |
-| 17          | flyway             | springboot with flyway        | [CN](http://www.liuhaihua.cn/archives/710280.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-flyway-quick-start-demo-177e49e5d1ab)        | todo   |
+| 17          | flyway             | springboot with flyway        | [CN](http://www.liuhaihua.cn/archives/710280.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-flyway-quick-start-demo-177e49e5d1ab)        | done   |
 | 18          | webSocket          | springboot with WebSocket     | [CN](http://www.liuhaihua.cn/archives/710240.html) / [EN](https://jxausea.medium.com/springboot-integrated-websocket-quick-start-demo-45c889c42ec3)        | done   |
-| 19          | neo4j              | springboot with Neo4j         |  [CN](###) / [EN](###)       | todo   |
+| 19          | neo4j              | springboot with Neo4j         |  [CN](http://www.liuhaihua.cn/archives/710286.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-neo4j-to-implement-a-simple-knowledge-graph-fca16db05ead)       | done   |
 | 20          | flink              | springboot with flink         |  [CN](http://www.liuhaihua.cn/archives/710270.html) / [EN](https://jxausea.medium.com/springboot-integrated-flink-quick-start-demo-1f9287770f26)             | done   |
 | 21          | js                 | springboot with js         |  [CN](###) / [EN](###)      | todo   |
 | 22          | python             | springboot with python         |  [CN](###) / [EN](###)     | todo   |
