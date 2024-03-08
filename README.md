@@ -52,6 +52,13 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 43          | sharding-jdbc      | springboot with sharding-jdbc        |  [CN](###) / [EN](###)          | todo   |
 | 44          | freemaker          | springboot with freemaker        |  [CN](###) / [EN](###)          | todo   |
 | 45          | thymeleaf          | springboot with thymeleaf        |  [CN](###) / [EN](###)          | todo   |
+| 46          | hystrix            | springboot with hystrix        |  [CN](###) / [EN](###)          | todo   |
+| 47          | eureka             | springboot with eureka        |  [CN](###) / [EN](###)          | todo   |
+| 48          | config             | springboot with config        |  [CN](###) / [EN](###)          | todo   |
+| 49          | azkaban            | springboot with azkaban        |  [CN](###) / [EN](###)          | todo   |
+| 50          | awt                | springboot with awt        |  [CN](###) / [EN](###)          | todo   |
+| 51          | retry              | springboot with retry        |  [CN](###) / [EN](###)          | todo   |
+| 52          | netty              | springboot with netty        |  [CN](###) / [EN](###)          | todo   |
 
 
 ### License
