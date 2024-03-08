@@ -59,7 +59,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 50          | awt                               | springboot with awt        |  [CN](###) / [EN](###)          | todo   |
 | 51          | retry                             | springboot with retry        |  [CN](###) / [EN](###)          | todo   |
 | 52          | netty                             | springboot with netty        |  [CN](###) / [EN](###)          | todo   |
-| 53          | how to make a spring boot starter | springboot with starter        |  [CN](###) / [EN](###)          | todo   |
+| 53          | spring boot starter | springboot with starter        |  [CN](###) / [EN](###)          | todo   |
 
 
 ### License
