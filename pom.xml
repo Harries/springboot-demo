@@ -37,6 +37,7 @@
         <module>flyway</module>
         <module>neo4j</module>
         <module>graalvm-js</module>
+        <module>netty</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
