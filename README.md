@@ -58,7 +58,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 49          | azkaban                           | springboot with azkaban        |  [CN](###) / [EN](###)          | todo   |
 | 50          | awt                               | springboot with awt        |  [CN](###) / [EN](###)          | todo   |
 | 51          | retry                             | springboot with retry        |  [CN](###) / [EN](###)          | todo   |
-| 52          | netty                             | springboot with netty        |  [CN](###) / [EN](###)          | todo   |
+| 52          | netty                             | springboot with netty        |  [CN](http://www.liuhaihua.cn/archives/710299.html) / [EN](###)          | https://jxausea.medium.com/spring-boot-intergratd-netty-implements-websocket-communication-2302e09cf748   |
 | 53          | spring boot starter | springboot with starter        |  [CN](###) / [EN](###)          | todo   |
 
 
