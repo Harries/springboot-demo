@@ -40,6 +40,7 @@
         <module>netty</module>
         <module>xxx-spring-boot-starter</module>
         <module>xxx-spring-boot-starter-test</module>
+        <module>python</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
