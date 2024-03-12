@@ -38,6 +38,8 @@
         <module>neo4j</module>
         <module>graalvm-js</module>
         <module>netty</module>
+        <module>xxx-spring-boot-starter</module>
+        <module>xxx-spring-boot-starter-test</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
