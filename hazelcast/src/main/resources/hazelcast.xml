@@ -1,0 +1,16 @@
+<hazelcast
+        xsi:schemaLocation="http://www.hazelcast.com/schema/config
+   http://www.hazelcast.com/schema/config/hazelcast-config-3.12.12.xsd"
+        xmlns="http://www.hazelcast.com/schema/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <instance-name>XML_Hazelcast_Instance</instance-name>
+    <network>
+        <join>
+            <multicast enabled="false">
+            </multicast>
+            <tcp-ip enabled="true">
+                <member>10.11.68.77</member>
+            </tcp-ip>
+        </join>
+    </network>
+</hazelcast>

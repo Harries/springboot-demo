@@ -41,6 +41,7 @@
         <module>xxx-spring-boot-starter</module>
         <module>xxx-spring-boot-starter-test</module>
         <module>python</module>
+        <module>hazelcast</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
