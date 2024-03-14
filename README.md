@@ -29,7 +29,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 20          | flink                             | springboot with flink         |  [CN](http://www.liuhaihua.cn/archives/710270.html) / [EN](https://jxausea.medium.com/springboot-integrated-flink-quick-start-demo-1f9287770f26)             | done   |
 | 21          | graalvm-js                        | springboot with graalvm-js         |  [CN](http://www.liuhaihua.cn/archives/710296.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-graalvm-js-engine-quick-start-demo-5ee370b9b604)      | done   |
 | 22          | python                            | springboot with python         |  [CN](http://www.liuhaihua.cn/archives/710307.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-python-engine-quick-start-demo-24d3f96cc4aa)     | done   |
-| 23          | hazelcast                         | springboot with hazelcast        |  [CN](###) / [EN](###)     | todo   |
+| 23          | hazelcast                         | springboot with hazelcast        |  [CN](http://www.liuhaihua.cn/archives/710310.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-hazelcast-implements-distributed-cache-8a83d9ba21df)     | done   |
 | 24          | mapstruct                         | springboot with mapstruct        |  [CN](###) / [EN](###)   | todo   |
 | 25          | jpa                               | springboot with jpa         |  [CN](###) / [EN](###)            | todo   |
 | 26          | mybatis-plus                      | springboot with mybatis-plus        |  [CN](###) / [EN](###)    | todo   |
