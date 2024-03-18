@@ -10,13 +10,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
-/**
- * CarMapping
- *
- * @author Felordcn
- * @since 14 :02 2019/10/12
- */
-
 @Mapper(componentModel = "spring",imports = {LocalDateTime.class, Date.class, ZoneId.class})//交给spring管理
 public interface CarMapping {
     
