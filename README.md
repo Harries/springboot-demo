@@ -68,6 +68,7 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 59          | ssh | springboot with ssh        | [CN](###) / [EN](###)| todo   |
 | 60          | atomikos | springboot with atomikos        | [CN](###) / [EN](###)| todo   |
 | 61          | flink-cdc | springboot with flink-cdc        | [CN](###) / [EN](###)| todo   |
+| 62          | Chronicle Queue | springboot with Chronicle Queue        | [CN](###) / [EN](###)| todo   |
 
 
 
