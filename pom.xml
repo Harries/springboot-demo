@@ -43,6 +43,7 @@
         <module>python</module>
         <module>hazelcast</module>
         <module>mapstruct</module>
+        <module>debezium</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
