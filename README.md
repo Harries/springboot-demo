@@ -61,6 +61,17 @@ a simple springboot demo with something components for example: redis,solr,rockm
 | 52          | netty                             | springboot with netty        | [CN](http://www.liuhaihua.cn/archives/710299.html) / [EN](https://jxausea.medium.com/spring-boot-intergratd-netty-implements-websocket-communication-2302e09cf748)    | done   |
 | 53          | spring boot starter | springboot with starter        | [CN](http://www.liuhaihua.cn/archives/710303.html) / [EN](https://jxausea.medium.com/how-to-make-your-custom-spring-boot-starter-component-b6b88bc47415)              | done   |
 | 54          | debezium | springboot with debezium        | [CN](###) / [EN](###)| todo   |
+| 55          | qrcode | springboot with qrcode        | [CN](###) / [EN](###)| todo   |
+| 56          | easypoi | springboot with easypoi        | [CN](###) / [EN](###)| todo   |
+| 57          | api-version | springboot with api-version        | [CN](###) / [EN](###)| todo   |
+| 58          | jwt | springboot with jwt        | [CN](###) / [EN](###)| todo   |
+| 59          | ssh | springboot with ssh        | [CN](###) / [EN](###)| todo   |
+| 60          | atomikos | springboot with atomikos        | [CN](###) / [EN](###)| todo   |
+| 61          | flink-cdc | springboot with flink-cdc        | [CN](###) / [EN](###)| todo   |
+
+
+
+
 
 
 ### License
