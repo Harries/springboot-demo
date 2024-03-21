@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.et59.demo</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>Chronicle-Queue</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -32,6 +31,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-       
+        <dependency>
+            <groupId>net.openhft</groupId>
+            <artifactId>chronicle-queue</artifactId>
+            <version>5.25ea12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
     </dependencies>
 </project>
