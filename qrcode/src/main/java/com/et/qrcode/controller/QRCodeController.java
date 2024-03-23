@@ -4,22 +4,20 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import cn.hutool.extra.qrcode.QrConfig;
 import com.et.qrcode.util.QRCodeGenerator;
-import org.apache.tomcat.jni.OS;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.awt.*;
 
 /**
- * 生成二维码
+ * generate qrcode
  * @author zhouzhaodong
  */
 @Controller
 public class QRCodeController {
 
     /**
-     * 生成二维码图片并将地址回传给前端
+     * qrcodeImage
      * @param orderNo
      * @return
      */
@@ -35,7 +33,7 @@ public class QRCodeController {
     }
 
     /**
-     * 生成二维码Base64回传给前端
+     * qrcodeBase64
      * @param orderNo
      * @return
      */
@@ -51,33 +49,33 @@ public class QRCodeController {
     }
 
 
-    @RequestMapping("/hutools/qrcode/image1")
-    public String hutoolsImages1() {
+    @RequestMapping("/hblog/qrcode/image1")
+    public String hblogImages1() {
         String message = "";
         try {
             QrConfig config = new QrConfig(300, 300);
-            // 设置边距，既二维码和背景之间的边距
+            // Set the margin, that is, the margin between the QR code and the background
             config.setMargin(3);
-            // 设置前景色，既二维码颜色（青色）
+            // Set the foreground color, which is the QR code color (cyan)
             config.setForeColor(Color.CYAN.getRGB());
-            // 设置背景色（灰色）
+            // Set background color (gray)
             config.setBackColor(Color.GRAY.getRGB());
-            // 生成二维码到文件，也可以到流
-            QrCodeUtil.generate("http://hutool.cn/", config, FileUtil.file("D:\\tmp\\hutools1.png"));
+            // Generate QR code to file or stream
+            QrCodeUtil.generate("http://www.liuhiahua.cn/", config, FileUtil.file("D:\\tmp\\hblog1.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return message;
     }
 
-    @RequestMapping("/hutools/qrcode/image2")
-    public String hutoolsImages2() {
+    @RequestMapping("/hblog/qrcode/image2")
+    public String hblogImages2() {
         String message = "";
         try {
             QrCodeUtil.generate(//
-                    "http://hutool.cn/", //二维码内容
-                    QrConfig.create().setImg("D:\\tmp\\logo.png"), //附带logo
-                    FileUtil.file("D:\\tmp\\qrcodeWithLogo.jpg")//写出到的文件
+                    "http://www.liuhiahua.cn/", //content
+                    QrConfig.create().setImg("D:\\tmp\\logo.png"), //logo
+                    FileUtil.file("D:\\tmp\\qrcodeWithLogo.jpg")//output file
             );
         } catch (Exception e) {
             e.printStackTrace();

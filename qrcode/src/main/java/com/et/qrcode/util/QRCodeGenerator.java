@@ -13,14 +13,14 @@ import java.nio.file.Path;
 import java.util.Base64;
 
 /**
- * 生成二维码工具类
+ * QRCodeGenerator
  *
  * @author zhouzhaodong
  */
 public class QRCodeGenerator {
 
     /**
-     * 生成二维码图片
+     * generateQRCodeImage
      * @param text
      * @param width
      * @param height
@@ -37,7 +37,7 @@ public class QRCodeGenerator {
     }
 
     /**
-     * 生成二维码流
+     * writeToStream
      * @param text
      * @param width
      * @param height
