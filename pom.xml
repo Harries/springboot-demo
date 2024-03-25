@@ -46,6 +46,7 @@
         <module>debezium</module>
         <module>Chronicle-Queue</module>
         <module>qrcode</module>
+        <module>JSch</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
