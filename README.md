@@ -1,6 +1,6 @@
 # springboot-demo
 
-a simple springboot demo with something components for example: redis,solr,rockmq and so on.
+a simple springboot demo with some components for example: redis,solr,rockmq and so on.
 
 
 ###  Module 
