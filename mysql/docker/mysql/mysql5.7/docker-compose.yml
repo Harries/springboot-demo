@@ -1,20 +1,20 @@
 version: '3'
 services:
   mysql:
-    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7  # 原镜像`mysql:5.7`
-    container_name: mysql_3306                                    # 容器名为'mysql_3306'
-    restart: unless-stopped                                       # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
-    volumes:                                                      # 数据卷挂载路径设置,将本机目录映射到容器目录
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7
+    container_name: mysql_3306
+    restart: unless-stopped
+    volumes:
       - "./mysql/my.cnf:/etc/mysql/my.cnf"
       - "./mysql/init-file.sql:/etc/mysql/init-file.sql"
       - "./mysql/data:/var/lib/mysql"
 #      - "./mysql/conf.d:/etc/mysql/conf.d"
       - "./mysql/log/mysql/error.log:/var/log/mysql/error.log"
-      - "./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d" # 可执行初始化sql脚本的目录 -- tips:`/var/lib/mysql`目录下无数据的时候才会执行(即第一次启动的时候才会执行)
-    environment:                        # 设置环境变量,相当于docker run命令中的-e
+      - "./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d" # init sql script directory -- tips: it can be excute  when `/var/lib/mysql` is empty
+    environment:                        # set environment,equals docker run -e
       TZ: Asia/Shanghai
       LANG: en_US.UTF-8
-      MYSQL_ROOT_PASSWORD: root         # 设置root用户密码
-      MYSQL_DATABASE: demo              # 初始化的数据库名称
-    ports:                              # 映射端口
+      MYSQL_ROOT_PASSWORD: root         # set root password
+      MYSQL_DATABASE: demo              # init database name
+    ports:                              # port mappping
       - "3306:3306"
