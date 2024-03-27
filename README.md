@@ -69,7 +69,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 60          | atomikos              | springboot with atomikos           | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 | 61          | fastdfs               | springboot with fastdfs            | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 | 62          | Chronicle Queue       | springboot with Chronicle Queue    | [CN](http://www.liuhaihua.cn/archives/710334.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-chronicle-queue-quick-start-demo-a9b776b9c2b4)                      | done   |
-| 63          | hikari                | springboot with hikari             | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
+| 63          | hikari                | springboot with hikari             | [CN](http://www.liuhaihua.cn/archives/710358.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-hikari-quick-start-demo-b04dc7b1bbe9)       | done   |
 
 
 
