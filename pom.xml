@@ -48,6 +48,7 @@
         <module>qrcode</module>
         <module>JSch</module>
         <module>jpa</module>
+        <module>hikari</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
