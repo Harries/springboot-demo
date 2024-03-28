@@ -70,9 +70,11 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 61          | fastdfs             | springboot with fastdfs            | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 | 62          | Chronicle Queue     | springboot with Chronicle Queue    | [CN](http://www.liuhaihua.cn/archives/710334.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-chronicle-queue-quick-start-demo-a9b776b9c2b4)                      | done   |
 | 63          | hikari              | springboot with hikari             | [CN](http://www.liuhaihua.cn/archives/710358.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-hikari-quick-start-demo-b04dc7b1bbe9)       | done   |
-| 64          | itextpdf            | springboot with itextpdf           | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
+| 64          | itextpdf            | springboot with itextpdf           | [CN](http://www.liuhaihua.cn/archives/710362.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-itext-to-realize-the-function-of-generating-pdf-from-html-89e58e2c83ec)       | done    |
 | 65          | disruptor           | springboot with disruptor          | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
-
+| 66          | zipkin              | springboot with zipkin             | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
+| 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
+| 68          | fileupload          | springboot with fileupload         | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 
 
 
