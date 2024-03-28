@@ -49,6 +49,7 @@
         <module>JSch</module>
         <module>jpa</module>
         <module>hikari</module>
+        <module>itextpdf</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

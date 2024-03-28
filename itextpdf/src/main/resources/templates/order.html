@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Spring Boot - Thymeleaf</title>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+</head>
+<body class="flex items-center justify-center h-screen">
+<div class="rounded-lg border shadow-lg p-10 w-3/5">
+    <div class="flex flex-row justify-between pb-4">
+        <div>
+            <h2 class="text-xl font-bold">Order #<span class="text-green-600" th:text="${orderEntry.orderId}"></span>
+            </h2>
+        </div>
+        <div>
+            <div class="text-xl font-bold" th:text="${orderEntry.date}"></div>
+        </div>
+    </div>
+    <div class="flex flex-col pb-8">
+        <div class="pb-2">
+            <h2 class="text-xl font-bold">Delivery Address</h2>
+        </div>
+        <div th:text="${orderEntry.account.address.street}"></div>
+        <div th:text="${orderEntry.account.address.city}"></div>
+        <div th:text="${orderEntry.account.address.state}"></div>
+        <div th:text="${orderEntry.account.address.zipCode}"></div>
+
+    </div>
+    <table class="table-fixed w-full text-right border rounded">
+        <thead class="bg-gray-100">
+        <tr>
+            <th class="text-left pl-4">Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th class="pr-4">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${orderEntry.items}">
+            <td class="pl-4 text-left" th:text="${item.name}"></td>
+            <td th:text="${item.quantity}"></td>
+            <td th:text="${item.price}"></td>
+            <td class="pr-4" th:text="${item.price * item.quantity}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="flex flex-row-reverse p-5">
+        <h2 class="font-medium  bg-gray-200 p-2 rounded">
+            Grand Total: <span class="text-green-600" th:text="${orderEntry.payment.amount}"></span>
+        </h2>
+    </div>
+    <h2 class="text-xl font-bold">Payment Details</h2>
+    <table class="table-fixed text-left w-2/6 border">
+        <tr>
+            <th class="text-green-600">Card Number</th>
+            <td th:text="${orderEntry.payment.cardNumber}"></td>
+        </tr>
+        <tr>
+            <th class="text-green-600">CVV</th>
+            <td th:text="${orderEntry.payment.cvv}"></td>
+        </tr>
+        <tr>
+            <th class="text-green-600">Expires (MM/YYYY)</th>
+            <td th:text="${orderEntry.payment.month +'/'+ orderEntry.payment.year}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
