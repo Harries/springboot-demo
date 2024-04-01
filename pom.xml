@@ -51,6 +51,7 @@
         <module>hikari</module>
         <module>itextpdf</module>
         <module>disruptor</module>
+        <module>jwt</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
