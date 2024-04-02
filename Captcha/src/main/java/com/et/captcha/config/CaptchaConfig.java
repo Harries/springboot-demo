@@ -1,6 +1,6 @@
 package com.et.captcha.config;
 
-import com.anji.captcha.demo.service.CaptchaCacheServiceRedisImpl;
+import com.et.captcha.service.CaptchaCacheServiceRedisImpl;
 import com.anji.captcha.properties.AjCaptchaProperties;
 import com.anji.captcha.service.CaptchaCacheService;
 import com.anji.captcha.service.impl.CaptchaServiceFactory;
@@ -16,7 +16,7 @@ public class CaptchaConfig {
     @Autowired
     StringRedisTemplate redisTemplate;
 
-    @Bean(name = "AjCaptchaCacheService")
+    @Bean(name = "CaptchaCacheService")
     @Primary
     public CaptchaCacheService captchaCacheService(AjCaptchaProperties config){
         //缓存类型redis/local/....
