@@ -52,6 +52,7 @@
         <module>itextpdf</module>
         <module>disruptor</module>
         <module>jwt</module>
+        <module>Captcha</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

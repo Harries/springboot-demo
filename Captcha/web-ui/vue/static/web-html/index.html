@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>verify插件demo</title>
+		<link rel="stylesheet" type="text/css" href="css/verify.css">
+		<style>
+			.btn{
+				border: none;
+				outline: none;
+				width: 300px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				cursor: pointer;
+				background-color: #409EFF;
+				color: #fff;
+				font-size: 16px;
+				letter-spacing: 1em;
+			}
+		</style>
+    </head>
+ 
+    <body>
+		<div class="box">
+			<h1>verify---anji</h1>
+			<p>前后端联合交互的验证码插件</p>
+			
+			<br><br>
+	
+			<h3>滑动嵌入式（slider-embed）</h3>
+			<div id="mpanel1" >
+			</div>
+			<h3>滑动弹出式（slider-popup）</h3>
+			<button class="btn" id='btn'>点击我</button>
+			<div id="mpanel2" style="margin-top:50px;">
+			</div>
+			
+			<h3>点选嵌入式（point-embed）</h3>
+			<div id="mpanel3" style="margin-top:50px;">
+			</div>
+			<h3>点选弹出式（point-popup）</h3>
+			<button class="btn" id='btn2'>点击我</button>
+			<div id="mpanel4" style="margin-top:50px;">
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<!-- 可选 为示例加密方式 start-->
+		<script src="./js/md5.js"></script>
+		<script src="./js/signUtil.js"></script>
+		<!-- 以上 为示例加密方式 end-->
+		<script src="./js/crypto-js.js"></script>
+		<script src="./js/ase.js"></script>
+        <script type="text/javascript" src="js/verify.js" ></script>
+        
+        <script>
+			// 初始化验证码  嵌入式
+        	$('#mpanel1').slideVerify({
+				mode:'fixed',
+				imgSize : {       //图片的大小对象
+		        	width: '400px',
+		        	height: '200px',
+				},
+				barSize:{
+					width: '400px',
+					height: '40px',
+				},
+		        ready : function() {  //加载完毕的回调
+		    	},
+		        success : function(params) { //成功的回调
+					// 返回的二次验证参数 合并到验证通过之后的逻辑 参数中回传服务器
+		        },
+		        error : function() {        //失败的回调
+		        }
+			});
+			// 初始化验证码  弹出式
+			$('#mpanel2').slideVerify({
+				mode:'pop',
+				containerId:'btn',//pop模式 必填 被点击之后出现行为验证码的元素id
+		        ready : function() {  //加载完毕的回调
+		    	},
+		        success : function(params) { //成功的回调
+					// 返回的二次验证参数 合并到验证通过之后的逻辑 参数中回传服务器
+		        },
+		        error : function() {        //失败的回调
+		        }
+			});
+			// 初始化验证码  嵌入式
+			$('#mpanel3').pointsVerify({
+				mode:'fixed',
+		    	imgSize : {
+		        	width: '500px',
+		        	height: '255px',
+		        },
+		        ready : function() {
+		    	},
+		        success : function(params) {
+					//返回的二次验证参数 合并到验证通过之后的逻辑 参数中回传服务器
+		        },
+		        error : function() {
+		        }
+		        
+		    });
+			// 初始化验证码  弹出式
+		    $('#mpanel4').pointsVerify({
+				containerId:'btn2', // pop模式 必填 被点击之后出现行为验证码的元素id
+				mode:'pop',
+				imgSize : {       //图片的大小对象
+		        	width: '400px',
+		        	height: '200px',
+				},
+		        ready : function() {
+		    	},
+		        success : function(params) {
+					//返回的二次验证参数 合并到验证通过之后的逻辑 参数中回传服务器
+		        },
+		        error : function() {
+		        }
+		    });
+        </script>
+    </body>
+ 
+</html>
