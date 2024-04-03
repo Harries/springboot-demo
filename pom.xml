@@ -53,6 +53,7 @@
         <module>disruptor</module>
         <module>jwt</module>
         <module>Captcha</module>
+        <module>SpringRetry</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
