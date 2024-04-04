@@ -54,6 +54,7 @@
         <module>jwt</module>
         <module>Captcha</module>
         <module>SpringRetry</module>
+        <module>test</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
