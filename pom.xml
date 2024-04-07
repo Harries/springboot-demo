@@ -55,6 +55,7 @@
         <module>Captcha</module>
         <module>SpringRetry</module>
         <module>test</module>
+        <module>postgre</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
