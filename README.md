@@ -75,7 +75,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 66          | zipkin              | springboot with zipkin             | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 | 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 | 68          | fileupload          | springboot with fileupload         | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
-| 69          | flinkcdc            | springboot with flinkcdc         | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
+| 69          | postgres            | springboot with postgres         | [CN](###) / [EN](###)                                                                                                                                                           | done   |
 
 
 
