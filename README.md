@@ -73,9 +73,9 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 64          | itextpdf            | springboot with itextpdf           | [CN](http://www.liuhaihua.cn/archives/710362.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-itext-to-realize-the-function-of-generating-pdf-from-html-89e58e2c83ec)      | done   |
 | 65          | disruptor           | springboot with disruptor          | [CN](http://www.liuhaihua.cn/archives/710370.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-disruptor-quick-start-demo-4260a4f0a4d9)   | done   |
 | 66          | zipkin              | springboot with zipkin             | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
-| 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
-| 68          | fileupload          | springboot with fileupload         | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
-| 69          | postgres            | springboot with postgres         | [CN](###) / [EN](###)                                                                                                                                                           | done   |
+| 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](###) / [EN](###)                                                                                                                                                           | done   |
+| 68          | GraphQL             | springboot with GraphQL          | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
+| 69          | postgres            | springboot with postgres           | [CN](###) / [EN](###)                                                                                                                                                           | done   |
 
 
 

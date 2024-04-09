@@ -57,6 +57,7 @@
         <module>test</module>
         <module>postgre</module>
         <module>ContentNegotiation</module>
+        <module>api-version</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
