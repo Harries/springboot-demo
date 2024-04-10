@@ -76,6 +76,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](###) / [EN](###)                                                                                                                                                           | done   |
 | 68          | GraphQL             | springboot with GraphQL          | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 | 69          | postgres            | springboot with postgres           | [CN](###) / [EN](###)                                                                                                                                                           | done   |
+| 70          | webflux             | springboot with webflux          | [CN](###) / [EN](###)                                                                                                                                                           | todo   |
 
 
 
