@@ -60,6 +60,7 @@
         <module>api-version</module>
         <module>GraphQL</module>
         <module>webflux</module>
+        <module>eaypoi</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
