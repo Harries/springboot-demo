@@ -62,7 +62,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 53          | spring boot starter | springboot with starter            | [CN](http://www.liuhaihua.cn/archives/710303.html) / [EN](https://jxausea.medium.com/how-to-make-your-custom-spring-boot-starter-component-b6b88bc47415)                            | done   |
 | 54          | debezium            | springboot with debezium           | [CN](http://www.liuhaihua.cn/archives/710327.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-debezium-quick-start-demo-cbbc6fa8a16f)                                 | done   |
 | 55          | qrcode              | springboot with qrcode             | [CN](http://www.liuhaihua.cn/archives/710338.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-zxing-to-implement-the-function-of-generating-qr-codes-2db3209b80e7)    | done   |
-| 56          | easypoi             | springboot with easypoi            | [CN](###) / [EN](###)                                                                                                                                                               | todo   |
+| 56          | easypoi             | springboot with easypoi            | [CN](http://www.liuhaihua.cn/archives/710424.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-easypoi-quick-start-demo-f996d270c43d)                                                                                                                                                               | todo   |
 | 57          | api-version         | springboot with api-version        | [CN](http://www.liuhaihua.cn/archives/710409.html) / [EN](###)        | done   |
 | 58          | jwt                 | springboot with jwt                | [CN](http://www.liuhaihua.cn/archives/710374.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-jwt-quick-start-demo-44d2e2585a5e)                                      | done   |
 | 59          | JSch                | springboot with JSch               | [CN](http://www.liuhaihua.cn/archives/710346.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-jsch-quick-start-demo-3e02e90a5eb5)                                     | done   |
@@ -74,9 +74,9 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 65          | disruptor           | springboot with disruptor          | [CN](http://www.liuhaihua.cn/archives/710370.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-disruptor-quick-start-demo-4260a4f0a4d9)                                | done   |
 | 66          | zipkin              | springboot with zipkin             | [CN](###) / [EN](###)                                                                                                                                                               | todo   |
 | 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](http://www.liuhaihua.cn/archives/710402.html) / [EN](###)                                             | done   |
-| 68          | GraphQL             | springboot with GraphQL          | [CN](http://www.liuhaihua.cn/archives/710416.html) / [EN](###)                                | done   |
+| 68          | GraphQL             | springboot with GraphQL          | [CN](http://www.liuhaihua.cn/archives/710416.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-graphql-quick-start-demo-026dfaf289c0)                                | done   |
 | 69          | postgres            | springboot with postgres           | [CN](http://www.liuhaihua.cn/archives/710398.html) / [EN](###)                             | done   |
-| 70          | webflux             | springboot with webflux          | [CN](http://www.liuhaihua.cn/archives/710420.html) / [EN](###)                     | done   |
+| 70          | webflux             | springboot with webflux          | [CN](http://www.liuhaihua.cn/archives/710420.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-webflux-quick-start-demo-0e226ef39b03)                     | done   |
 
 
 
