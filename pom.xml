@@ -61,6 +61,7 @@
         <module>GraphQL</module>
         <module>webflux</module>
         <module>eaypoi</module>
+        <module>https</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
