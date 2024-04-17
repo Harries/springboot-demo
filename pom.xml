@@ -62,6 +62,7 @@
         <module>webflux</module>
         <module>eaypoi</module>
         <module>https</module>
+        <module>fastdfs</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

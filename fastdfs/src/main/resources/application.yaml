@@ -1,0 +1,11 @@
+server:
+  port: 8088
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  thumbImage:             #thumbImage param
+    width: 150
+    height: 150
+  trackerList:            #TrackerList参数,支持多个
+    - 10.11.68.77:22122
+
