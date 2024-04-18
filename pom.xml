@@ -63,6 +63,7 @@
         <module>eaypoi</module>
         <module>https</module>
         <module>fastdfs</module>
+        <module>atomikos</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

@@ -1,0 +1,52 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: manyDatasource
+  datasource:
+    #  spring.datasource.test1
+    #    druid:
+    test1:
+      jdbcurl: jdbc:mysql://localhost:3333/demo?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+
+    test2:
+      jdbcurl: jdbc:mysql://localhost:3334/demo?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+
+spring.resources.static-locations: classpath:static/,file:static/
+
+logging:
+  level:
+    czs: debug
+    org.springframework: WARN
+    org.spring.springboot.dao: debug
