@@ -74,9 +74,9 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 65          | disruptor           | springboot with disruptor          | [CN](http://www.liuhaihua.cn/archives/710370.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-disruptor-quick-start-demo-4260a4f0a4d9)                                 | done   |
 | 66          | zipkin              | springboot with zipkin             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 67          | ContentNegotiation  | springboot with ContentNegotiation | [CN](http://www.liuhaihua.cn/archives/710402.html) / [EN](https://jxausea.medium.com/spring-boot-content-negotiation-quick-start-demo-ae5bd570553f)                                  | done   |
-| 68          | GraphQL             | springboot with GraphQL          | [CN](http://www.liuhaihua.cn/archives/710416.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-graphql-quick-start-demo-026dfaf289c0)                                   | done   |
+| 68          | GraphQL             | springboot with GraphQL            | [CN](http://www.liuhaihua.cn/archives/710416.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-graphql-quick-start-demo-026dfaf289c0)                                   | done   |
 | 69          | postgres            | springboot with postgres           | [CN](http://www.liuhaihua.cn/archives/710398.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-debezium-implements-postgres-cdc-a016ecfb3176)                           | done   |
-| 70          | webflux             | springboot with webflux          | [CN](http://www.liuhaihua.cn/archives/710420.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-webflux-quick-start-demo-0e226ef39b03)                                   | done   |
+| 70          | webflux             | springboot with webflux            | [CN](http://www.liuhaihua.cn/archives/710420.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-webflux-quick-start-demo-0e226ef39b03)                                   | done   |
 
 
 
