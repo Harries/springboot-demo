@@ -15,7 +15,7 @@ public class ManyService2 {
     public int insert(String userId,String username, Integer age) {
         int i = userInfoMapper2.insert(userId,username, age);
         System.out.println("userInfoMapper2.insert end :" + null);
-        int a = 1 / 0;//手动异常
+        int a = 1 / 0;//touch a error
         return i;
     }
 
