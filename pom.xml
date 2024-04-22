@@ -65,6 +65,7 @@
         <module>fastdfs</module>
         <module>atomikos</module>
         <module>zipkin</module>
+        <module>mybatis-plus</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
