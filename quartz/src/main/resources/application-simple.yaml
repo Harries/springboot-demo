@@ -1,0 +1,17 @@
+server:
+  port: 8088
+spring:
+  quartz:
+    job-store-type: memory                             #所有任务相关内容存储在内存中
+    scheduler-name: AnchorScheduler
+    properties:
+      org.quartz.scheduler.instanceId: 1122334         #集群中会用到，单节点无用，不填、填AUTO都可以
+      org.quartz.scheduler.rmi.export: false
+      org.quartz.scheduler.rmi.proxy: false
+      org.quartz.scheduler.wrapJobExecutionInUserTransaction: false
+      org.quartz.threadPool.class: org.quartz.simpl.SimpleThreadPool
+      org.quartz.threadPool.threadCount: 9             #线程数
+      org.quartz.threadPool.threadPriority: 5          #线程优先级
+      org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread: true
+      org.quartz.jobStore.misfireThreshold: 60000      #作业最大延迟时间，毫秒
+      org.quartz.jobStore.class: org.quartz.simpl.RAMJobStore    #内存作业时负责跟踪调度所有工作数据

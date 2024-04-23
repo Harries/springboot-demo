@@ -66,6 +66,7 @@
         <module>atomikos</module>
         <module>zipkin</module>
         <module>mybatis-plus</module>
+        <module>quartz</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
