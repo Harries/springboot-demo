@@ -31,11 +31,11 @@ public class JobInit implements ApplicationRunner {
                 .forJob(jobDetail)
                 .withIdentity(ID + " 02Trigger")
                 .withSchedule(scheduleBuilder)
-                .startNow() //立即執行一次任務
+                .startNow() //exceute Now
                 .build();
         Set<Trigger> set = new HashSet<>();
         set.add(trigger);
-        // boolean replace 表示启动时对数据库中的quartz的任务进行覆盖。
+        // boolean replace it will replace quartz's task in database  when the task is started
         scheduler.scheduleJob(jobDetail, set, true);
     }
 }
