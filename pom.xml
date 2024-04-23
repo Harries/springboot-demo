@@ -68,6 +68,7 @@
         <module>mybatis-plus</module>
         <module>quartz</module>
         <module>rabbitmq</module>
+        <module>session</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
