@@ -78,7 +78,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 69          | postgres            | springboot with postgres           | [CN](http://www.liuhaihua.cn/archives/710398.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-debezium-implements-postgres-cdc-a016ecfb3176)                           | done   |
 | 70          | webflux             | springboot with webflux            | [CN](http://www.liuhaihua.cn/archives/710420.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-webflux-quick-start-demo-0e226ef39b03)                                   | done   |
 | 71          | poster              | springboot with poster             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 72          | AI                  | springboot with AI                 | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 72          | AI                  | springboot with AI                 | [CN](http://www.liuhaihua.cn/archives/710471.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-spring-ai-achieve-quick-access-openapi-61becfc47bc8)| done   |
 
 
 
