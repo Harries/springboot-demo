@@ -77,12 +77,13 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 68          | GraphQL             | springboot with GraphQL            | [CN](http://www.liuhaihua.cn/archives/710416.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-graphql-quick-start-demo-026dfaf289c0)                                   | done   |
 | 69          | postgres            | springboot with postgres           | [CN](http://www.liuhaihua.cn/archives/710398.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-debezium-implements-postgres-cdc-a016ecfb3176)                           | done   |
 | 70          | webflux             | springboot with webflux            | [CN](http://www.liuhaihua.cn/archives/710420.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-webflux-quick-start-demo-0e226ef39b03)                                   | done   |
-| 71          | poster              | springboot with poster            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 71          | poster              | springboot with poster             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 72          | AI                  | springboot with AI                 | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 
-
-
+### Remark
+if you need some components to integrate with Srping Boot,tell me ,I will help you!  you can also leave a message in issues.
 
 ### License
 
