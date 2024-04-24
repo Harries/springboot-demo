@@ -21,7 +21,6 @@ import java.util.Map;
 public class HelloWorldController {
     @Autowired
     EmbeddingClient embeddingClient;
-    OpenAiChatClient
     @Autowired
     ChatClient chatClient;
     @GetMapping("/ai/embedding")
