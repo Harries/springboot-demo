@@ -4,7 +4,7 @@ server:
 spring:
   ai:
     openai:
-      base-url: https://api.openai.com
+      base-url: https://api.openai.com/
       api-key: sk-xxx
       embedding:
         options:
@@ -12,6 +12,6 @@ spring:
       chat:
         #指定某一个API配置(覆盖全局配置)
         api-key: sk-xxx
-        base-url: https://api.openai.com
+        base-url: https://api.openai.com/
         options:
           model: gpt-3.5-turbo # 模型配置
