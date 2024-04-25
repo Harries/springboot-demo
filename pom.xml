@@ -71,6 +71,7 @@
         <module>session</module>
         <module>ai</module>
         <module>oatuth2</module>
+        <module>sitemap</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
