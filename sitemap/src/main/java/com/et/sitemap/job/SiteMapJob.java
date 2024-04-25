@@ -4,6 +4,9 @@ import com.redfin.sitemapgenerator.SitemapIndexGenerator;
 import com.redfin.sitemapgenerator.W3CDateFormat;
 import com.redfin.sitemapgenerator.WebSitemapGenerator;
 import com.redfin.sitemapgenerator.WebSitemapUrl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -21,7 +24,12 @@ import java.util.List;
  */
 @Component
 public class SiteMapJob {
+    private Logger log = LoggerFactory.getLogger(getClass());
+
+    //@Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(initialDelay = 1000,fixedRate = 10000)
     public void generateSitemap() {
+        log.info("start generate sitemap");
         String tempPath = "D://tmp/";
         File file = new File(tempPath);
         if (!file.exists()) {
@@ -85,7 +93,7 @@ public class SiteMapJob {
 
             // 生成 sitemap_index 文件
             sitemapIndexGenerator.write();
-
+            log.info("end generate sitemap");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
