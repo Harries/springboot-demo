@@ -70,6 +70,7 @@
         <module>rabbitmq</module>
         <module>session</module>
         <module>ai</module>
+        <module>oatuth2</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
