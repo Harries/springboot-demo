@@ -84,6 +84,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 75          | Banner              | springboot with Banner             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 76          | rmi                 | springboot with rmi                | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 77          | sitemap             | springboot with sitemap            | [CN](http://www.liuhaihua.cn/archives/710491.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-sitemapgen4j-implement-website-map-generation-b2f44eb43a49)  | done   |
+| 78          | generate            | springboot with generate           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 

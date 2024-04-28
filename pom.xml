@@ -73,6 +73,7 @@
         <module>oatuth2</module>
         <module>sitemap</module>
         <module>swagger</module>
+        <module>druid</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
