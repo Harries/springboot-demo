@@ -16,50 +16,48 @@ import java.util.List;
 public class Generator {
 	
 	public static void main(String[] args) {
-		// 生成地址 : // System.getProperty("user.dir") == 得到当前项目的实际地址
+		// System.getProperty("user.dir") == get current project dir
 		String projectDir ="D:\\IdeaProjects\\ETFramework\\generator";
 		String outputDir = projectDir+"\\src\\main\\java";
 		//String outputDir = System.getProperty("user.dir") + "/src/main/java";
 //		String outputDir = "C://Users/VULCAN/Desktop/new";
-		// 表名, 注意大小写
+		// table name, Pay attention to capitalization
 		String[] tableNames = new String[]{"user_info"};
-		// 数据库地址
+		// database url
 		String url = "jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8";
-		// 用户名
 		String userName = "root";
-		// 密码
 		String password = "123456";
-		// 父包路径
+		// parentPackage
 		String parentPackage = "com.et.generator";
-		// 需要去掉的表名前缀
+		// need to remove prefix from tablename
 		String prefixTable = "";
 		generate(projectDir,outputDir, tableNames, url, userName, password, parentPackage, prefixTable);
 	}
 	
 	/**
-	 * @param outputDir   生成地址
-	 * @param tableNames  表名
-	 * @param url		    数据库地址
-	 * @param userName	   用户名
-	 * @param password    密码
-	 * @param parentPackage  父包路径
-	 * @param prefixTable  需要去掉的表名前缀
+	 * @param outputDir
+	 * @param tableNames
+	 * @param url
+	 * @param userName
+	 * @param password
+	 * @param parentPackage
+	 * @param prefixTable
 	 */
 	public static void generate(String projectDir,String outputDir, String[] tableNames, String url, String userName,
 			String password, String parentPackage, String prefixTable) {
-		// ===============  全局配置  ==================
+		// ===============  Global setting ==================
 		GlobalConfig gc = new GlobalConfig();
 		gc.setOutputDir(outputDir)
-			.setActiveRecord(true)								// 是否支持 AR, 实体类只需继承 Model 类即可进行强大的 CRUD 操作
-	        .setAuthor("GrassPrince") 							// 设置作者名字
-	        .setFileOverride(true) 								// 文件覆盖(全新文件)
-	        .setIdType(IdType.AUTO)								// 主键策略
-	        .setBaseResultMap(true) 							// SQL 映射文件
-	        .setBaseColumnList(true)							// SQL 片段
-	        .setServiceName("%sService")						// service的名字
+			.setActiveRecord(true)								//  enable AR,
+	        .setAuthor("Harries") 							// set Author name
+	        .setFileOverride(true) 								// enable FileOverride？
+	        .setIdType(IdType.AUTO)								//primary strategy
+	        .setBaseResultMap(true) 							// SQL mappingg
+	        .setBaseColumnList(true)							// SQL BaseColumn
+	        .setServiceName("%sService")						// service name
 	        .setOpen(false);
 		
-		// =================  数据源配置   ===============
+		// =================  database setting   ===============
 		DataSourceConfig dsc = new DataSourceConfig();
 			dsc.setDbType(DbType.MYSQL)
 			 .setDriverName("com.mysql.cj.jdbc.Driver");
@@ -67,18 +65,18 @@ public class Generator {
            .setUsername(userName)
            .setPassword(password);
 		
-		// =================  包配置  ===================
+		// =================  package setting  ===================
 		 PackageConfig pc = new PackageConfig();
-         pc.setParent(parentPackage)							// 配置父包路径
-//           .setModuleName("base")								// 配置业务包路径
+         pc.setParent(parentPackage)							// parentPackage path
+//           .setModuleName("base")								// ModuleName path
            .setMapper("mapper")
            .setEntity("entity")
 //           .setEntity("entity")
            .setService("service")
-           //.setServiceImpl("service.impl"); 					// 会自动生成 impl，可以不设定
+           //.setServiceImpl("service.impl"); 					// auto generate impl， no need to set
            .setController("controller");
          
-       // ==================  自定义配置  ================= 
+       // ==================  custom setting  =================
          InjectionConfig cfg = new InjectionConfig() {
              @Override
              public void initMap() {
@@ -86,42 +84,42 @@ public class Generator {
              }
          };
          List<FileOutConfig> focList = new ArrayList<>();
-         // 调整 xml 生成目录演示
+         // adjust xml generate directory
          focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
              @Override
              public String outputFile(TableInfo tableInfo) {
-                 // 自定义输入文件名称
+                 // custom file name
                  return projectDir + "/src/main/resources/mybatis/"
                          + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
              }
          });
          cfg.setFileOutConfigList(focList);
          
-         // ===================  策略配置  ================== 
+         // ===================  strategy setting  ==================
          StrategyConfig strategy = new StrategyConfig();
-         strategy.setNaming(NamingStrategy.underline_to_camel)					// 表名命名：  underline_to_camel 底线变驼峰
-                 .setColumnNaming(NamingStrategy.underline_to_camel)			// 字段命名： underline_to_camel 底线变驼峰
-                 .setInclude(tableNames)										// 需要生成的 表名
-                 .setCapitalMode(true)											// 全局大写命名 ORACLE 注意 
-                 .setTablePrefix(prefixTable)									// 去掉 表的前缀
-//                 .setFieldPrefix(pc.getModuleName() + "_")					// 去掉字段前缀
-//                 .setSuperEntityClass("com.maoxs.pojo")						// 继承类
-//                 .setSuperControllerClass("com.maoxs.controller")				// 继承类
-//                 .setSuperEntityColumns("id") 								// 设置超级超级列
-//                 .setEntityLombokModel(true)									// 是否加入lombok
-                 .setControllerMappingHyphenStyle(true);						// 设置controller映射联字符
+         strategy.setNaming(NamingStrategy.underline_to_camel)					// table name：  underline_to_camel
+                 .setColumnNaming(NamingStrategy.underline_to_camel)			// file name： underline_to_camel
+                 .setInclude(tableNames)										// tableNames
+                 .setCapitalMode(true)											// enable CapitalMod(ORACLE )
+                 .setTablePrefix(prefixTable)									// remove table prefix
+//                 .setFieldPrefix(pc.getModuleName() + "_")					// remove fields prefix
+//                 .setSuperEntityClass("com.maoxs.pojo")						// Entity implement
+//                 .setSuperControllerClass("com.maoxs.controller")				// Controller implement
+//                 .setSuperEntityColumns("id") 								// Super Columns
+//                 .setEntityLombokModel(true)									// enable lombok
+                 .setControllerMappingHyphenStyle(true);						// controller MappingHyphenStyle
        
-         // ==================  自定义模板配置： 默认配置位置 mybatis-plus/src/main/resources/templates  ======================
-         // 放置自己项目的 src/main/resources/templates 目录下, 默认名称一下可以不配置，也可以自定义模板名称
+         // ==================  custome template setting：default mybatis-plus/src/main/resources/templates  ======================
+         //default: src/main/resources/templates directory
          TemplateConfig tc = new TemplateConfig();
-         tc.setXml(null)			        									// 设置生成xml的模板
-           .setEntity("/templates/entity.java")		        				// 设置生成entity的模板
-           .setMapper("/templates/mapper.java")		        				// 设置生成mapper的模板
-           .setController("/templates/controller.java")       				// 设置生成service的模板
-           .setService("/templates/service.java")							// 设置生成serviceImpl的模板
-           .setServiceImpl("/templates/serviceImpl.java");					// 设置生成controller的模板
+         tc.setXml(null)			        									// xml template
+           .setEntity("/templates/entity.java")		        				// entity template
+           .setMapper("/templates/mapper.java")		        				// mapper template
+           .setController("/templates/controller.java")       				// service template
+           .setService("/templates/service.java")							// serviceImpl template
+           .setServiceImpl("/templates/serviceImpl.java");					// controller template
          
-         // ====================  生成配置  =================== 
+         // ====================  gen setting  ===================
          AutoGenerator mpg = new AutoGenerator();
          mpg.setCfg(cfg)
                  .setTemplate(tc)
@@ -129,7 +127,7 @@ public class Generator {
                  .setDataSource(dsc)
                  .setPackageInfo(pc)
                  .setStrategy(strategy)
-                 .setTemplateEngine(new FreemarkerTemplateEngine());		    // 选择 freemarker引擎，注意 pom 依赖必须有！
+                 .setTemplateEngine(new FreemarkerTemplateEngine());		    // choose freemarker engine，pay attention to pom dependency！
          mpg.execute();
 	}
 
