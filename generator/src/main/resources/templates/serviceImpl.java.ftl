@@ -44,7 +44,7 @@ public class ${table.serviceImplName} implements ${table.serviceName} {
 <#list table.fields as field>
 <#if field.keyFlag>
 	/**
-	*  delete table ${table.name}records by ${field.propertyName}
+	*  delete table ${table.name} records by ${field.propertyName}
 	*  @param ${field.propertyName}
 	*/
 	@Override
@@ -55,7 +55,7 @@ public class ${table.serviceImplName} implements ${table.serviceName} {
 <#list table.fields as field>
 <#if field.keyFlag>
 	/**
-	*  update table ${table.name}records by ${field.propertyName}
+	*  update table ${table.name} records by ${field.propertyName}
 	*  @param ${table.entityPath}
 	*/
 	@Override

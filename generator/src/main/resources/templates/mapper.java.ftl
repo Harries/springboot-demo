@@ -32,7 +32,7 @@ public interface ${table.mapperName}{
 	<#list table.fields as field>
 	<#if field.keyFlag>
 	 /**
-	  *  delete table ${table.name}records by ${field.propertyName}
+	  *  delete table ${table.name} records by ${field.propertyName}
 	  *  @param ${field.propertyName}
 	  */
 	 Integer delete${entity}By${field.propertyName}(@Param("${field.propertyName}") ${field.propertyType} ${field.propertyName});
@@ -42,7 +42,7 @@ public interface ${table.mapperName}{
 	<#list table.fields as field>
 	<#if field.keyFlag>
 	 /**
-	  *  update table ${table.name}records by ${field.propertyName}
+	  *  update table ${table.name} records by ${field.propertyName}
 	  *  @param ${table.entityPath}
 	  */
 	 Integer update${entity}By${field.propertyName}(${entity} ${table.entityPath});

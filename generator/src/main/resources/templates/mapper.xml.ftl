@@ -96,7 +96,7 @@
 
 <#list table.fields as field>
 <#if field.keyFlag>
-    <!--delete table ${table.name}records by ${field.propertyName} -->
+    <!--delete table ${table.name} records by ${field.propertyName} -->
     <delete id="delete${entity}By${field.propertyName}">
         DELETE FROM
         ${table.name}
@@ -107,7 +107,7 @@
 
 <#list table.fields as field>
 <#if field.keyFlag>
-    <!-- update table ${table.name}records by ${field.propertyName} -->
+    <!-- update table ${table.name} records by ${field.propertyName} -->
     <update id="update${entity}By${field.propertyName}" parameterType="${package.Entity}.${entity}">
         UPDATE ${table.name}
         <set>

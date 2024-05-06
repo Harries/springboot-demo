@@ -47,7 +47,7 @@ public class ${table.controllerName} {
 <#list table.fields as field>
 <#if field.keyFlag>
     /**
-     *  delete table ${table.name}records by ${field.propertyName}
+     *  delete table ${table.name} records by ${field.propertyName}
      *  @param  ${field.propertyName}
      */
     @DeleteMapping("/delete${entity}By${field.propertyName}")
@@ -59,7 +59,7 @@ public class ${table.controllerName} {
 <#list table.fields as field>
 <#if field.keyFlag>
     /**
-     *  update table ${table.name}records by ${field.propertyName}
+     *  update table ${table.name} records by ${field.propertyName}
      *  @param ${table.entityPath}
      */
     @PutMapping("/update${entity}By${field.propertyName}")
