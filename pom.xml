@@ -75,6 +75,7 @@
         <module>swagger</module>
         <module>druid</module>
         <module>generator</module>
+        <module>ldap</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
