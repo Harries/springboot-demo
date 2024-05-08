@@ -17,40 +17,38 @@ public class ZkApi {
     private ZooKeeper zkClient;
 
     /**
-     * 判断指定节点是否存在
+     * check node is exist
      *
      * @param path
-     * @param needWatch 指定是否复用zookeeper中默认的Watcher
+     * @param needWatch
      * @return
      */
     public Stat exists(String path, boolean needWatch) {
         try {
             return zkClient.exists(path, needWatch);
         } catch (Exception e) {
-            log.error("【断指定节点是否存在异常】{},{}", path, e);
+            log.error("【 node exception】{},{}", path, e);
             return null;
         }
     }
 
     /**
-     * 检测结点是否存在 并设置监听事件
-     * 三种监听类型： 创建，删除，更新
-     *
+     * check node is exist and set watcher
      * @param path
-     * @param watcher 传入指定的监听类
+     * @param watcher
      * @return
      */
     public Stat exists(String path, Watcher watcher) {
         try {
             return zkClient.exists(path, watcher);
         } catch (Exception e) {
-            log.error("【断指定节点是否存在异常】{},{}", path, e);
+            log.error("【node  exception】{},{}", path, e);
             return null;
         }
     }
 
     /**
-     * 创建持久化节点
+     * create persist node
      *
      * @param path
      * @param data
@@ -60,49 +58,49 @@ public class ZkApi {
             zkClient.create(path, data.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             return true;
         } catch (Exception e) {
-            log.error("【创建持久化节点异常】{},{},{}", path, data, e);
+            log.error("【create persist node exception】{},{},{}", path, data, e);
             return false;
         }
     }
 
     /**
-     * 修改持久化节点
+     * update persist node
      *
      * @param path
      * @param data
      */
     public boolean updateNode(String path, String data) {
         try {
-            //zk的数据版本是从0开始计数的。如果客户端传入的是-1，则表示zk服务器需要基于最新的数据进行更新。如果对zk的数据节点的更新操作没有原子性要求则可以使用-1.
-            //version参数指定要更新的数据的版本, 如果version和真实的版本不同, 更新操作将失败. 指定version为-1则忽略版本检查
+            //The data version of zk starts counting from 0. If the client passes -1, it means that the zk server needs to be updated based on the latest data. If there is no atomicity requirement for the update operation of zk's data node, you can use -1.
+            //The version parameter specifies the version of the data to be updated. If the version is different from the real version, the update operation will fail. Specify version as -1 to ignore the version check.
             zkClient.setData(path, data.getBytes(), -1);
             return true;
         } catch (Exception e) {
-            log.error("【修改持久化节点异常】{},{},{}", path, data, e);
+            log.error("【update persist node exception】{},{},{}", path, data, e);
             return false;
         }
     }
 
     /**
-     * 删除持久化节点
+     * delete persist node
      *
      * @param path
      */
     public boolean deleteNode(String path) {
         try {
-            //version参数指定要更新的数据的版本, 如果version和真实的版本不同, 更新操作将失败. 指定version为-1则忽略版本检查
+            //The version parameter specifies the version of the data to be updated. If the version is different from the real version, the update operation will fail. Specify version as -1 to ignore the version check.
             zkClient.delete(path, -1);
             return true;
         } catch (Exception e) {
-            log.error("【删除持久化节点异常】{},{}", path, e);
+            log.error("【delete persist node exception】{},{}", path, e);
             return false;
         }
     }
 
     /**
-     * 获取当前节点的子节点(不包含孙子节点)
+     * Get the child nodes of the current node (excluding grandchild nodes)
      *
-     * @param path 父节点path
+     * @param path
      */
     public List<String> getChildren(String path) throws KeeperException, InterruptedException {
         List<String> list = zkClient.getChildren(path, false);
@@ -110,7 +108,7 @@ public class ZkApi {
     }
 
     /**
-     * 获取指定节点的值
+     * Get the value of the specified node
      *
      * @param path
      * @return

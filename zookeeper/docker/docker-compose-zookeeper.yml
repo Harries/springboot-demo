@@ -10,7 +10,7 @@ services:
     ports:
       - "2181:2181"
 
-  # 可视化界面
+  # webui
   zookeeper-webui:
     image: tobilg/zookeeper-webui
     container_name: zookeeper-webui
