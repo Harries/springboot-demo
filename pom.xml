@@ -76,6 +76,7 @@
         <module>druid</module>
         <module>generator</module>
         <module>ldap</module>
+        <module>zookeeper</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
