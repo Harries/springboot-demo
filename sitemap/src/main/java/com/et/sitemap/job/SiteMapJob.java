@@ -37,7 +37,7 @@ public class SiteMapJob {
         }
         String domain = "http://www.liuhaihua.cn";
         try {
-            WebSitemapGenerator g1 = WebSitemapGenerator.builder(domain, file)
+            WebSitemapGenerator g1 = WebSitemapGenerator.builder(domain, file).maxUrls(10000)
                     .fileNamePrefix("article").build();
             Date date = new Date();
             for (int i = 1; i < 160000; i++) {
