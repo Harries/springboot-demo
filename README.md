@@ -113,8 +113,6 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 100         | Spring Shell          | springboot with  Spring Shell        | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
-VERTX
-
 
 ### Remark
 if you need some components to integrate with Spring Boot,tell me ,I will help you!  you can also leave a message in issues.
