@@ -40,7 +40,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 31          | oauth2              | springboot with oauth2             | [CN](http://www.liuhaihua.cn/archives/710484.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-oauth2-quick-start-demo-44a39bb7c8f1)  | done   |
 | 32          | swagger             | springboot with swagger            | [CN](http://www.liuhaihua.cn/archives/710497.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-swagge-quick-start-demo-7c9a5590666f)   | done   |
 | 33          | druid               | springboot with druid              | [CN](http://www.liuhaihua.cn/archives/710500.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-druid-quick-start-demo-90601a94787c) | done   |
-| 34          | ldap                | springboot with ldap               | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 34          | ldap                | springboot with ldap               | [CN](http://www.liuhaihua.cn/archives/710513.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-ldap-quick-start-demo-1d67a6dbfd67)| done   |
 | 35          | zookeeper           | springboot with zookeeper          | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 36          | activiti            | springboot with activiti           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 37          | async               | springboot with async              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
@@ -84,7 +84,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 75          | Banner              | springboot with Banner             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 76          | rmi                 | springboot with rmi                | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 77          | sitemap             | springboot with sitemap            | [CN](http://www.liuhaihua.cn/archives/710491.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-sitemapgen4j-implement-website-map-generation-b2f44eb43a49)  | done   |
-| 78          | generate            | springboot with generate           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 78          | generate            | springboot with generate           | [CN](http://www.liuhaihua.cn/archives/710506.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-mybatisplus-implement-universal-code-generation-df1d920b5e46)   | done   |
 
 
 
