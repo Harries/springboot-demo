@@ -3,17 +3,17 @@
   <process id="leave" isExecutable="true" isClosed="false" processType="None">
     <startEvent id="_2" name="StartEvent"/>
     <endEvent id="_3" name="EndEvent"/>
-    <userTask id="approve" name="经理审批" activiti:assignee="${approve}"/>
+    <userTask id="approve" name="manager approve" activiti:assignee="${approve}"/>
     <exclusiveGateway id="_5" name="ExclusiveGateway"/>
     <sequenceFlow id="_6" sourceRef="approve" targetRef="_5"/>
-    <sequenceFlow id="_7" name="通过" sourceRef="_5" targetRef="_3">
+    <sequenceFlow id="_7" name="pass" sourceRef="_5" targetRef="_3">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${pass}]]></conditionExpression>
     </sequenceFlow>
-    <userTask id="application" name="提交申请" activiti:assignee="${apply}"/>
+    <userTask id="application" name="apply submit" activiti:assignee="${apply}"/>
     <sequenceFlow id="_9" sourceRef="_2" targetRef="application"/>
     <sequenceFlow id="_10" sourceRef="application" targetRef="approve"/>
-    <userTask id="modify" name="修改申请" activiti:assignee="${apply}"/>
-    <sequenceFlow id="_12" name="不通过" sourceRef="_5" targetRef="modify">
+    <userTask id="modify" name="modify apply" activiti:assignee="${apply}"/>
+    <sequenceFlow id="_12" name="fail " sourceRef="_5" targetRef="modify">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!pass}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_13" sourceRef="modify" targetRef="approve"/>
