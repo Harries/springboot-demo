@@ -77,6 +77,7 @@
         <module>generator</module>
         <module>ldap</module>
         <module>zookeeper</module>
+        <module>activiti</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
