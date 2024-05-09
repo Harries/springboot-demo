@@ -2,9 +2,9 @@
 
 a simple springboot demo with some components for example: redis,solr,rockmq and so on.
 
-> - Getting Started with Quick Reading
-> - Easier to understand
-> - Simple to use
+> - Quick  Start
+> - Easier Understand
+> - Simple Use
 
 
 ###  Module 
