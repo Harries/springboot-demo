@@ -22,7 +22,6 @@ public class NotifyService {
     public void noAsync() {
        log.info("Execute method asynchronously. " + Thread.currentThread().getName());
     }
-    @Async("threadPoolTaskExecutor")
     public void withAsync() {
         log.info("Execute method asynchronously. " + Thread.currentThread().getName());
     }

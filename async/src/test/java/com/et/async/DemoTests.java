@@ -42,9 +42,7 @@ public class DemoTests {
     }
     @Test
     public void mockerror() throws ExecutionException, InterruptedException {
-
         notifyService.mockerror();
-
     }
     @Test
     public void testAsyncAnnotationForMethodsWithReturnType()
