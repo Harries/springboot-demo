@@ -26,16 +26,16 @@ public class ActivityConsumerServiceImpl implements ActivityConsumerService {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("apply", "zhangsan");
         map.put("approve", "lisi");
-        //流程启动
+        //flow start
         ExecutionEntity pi1 = (ExecutionEntity) runtimeService.startProcessInstanceByKey("leave", map);
         String processId = pi1.getId();
         pi1.getExecutions().forEach(row->{
             String taskId =  row.getTasks().get(0).getId();
-            taskService.complete(taskId, map);//完成第一步申请
+            taskService.complete(taskId, map);//complete fist step
             Task task = taskService.createTaskQuery().processInstanceId(processId).singleResult();
             String taskId2 = task.getId();
             map.put("pass", false);
-            taskService.complete(taskId2, map);//驳回申请
+            taskService.complete(taskId2, map);//refuse apply
             System.out.println("method startActivityDemo end....");
         });
 
