@@ -78,6 +78,7 @@
         <module>ldap</module>
         <module>zookeeper</module>
         <module>activiti</module>
+        <module>async</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
