@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class ConsumerController {
     /**
-     * 通过 @Reference注解调用远程服务，也就是服务提供者dubbo-provider的服务
+     *  @Reference invoker dubbo-provider
      */
     @Reference
     private UserService userService;

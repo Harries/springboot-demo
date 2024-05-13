@@ -55,7 +55,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!-- 引入服务提供者的依赖，注意版本号 -->
+        <!--api  -->
         <dependency>
             <groupId>com.et</groupId>
             <artifactId>dubbo-samples-spring-boot-interface</artifactId>

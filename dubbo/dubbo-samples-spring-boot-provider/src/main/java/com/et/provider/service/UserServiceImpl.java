@@ -7,7 +7,7 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 /**
- * 注意，@service注解，引入的包是org.apache.dubbo.config.annotation.Service
+ * @service import package is org.apache.dubbo.config.annotation.Service
  */
 @Service
 @Component
