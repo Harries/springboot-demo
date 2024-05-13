@@ -80,6 +80,7 @@
         <module>activiti</module>
         <module>async</module>
         <module>dubbo</module>
+        <module>dynamic-datasource</module>
 
     </modules>
     <properties>
