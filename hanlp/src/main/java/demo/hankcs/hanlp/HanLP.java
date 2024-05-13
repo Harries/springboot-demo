@@ -17,7 +17,6 @@ import demo.hankcs.hanlp.dependency.nnparser.NeuralNetworkDependencyParser;
 import demo.hankcs.hanlp.dependency.perceptron.parser.KBeamArcEagerDependencyParser;
 import demo.hankcs.hanlp.dictionary.py.Pinyin;
 import demo.hankcs.hanlp.dictionary.py.PinyinDictionary;
-import com.hankcs.hanlp.dictionary.ts.*;
 import demo.hankcs.hanlp.mining.phrase.IPhraseExtractor;
 import demo.hankcs.hanlp.mining.phrase.MutualInformationEntropyPhraseExtractor;
 import demo.hankcs.hanlp.mining.word.NewWordDiscover;

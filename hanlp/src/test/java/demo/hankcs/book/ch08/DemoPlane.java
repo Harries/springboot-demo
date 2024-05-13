@@ -10,7 +10,6 @@
  */
 package demo.hankcs.book.ch08;
 
-import com.hankcs.hanlp.model.perceptron.*;
 import demo.hankcs.hanlp.model.perceptron.*;
 import demo.hankcs.hanlp.model.perceptron.model.LinearModel;
 import demo.hankcs.hanlp.utility.TestUtility;

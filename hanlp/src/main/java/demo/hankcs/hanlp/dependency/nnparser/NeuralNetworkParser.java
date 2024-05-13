@@ -11,7 +11,7 @@
  */
 package demo.hankcs.hanlp.dependency.nnparser;
 
-import com.hankcs.hanlp.corpus.io.*;
+
 import demo.hankcs.hanlp.corpus.io.ByteArray;
 import demo.hankcs.hanlp.corpus.io.ByteArrayStream;
 import demo.hankcs.hanlp.corpus.io.ICacheAble;

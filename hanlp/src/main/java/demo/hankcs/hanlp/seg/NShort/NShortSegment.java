@@ -19,7 +19,6 @@ import demo.hankcs.hanlp.recognition.nr.TranslatedPersonRecognition;
 import demo.hankcs.hanlp.recognition.ns.PlaceRecognition;
 import demo.hankcs.hanlp.recognition.nt.OrganizationRecognition;
 import demo.hankcs.hanlp.seg.WordBasedSegment;
-import com.hankcs.hanlp.seg.NShort.Path.*;
 import demo.hankcs.hanlp.seg.common.Graph;
 import demo.hankcs.hanlp.seg.common.Term;
 import demo.hankcs.hanlp.seg.common.Vertex;

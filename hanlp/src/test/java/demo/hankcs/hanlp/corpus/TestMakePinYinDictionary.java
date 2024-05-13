@@ -11,7 +11,6 @@
  */
 package demo.hankcs.hanlp.corpus;
 
-import com.hankcs.hanlp.dictionary.py.*;
 import junit.framework.TestCase;
 
 /**

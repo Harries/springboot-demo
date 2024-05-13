@@ -13,7 +13,6 @@ package demo.hankcs.book.ch08;
 import demo.hankcs.hanlp.corpus.PKU;
 import demo.hankcs.hanlp.corpus.document.sentence.Sentence;
 import demo.hankcs.hanlp.corpus.io.IOUtil;
-import com.hankcs.hanlp.model.perceptron.*;
 import demo.hankcs.hanlp.model.perceptron.*;
 import demo.hankcs.hanlp.tokenizer.lexical.NERecognizer;
 

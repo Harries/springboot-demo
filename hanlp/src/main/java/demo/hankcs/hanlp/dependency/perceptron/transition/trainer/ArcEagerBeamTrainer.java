@@ -15,7 +15,6 @@ import demo.hankcs.hanlp.dependency.perceptron.structures.ParserModel;
 import demo.hankcs.hanlp.dependency.perceptron.transition.configuration.BeamElement;
 import demo.hankcs.hanlp.dependency.perceptron.transition.configuration.Instance;
 import demo.hankcs.hanlp.dependency.perceptron.transition.features.FeatureExtractor;
-import com.hankcs.hanlp.dependency.perceptron.transition.parser.*;
 import demo.hankcs.hanlp.dependency.perceptron.accessories.Options;
 import demo.hankcs.hanlp.dependency.perceptron.transition.configuration.Configuration;
 import demo.hankcs.hanlp.dependency.perceptron.transition.configuration.State;

@@ -19,7 +19,6 @@ import demo.hankcs.hanlp.recognition.ns.PlaceRecognition;
 import demo.hankcs.hanlp.recognition.nt.OrganizationRecognition;
 import demo.hankcs.hanlp.seg.Dijkstra.Path.State;
 import demo.hankcs.hanlp.seg.WordBasedSegment;
-import com.hankcs.hanlp.seg.common.*;
 import demo.hankcs.hanlp.seg.common.*;
 
 import java.util.*;

@@ -1,6 +1,5 @@
 package demo.hankcs.hanlp.dictionary;
 
-import com.hankcs.hanlp.corpus.dictionary.*;
 import demo.hankcs.hanlp.utility.Predefine;
 import demo.hankcs.hanlp.corpus.dictionary.SuffixDictionary;
 import junit.framework.TestCase;

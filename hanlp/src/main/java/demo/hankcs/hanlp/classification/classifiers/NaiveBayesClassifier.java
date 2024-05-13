@@ -4,7 +4,6 @@ import demo.hankcs.hanlp.classification.corpus.Document;
 import demo.hankcs.hanlp.classification.corpus.IDataSet;
 import demo.hankcs.hanlp.utility.MathUtility;
 import demo.hankcs.hanlp.collection.trie.bintrie.BinTrie;
-import com.hankcs.hanlp.classification.corpus.*;
 import demo.hankcs.hanlp.classification.features.ChiSquareFeatureExtractor;
 import demo.hankcs.hanlp.classification.features.BaseFeatureData;
 import demo.hankcs.hanlp.classification.models.AbstractModel;

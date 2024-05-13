@@ -52,8 +52,9 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
-    <!--Mybatis代码自动生成器-->
-    <build>
+    <!--Mybatis代码自动生成器.需要的时候打开，不需要关闭，防止每次都生成-->
+   <!--
+   <build>
         <plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
@@ -64,7 +65,7 @@
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <version>8.0.28</version>
-                        <!--  <version> 5.1.39</version>  -->
+
                     </dependency>
                 </dependencies>
                 <executions>
@@ -77,14 +78,14 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--允许移动生成的文件 -->
+
                     <verbose>true</verbose>
-                    <!-- 是否覆盖 -->
+
                     <overwrite>true</overwrite>
-                    <!-- 自动生成的配置 -->
+
                     <configurationFile>src/main/resources/mybatis-generator.xml</configurationFile>
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>

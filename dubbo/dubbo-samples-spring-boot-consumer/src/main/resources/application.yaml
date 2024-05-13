@@ -1,0 +1,16 @@
+dubbo:
+  application:
+    # 应用名称
+    name: dubbo-consumer
+  protocol:
+    # 协议名称
+    name: dubbo
+    # 协议端口
+    port: 20880
+  registry:
+    # 注册中心地址
+    address: zookeeper://127.0.0.1:2181
+
+server:
+  # 修改端口号，避免端口冲突
+  port: 8080

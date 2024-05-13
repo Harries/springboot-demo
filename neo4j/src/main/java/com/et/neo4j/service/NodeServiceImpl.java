@@ -10,7 +10,6 @@ import com.et.neo4j.util.GraphUtil;
 import edu.stanford.nlp.trees.TreeGraphNode;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import sun.plugin.dom.core.Attr;
 
 import java.util.Arrays;
 import java.util.List;
