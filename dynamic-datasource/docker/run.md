@@ -1,14 +1,14 @@
-### first mysql databse
-```
-docker run --name docker-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3333:3306 -d mysql
-```
-
-### second mysql datasource
-```
-docker run --name docker-mysql-2 -e MYSQL_ROOT_PASSWORD=123456 -p 3334:3306 -d mysql
+### 第一个mysql数据库
+```shell
+docker run --name docker-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql
 ```
 
-### init
+### 第二个mysql数据库
+```shell
+docker run --name docker-mysql-2 -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 -d mysql
+```
+
+### 初始化数据
 
 ```
 create database demo;
@@ -26,9 +26,9 @@ update_id   varchar(64)          null ,
 enabled     tinyint(1) default 1 null
 );
 ```
-### remark
+### 说明
 ```
-msyql account:root
-mysql password:123456
+msyql账号root
+mysql密码123456
 ```
 
