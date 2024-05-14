@@ -81,6 +81,7 @@
         <module>async</module>
         <module>dubbo</module>
         <module>dynamic-datasource</module>
+        <module>security</module>
 
     </modules>
     <properties>

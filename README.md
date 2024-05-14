@@ -51,7 +51,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 38          | dubbo                 | springboot with dubbo              | [CN](http://www.liuhaihua.cn/archives/710535.html) / [EN](https://jxausea.medium.com/spring-boot-integration-dubbo-quick-start-demo-18b1e8e5888b)                                    | done   |
 | 39          | dynamic-datasource    | springboot with dynamic-datasource | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 40          | https                 | springboot with https              | [CN](http://www.liuhaihua.cn/archives/710427.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-https-quick-start-demo-0f5b1ae86286)                                     | done   |
-| 41          | Spring-security       | springboot with security           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 41          | security              | springboot with security           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 42          | shiro                 | springboot with shiro              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 43          | sharding-jdbc         | springboot with sharding-jdbc      | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 44          | freemaker             | springboot with freemaker          | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
@@ -121,4 +121,12 @@ if you need some components to integrate with Spring Boot,tell me ,I will help y
 
 ### License
 
-[MIT](http://opensource.org/licenses/MIT)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](http://opensource.org/licenses/MIT)
+
+## 🚀 About Me
+I'm a full stack developer...
+
+- [Github](https://github.com/Harries)
+- [HBLOG](http://www.liuhaihua.cn/)
+- [Medium](https://jxausea.medium.com/)
+
