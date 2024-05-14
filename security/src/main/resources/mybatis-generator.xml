@@ -1,0 +1,40 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--配置数据源-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/demo"
+                        userId="root"
+                        password="123456">
+
+        </jdbcConnection>
+
+        <!--配置实体类存放的目录-->
+        <javaModelGenerator targetPackage="com.et.security.entity"
+                            targetProject="src/main/java"/>
+
+        <!--配置mapper.xml文件存放的目录-->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources"/>
+
+        <!--配置mapper接口文件存放的目录-->
+        <javaClientGenerator targetPackage="com.et.security.mapper"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+        <!--配置需要自动生成的表名  -->
+        <table tableName="menu">
+            <property name="modelOnly" value="false"/>
+        </table>
+        <table tableName="role">
+            <property name="modelOnly" value="false"/>
+        </table>
+    </context>
+</generatorConfiguration>
