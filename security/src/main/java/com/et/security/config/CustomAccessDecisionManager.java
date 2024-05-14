@@ -11,31 +11,31 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 /**
- * AccessDecisionManager类中进行角色信息的比对
+ * Comparing role information in the AccessDecisionManager class
  */
 @Component
 public class CustomAccessDecisionManager implements AccessDecisionManager {
  
     /**
-     * 重写decide方法，在该方法中判断当前登录的用户是否具备当前请求URL所需要的角色信息，如果不具备，就抛出AccessDeniedException异常，否则不做任何事即可。
+     * Override the decide method, in which it is judged whether the currently logged in user has the role information required for the current request URL. If not, an AccessDeniedException is thrown, otherwise nothing is done.
      *
-     * @param auth   当前登录用户的信息
-     * @param object FilterInvocation对象，可以获取当前请求对象
-     * @param ca     FilterInvocationSecurityMetadataSource中的getAttributes方法的返回值，即当前请求URL所需要的角色
+     * @param auth   Information about the currently logged in user
+     * @param object FilterInvocationObject, you can get the current request object
+     * @param ca     FilterInvocationSecurityMetadataSource The return value of the getAttributes method in is the role required by the current request URL
      */
     @Override
     public void decide(Authentication auth, Object object, Collection<ConfigAttribute> ca) {
         Collection<? extends GrantedAuthority> auths = auth.getAuthorities();
         for (ConfigAttribute configAttribute : ca) {
             /*
-             * 如果需要的角色是ROLE_LOGIN，说明当前请求的URL用户登录后即可访问
-             * 如果auth是UsernamePasswordAuthenticationToken的实例，那么说明当前用户已登录，该方法到此结束，否则进入正常的判断流程
+             * If the required role is ROLE_LOGIN, it means that the currently requested URL can be accessed after the user logs in.
+			 * If auth is an instance of UsernamePasswordAuthenticationToken, it means that the current user has logged in and the method ends here, otherwise it enters the normal judgment process.
              */
             if ("ROLE_LOGIN".equals(configAttribute.getAttribute()) && auth instanceof UsernamePasswordAuthenticationToken) {
                 return;
             }
             for (GrantedAuthority authority : auths) {
-                // 如果当前用户具备当前请求需要的角色，那么方法结束
+				// If the current user has the role required by the current request, the method ends
                 if (configAttribute.getAttribute().equals(authority.getAuthority())) {
                     return;
                 }

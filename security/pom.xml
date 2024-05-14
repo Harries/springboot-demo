@@ -56,7 +56,7 @@
         </dependency>
 
     </dependencies>
-    <build>
+   <!-- <build>
         <plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
@@ -89,5 +89,5 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>

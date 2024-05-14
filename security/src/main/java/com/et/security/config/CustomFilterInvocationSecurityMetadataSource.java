@@ -12,31 +12,31 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.List;
 
 @Component
 public class CustomFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
  
-    AntPathMatcher antPathMatcher = new AntPathMatcher(); // AntPathMatcher，主要用来实现ant风格的URL匹配。
+    AntPathMatcher antPathMatcher = new AntPathMatcher(); // AntPathMatcher is mainly used to implement ant-style URL matching.
  
-    @Autowired
+    @Resource
     MenuMapper menuMapper;
- 
-    // Spring Security中通过FilterInvocationSecurityMetadataSource接口中的getAttributes方法来确定一个请求需要哪些角色，
-    @Override
+
+	// Spring Security uses the getAttributes method in the FilterInvocationSecurityMetadataSource interface to determine which roles are required for a request.    @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         /*
-         * 该方法的参数是一个FilterInvocation，开发者可以从FilterInvocation中提取出当前请求的URL，
-         * 返回值是Collection<ConfigAttribute>，表示当前请求URL所需的角色。
+		 * The parameter of this method is a FilterInvocation. Developers can extract the currently requested URL from the FilterInvocation.
+		 * The return value is Collection<ConfigAttribute>, indicating the role required by the current request URL.
          */
         String requestUrl = ((FilterInvocation) object).getRequestUrl();//从参数中提取出当前请求的URL。
         /*
-         * 从数据库中获取所有的资源信息，即本案例中的menu表以及menu所对应的role，
-         * 在真实项目环境中，开发者可以将资源信息缓存在Redis或者其他缓存数据库中。
+		 * Obtain all resource information from the database, that is, the menu table in this case and the role corresponding to the menu,
+		 * In a real project environment, developers can cache resource information in Redis or other cache databases.
          */
         List<Menu> allMenus = menuMapper.getAllMenus();
-        // 遍历资源信息，遍历过程中获取当前请求的URL所需要的角色信息并返回。
+		// Traverse the resource information. During the traversal process, obtain the role information required for the currently requested URL and return it.
         for (Menu menu : allMenus) {
             if (antPathMatcher.match(menu.getPattern(), requestUrl)) {
                 List<Role> roles = menu.getRoles();
@@ -47,13 +47,13 @@ public class CustomFilterInvocationSecurityMetadataSource implements FilterInvoc
                 return SecurityConfig.createList(roleArr);
             }
         }
-        // 如果当前请求的URL在资源表中不存在相应的模式，就假设该请求登录后即可访问，即直接返回ROLE_LOGIN。
+		// If the currently requested URL does not have a corresponding pattern in the resource table, it is assumed that the request can be accessed after logging in, that is, ROLE_LOGIN is returned directly.
         return SecurityConfig.createList("ROLE_LOGIN");
     }
  
     /**
-     * getAllConfigAttributes方法用来返回所有定义好的权限资源，SpringSecurity在启动时会校验相关配置是否正确，
-     * 如果不需要校验，那么该方法直接返回null即可。
+	 * The getAllConfigAttributes method is used to return all defined permission resources. SpringSecurity will verify whether the relevant configuration is correct when starting.
+	 * If verification is not required, this method can directly return null.
      */
     @Override
     public Collection<ConfigAttribute> getAllConfigAttributes() {
@@ -61,7 +61,7 @@ public class CustomFilterInvocationSecurityMetadataSource implements FilterInvoc
     }
  
     /**
-     *  supports方法返回类对象是否支持校验。
+	 * The supports method returns whether the class object supports verification.
      */
     @Override
     public boolean supports(Class<?> clazz) {

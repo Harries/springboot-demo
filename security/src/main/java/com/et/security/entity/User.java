@@ -16,21 +16,20 @@ public class User implements UserDetails {
     private Boolean enabled;
     private Boolean locked;
     private List<Role> roles;
- 
-    /*
-     * 用户实体类需要实现UserDetails接口，并实现该接口中的7个方法
-     * 用户根据实际情况设置这7个方法的返回值。因为默认情况下不需要开发者自己进行密码角色等信息的比对，开发者只需要提供相关信息即可，
-     * 例如getPassword()方法返回的密码和用户输入的登录密码不匹配，会自动抛出BadCredentialsException异常，
-     * isAccountNonExpired()方法返回了false，会自动抛出AccountExpiredException异常，
-     * 因此对开发者而言，只需要按照数据库中的数据在这里返回相应的配置即可。本案例因为数据库中只有enabled和locked字段，故账户未过期和密码未过期两个方法都返回true。
-     */
- 
-    // 获取当前用户对象所具有的角色信息
- 
-    /**
-     * getAuthorities()方法用来获取当前用户所具有的角色信息，
-     * 本案例中，用户所具有的角色存储在roles属性中，因此该方法直接遍历roles属性，然后构造SimpleGrantedAuthority集合并返回。
-     */
+
+	/*
+	 * The user entity class needs to implement the UserDetails interface and implement the 7 methods in this interface
+	 * Users set the return values ​​of these 7 methods according to actual conditions. Because by default, developers are not required to compare passwords, roles and other information themselves, developers only need to provide relevant information.
+	 * For example, if the password returned by the getPassword() method does not match the login password entered by the user, a BadCredentialsException will be automatically thrown.
+	 * The isAccountNonExpired() method returns false and will automatically throw an AccountExpiredException exception.
+	 * Therefore, developers only need to return the corresponding configuration here according to the data in the database. In this case, because there are only enabled and locked fields in the database, both the account not expired and password not expired methods return true.
+	 */
+
+
+	/**
+	 * The getAuthorities() method is used to obtain the role information of the current user.
+	 * In this case, the roles owned by the user are stored in the roles attribute, so this method directly traverses the roles attribute, then constructs the SimpleGrantedAuthority collection and returns it.
+	 */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -40,37 +39,31 @@ public class User implements UserDetails {
         return authorities;
     }
  
-    // 获取当前用户对象的密码
     @Override
     public String getPassword() {
         return password;
     }
  
-    // 获取当前用户对象的用户名
     @Override
     public String getUsername() {
         return username;
     }
  
-    // 当前账户是否未过期
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
  
-    // 当前账户是否未锁定
     @Override
     public boolean isAccountNonLocked() {
         return !locked;
     }
  
-    // 当前账户密码是否未过期
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
  
-    // 当前账户是否可用
     @Override
     public boolean isEnabled() {
         return enabled;

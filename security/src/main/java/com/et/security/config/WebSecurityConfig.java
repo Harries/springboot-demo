@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
  
-    // 角色继承
+
     @Bean
     RoleHierarchy roleHierarchy() {
         RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // 没有配置内存用户，而是将刚刚创建好的UserService配置到AuthenticationManagerBuilder中。
+		// The memory user is not configured, but the UserService just created is configured into the AuthenticationManagerBuilder.
         auth.userDetailsService(userService);
     }
  
@@ -45,11 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
- 
-                /*.antMatchers("/admin/**").hasRole("ADMIN")//表示用户访问“/admin/**”模式的URL必须具备ADMIN的角色
-                .antMatchers("/user/**").access("hasAnyRole('ADMIN','USER')")
-                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
-                .anyRequest().authenticated()//表示除了前面定义的URL模式之外，用户访问其他的URL都必须认证后访问（登录后访问）*/
+
+				/*.antMatchers("/admin/**").hasRole("ADMIN")//Indicates that the user accessing the URL in the "/admin/**" mode must have the role of ADMIN
+				 .antMatchers("/user/**").access("hasAnyRole('ADMIN','USER')")
+				 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+				 .anyRequest().authenticated()//Indicates that in addition to the URL pattern defined previously, users must access other URLs after authentication (access after logging in) */
  
                 .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
                     @Override
