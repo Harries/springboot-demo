@@ -16,20 +16,20 @@
 
         </jdbcConnection>
 
-        <!--配置实体类存放的目录-->
+        <!--entity-->
         <javaModelGenerator targetPackage="com.et.security.entity"
                             targetProject="src/main/java"/>
 
-        <!--配置mapper.xml文件存放的目录-->
+        <!--mapper.xml-->
         <sqlMapGenerator targetPackage="mapper"
                          targetProject="src/main/resources"/>
 
-        <!--配置mapper接口文件存放的目录-->
+        <!--mapper-->
         <javaClientGenerator targetPackage="com.et.security.mapper"
                              targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
-        <!--配置需要自动生成的表名  -->
+        <!--tablename  -->
         <table tableName="menu">
             <property name="modelOnly" value="false"/>
         </table>
