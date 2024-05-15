@@ -118,7 +118,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 ### Remark
 if you need some components to integrate with Spring Boot,tell me ,I will help you!  you can also leave a message in issues.
 
-> The ai module is based on version 3.x, so it must be compiled with JDK17, and the others are based on 2.X
+> The ai module is based on  Spring Boot 3.x  version, so it must be compiled with JDK17, and the others are based on Spring Boot  2.X
 
 ### License
 

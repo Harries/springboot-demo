@@ -54,8 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
                     @Override
                     public <O extends FilterSecurityInterceptor> O postProcess(O object) {
-                        object.setSecurityMetadataSource(cfisms());//动态配置权限
-                        object.setAccessDecisionManager(cadm());//角色信息的比对
+                        object.setSecurityMetadataSource(cfisms());
+                        object.setAccessDecisionManager(cadm());
                         return object;
                     }
                 })

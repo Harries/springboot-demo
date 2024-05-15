@@ -30,7 +30,7 @@ public class CustomFilterInvocationSecurityMetadataSource implements FilterInvoc
 		 * The parameter of this method is a FilterInvocation. Developers can extract the currently requested URL from the FilterInvocation.
 		 * The return value is Collection<ConfigAttribute>, indicating the role required by the current request URL.
          */
-        String requestUrl = ((FilterInvocation) object).getRequestUrl();//从参数中提取出当前请求的URL。
+        String requestUrl = ((FilterInvocation) object).getRequestUrl();
         /*
 		 * Obtain all resource information from the database, that is, the menu table in this case and the role corresponding to the menu,
 		 * In a real project environment, developers can cache resource information in Redis or other cache databases.
