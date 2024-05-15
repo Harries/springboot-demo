@@ -83,6 +83,7 @@
         <module>dynamic-datasource</module>
         <module>security</module>
         <module>shiro</module>
+        <module>picocli</module>
 
     </modules>
     <properties>
