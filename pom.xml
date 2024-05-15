@@ -82,6 +82,7 @@
         <module>dubbo</module>
         <module>dynamic-datasource</module>
         <module>security</module>
+        <module>shiro</module>
 
     </modules>
     <properties>

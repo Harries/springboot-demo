@@ -1,4 +1,4 @@
-### 第一个mysql数据库
+### mysql数据库
 ```shell
 docker run --name docker-mysql-5.7 -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
 ```
@@ -29,7 +29,7 @@ VALUES('1', '1', 1, 1, '1', NULL, '1', NULL, NULL, 1);
 ```
 ### 说明
 ```
-msyql账号root
-mysql密码123456
+msyql account：root
+mysql password：123456
 ```
 
