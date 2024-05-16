@@ -113,14 +113,16 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 100         | Spring Shell          | springboot with  Spring Shell      | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 101         | Picocli               | springboot with  Picocli           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 102         | tidb                  | springboot with  tidb              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 103         | testcontainers        | springboot with  testcontainers     | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 103         | testcontainers        | springboot with  testcontainers    | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 
 ### Remark
-if you need some components to integrate with Spring Boot,tell me ,I will help you!  you can also leave a message in issues.
 
-> The ai module is based on  Spring Boot 3.x  version, so it must be compiled with JDK17, and the others are based on Spring Boot  2.X
+
+> The  module（ai、sharding-jdbc） is based on  Spring Boot 3.x  and JDK 17, so it must be compiled with JDK17, and the others are based on Spring Boot  2.X and JDK 8
+> 
+> if you need some components to integrate with Spring Boot,tell me ,I will help you!  you can also leave a message in issues.
 
 ### License
 

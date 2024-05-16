@@ -85,6 +85,7 @@
         <module>shiro</module>
         <module>picocli</module>
         <module>sharding-jdbc</module>
+        <module>testcontainers</module>
 
     </modules>
     <properties>
