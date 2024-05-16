@@ -84,6 +84,7 @@
         <module>security</module>
         <module>shiro</module>
         <module>picocli</module>
+        <module>sharding-jdbc</module>
 
     </modules>
     <properties>
