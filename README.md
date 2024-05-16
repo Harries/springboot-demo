@@ -120,9 +120,9 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 ### Remark
 
 
-> The  module（ai、sharding-jdbc） is based on  Spring Boot 3.x  and JDK 17, so it must be compiled with JDK17, and the others are based on Spring Boot  2.X and JDK 8
-> 
-> if you need some components to integrate with Spring Boot,tell me ,I will help you!  you can also leave a message in issues.
+> The  module（ai、sharding-jdbc） is based on  Spring Boot 3.x and JDK 17, the others are based on Spring Boot  2.X and JDK 8
+
+if you need some components to integrate with Spring Boot,tell me ,I will help you!  you can also leave a message in issues.
 
 ### License
 
