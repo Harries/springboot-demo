@@ -114,7 +114,8 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 101         | Picocli               | springboot with  Picocli           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 102         | tidb                  | springboot with  tidb              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 103         | testcontainers        | springboot with  testcontainers    | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 104         | beanvalidation        | springboot with  beanvalidation    | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 104         | validation            | springboot with  validation        | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| SpEL        | SpEL                  | springboot with  SpEL              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 
