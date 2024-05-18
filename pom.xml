@@ -86,6 +86,7 @@
         <module>picocli</module>
         <module>sharding-jdbc</module>
         <module>testcontainers</module>
+        <module>Spring-Shell</module>
 
     </modules>
     <properties>
