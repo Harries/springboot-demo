@@ -1,6 +1,18 @@
 server:
   port: 8088
 spring:
+  redis:
+    database: 0
+    port: 6379
+    host: 127.0.0.1
+    password: 123456
+    timeout=3000:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
   datasource:
     url: jdbc:mysql://localhost:3306/demo?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
@@ -22,16 +34,5 @@ spring:
     cache: false
     mode: HTML
 
-  redis:
-    database: 0
-    port: 6379
-    host: 127.0.0.1
-    password: 123456
-    timeout=3000:
-    jedis:
-      pool:
-        max-active: 8
-        max-idle: 8
-        max-wait: -1
-        min-idle: 0
+
 
