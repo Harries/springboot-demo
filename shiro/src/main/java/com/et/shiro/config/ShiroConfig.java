@@ -1,5 +1,6 @@
 package com.et.shiro.config;
 
+import com.et.shiro.cache.RedisCacheManager;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -60,6 +61,18 @@ public class ShiroConfig {
 	public MyShiroRealm myShiroRealm(){
 		MyShiroRealm myShiroRealm = new MyShiroRealm();
 		myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());// 设置解密规则
+		// 开启全局缓存
+		myShiroRealm.setCachingEnabled(true);
+		// 开启认证缓存
+		myShiroRealm.setAuthenticationCachingEnabled(true);
+		// 设置认证缓存管理的名字
+		myShiroRealm.setAuthenticationCacheName("authenticationCache");
+		// 开启授权缓存管理
+		myShiroRealm.setAuthorizationCachingEnabled(true);
+		// 设置授权缓存管理的名字
+		myShiroRealm.setAuthorizationCacheName("authorizationCache");
+		// 开启Redis缓存
+		myShiroRealm.setCacheManager(new RedisCacheManager());
 		return myShiroRealm;
 	}
 

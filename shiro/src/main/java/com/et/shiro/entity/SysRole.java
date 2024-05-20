@@ -1,10 +1,11 @@
 package com.et.shiro.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysRole {
+public class SysRole implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
