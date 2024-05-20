@@ -87,6 +87,7 @@
         <module>sharding-jdbc</module>
         <module>testcontainers</module>
         <module>Spring-Shell</module>
+        <module>validtion</module>
 
     </modules>
     <properties>
