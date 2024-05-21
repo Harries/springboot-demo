@@ -88,6 +88,7 @@
         <module>testcontainers</module>
         <module>Spring-Shell</module>
         <module>validtion</module>
+        <module>banner</module>
 
     </modules>
     <properties>
