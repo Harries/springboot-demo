@@ -116,6 +116,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 103         | testcontainers        | springboot with  testcontainers    | [CN](http://www.liuhaihua.cn/archives/710568.html) / [EN](https://jxausea.medium.com/spring-boot-integratd-testcontainers-quick-start-demo-02e331b5f739)                             | done   |
 | 104         | validation            | springboot with  validation        | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 105         | SpEL                  | springboot with  SpEL              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 106         | banner                | springboot with  banner            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 

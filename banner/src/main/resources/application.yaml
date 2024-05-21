@@ -1,0 +1,5 @@
+server:
+  port: 8088
+application:
+  title: banner-test
+  version: V2.2.5
