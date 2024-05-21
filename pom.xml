@@ -89,6 +89,7 @@
         <module>Spring-Shell</module>
         <module>validtion</module>
         <module>banner</module>
+        <module>SpEL</module>
 
     </modules>
     <properties>
