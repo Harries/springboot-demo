@@ -90,6 +90,7 @@
         <module>validtion</module>
         <module>banner</module>
         <module>SpEL</module>
+        <module>rss</module>
 
     </modules>
     <properties>
