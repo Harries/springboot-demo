@@ -117,6 +117,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 104         | validation            | springboot with  validation        | [CN](http://www.liuhaihua.cn/archives/710602.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-validation-to-verify-parameters-85443173170a)                            | done   |
 | 105         | SpEL                  | springboot with  SpEL              | [CN](http://www.liuhaihua.cn/archives/710608.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-spel-quick-start-demo-9409ddb63d08)                                      | done   |
 | 106         | banner                | springboot with  banner            | [CN](http://www.liuhaihua.cn/archives/710613.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-banners-to-implement-a-demo-for-quick-reading-dbf76d9cb5c0)              | done   |
+| 107         | rss                   | springboot with  rss              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 
