@@ -30,7 +30,7 @@ public class FeedController {
         channel.setGenerator("Harries");
 
         Image image = new Image();
-        image.setUrl("/resources/assist/images/blog/b8fb228cdff44b8ea65d1e557bf05d2b.png");
+        image.setUrl("http://www.liuhaihua.cn/img/hblog.png");
         image.setTitle("HBLOG Feed");
         image.setHeight(32);
         image.setWidth(32);
@@ -41,10 +41,10 @@ public class FeedController {
 
         Item item = new Item();
         item.setAuthor("Harries");
-        item.setLink("http://www.liuhaihua.cn");
+        item.setLink("http://www.liuhaihua.cn/archives/710608.html");
         item.setTitle("Spring Boot integrated banner   quick start demo");
         item.setUri("http://www.liuhaihua.cn/archives/710608.html");
-        item.setComments("ttp://www.liuhaihua.cn/archives/710608.html#commnet");
+        item.setComments("http://www.liuhaihua.cn/archives/710608.html#commnet");
 
         com.rometools.rome.feed.rss.Category category = new com.rometools.rome.feed.rss.Category();
         category.setValue("CORS");
@@ -95,7 +95,7 @@ public class FeedController {
 
         Content summary = new Content();
         summary.setType("text/plain");
-        summary.setValue("pring Boot Banner is a feature for displaying custom ASCII art and information at application startup. This ASCII art usually includes the project name, version number, author information");
+        summary.setValue("Spring Boot Banner is a feature for displaying custom ASCII art and information at application startup. This ASCII art usually includes the project name, version number, author information");
         entry.setSummary(summary);
 
         feed.setEntries(Collections.singletonList(entry));
