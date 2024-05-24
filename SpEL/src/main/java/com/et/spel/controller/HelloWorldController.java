@@ -12,26 +12,27 @@ import java.util.Map;
 
 @RestController
 public class HelloWorldController {
-    // 注入普通字符串
-    @Value("normal")
-    private String normal;
-    // 注入操作系统属性
-    @Value("#{systemProperties['os.name']}")
-    private String systemPropertiesName;
+	@Value("normal")
+	private String normal; // Inject ordinary string
 
-    @Value("#{ T(java.lang.Math).random() * 100.0 }")
-    private double randomNumber; //注入表达式结果
-    // 注入其他Bean属性：注入beanInject对象的属性another，类具体定义见下面
-    @Value("#{beanInject.another}")
-    private String fromAnotherBean;
-    // 注入文件资源
-    @Value("classpath:config.txt")
-    private Resource resourceFile;
+	@Value("#{systemProperties['os.name']}")
+	private String systemPropertiesName; //Inject operating system properties
+
+	@Value("#{ T(java.lang.Math).random() * 100.0 }")
+	private double randomNumber; //Inject expression result
+
+	@Value("#{beanInject.another}")
+	private String fromAnotherBean; // Inject other Bean attributes: Inject the attribute another of the beanInject object. See the specific definition of the class below.
+
+	@Value("classpath:config.txt")
+	private Resource resourceFile; // Inject file resources
+
+	@Value("http://www.baidu.com")
+	private Resource testUrl; // Inject URL resources
+
     @Value("#{'${server.name}'.split(',')}")
     private List<String> servers;
-    @Value("http://www.baidu.com")
-    // 注入URL资源
-    private Resource testUrl;
+
     @RequestMapping("/hello")
     public Map<String, Object> showHelloWorld(){
         Map<String, Object> map = new HashMap<>();

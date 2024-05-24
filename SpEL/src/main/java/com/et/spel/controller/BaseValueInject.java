@@ -7,22 +7,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class BaseValueInject {
     @Value("normal")
-    private String normal; // 注入普通字符串
+    private String normal; // Inject ordinary string
  
     @Value("#{systemProperties['os.name']}")
-    private String systemPropertiesName; // 注入操作系统属性
+    private String systemPropertiesName; //Inject operating system properties
  
     @Value("#{ T(java.lang.Math).random() * 100.0 }")
-    private double randomNumber; //注入表达式结果
+    private double randomNumber; //Inject expression result
  
     @Value("#{beanInject.another}")
-    private String fromAnotherBean; // 注入其他Bean属性：注入beanInject对象的属性another，类具体定义见下面
+    private String fromAnotherBean; // Inject other Bean attributes: Inject the attribute another of the beanInject object. See the specific definition of the class below.
  
     @Value("classpath:config.txt")
-    private Resource resourceFile; // 注入文件资源
+    private Resource resourceFile; // Inject file resources
  
     @Value("http://www.baidu.com")
-    private Resource testUrl; // 注入URL资源
+    private Resource testUrl; // Inject URL resources
 
 
     @Override
