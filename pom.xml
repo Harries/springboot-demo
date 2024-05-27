@@ -91,6 +91,8 @@
         <module>banner</module>
         <module>SpEL</module>
         <module>rss</module>
+        <module>tidb</module>
+        <module>Statemachine</module>
 
     </modules>
     <properties>
