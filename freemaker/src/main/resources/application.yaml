@@ -1,0 +1,37 @@
+server:
+  port: 8088
+spring:
+  freemarker:
+    # 启用 freemarker 模板
+    enabled: true
+    # 是否缓存
+    cache: false
+    # Content Type
+    content-type: text/html
+    # 编码
+    charset: utf-8
+    # 模板后缀
+    suffix: .ftl
+    # 引用 request 的属性名称
+    request-context-attribute: request
+    # 是否暴露 request 域中的属性
+    expose-request-attributes: false
+    # 是否暴露session域中的属性
+    expose-session-attributes: false
+    # request 域中的属性是否可以覆盖 controller 的 model 的同名项。默认 false，如果发生同名属性覆盖的情况会抛出异常
+    allow-request-override: true
+    # session 域中的属性是否可以覆盖 controller 的 model 的同名项。默认 false，如果发生同名属性覆盖的情况会抛出异常
+    allow-session-override: true
+    # 暴露官方提供的宏
+    expose-spring-macro-helpers: true
+    # 启动时检查模板位置是否有效
+    check-template-location: true
+    # 优先加载文件系统的模板
+    prefer-file-system-access: true
+    # 模板所在位置（目录）
+    template-loader-path:
+      - classpath:/templates/
+    settings:
+      datetime_format: yyyy-MM-dd HH:mm:ss      # date 输出格式化
+      template_update_delay: 30m                # 模板引擎刷新时间
+      default_encoding: utf-8                   # 默认编码

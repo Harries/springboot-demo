@@ -93,6 +93,7 @@
         <module>rss</module>
         <module>tidb</module>
         <module>Statemachine</module>
+        <module>freemaker</module>
 
     </modules>
     <properties>
