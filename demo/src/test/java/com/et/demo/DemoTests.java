@@ -1,6 +1,5 @@
 package com.et.demo;
 
-import demo.et.demo.DemoApplication;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
