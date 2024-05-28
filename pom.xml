@@ -94,6 +94,7 @@
         <module>tidb</module>
         <module>Statemachine</module>
         <module>freemaker</module>
+        <module>sse</module>
 
     </modules>
     <properties>
