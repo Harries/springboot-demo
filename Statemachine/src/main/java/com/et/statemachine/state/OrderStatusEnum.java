@@ -1,7 +1,7 @@
 package com.et.statemachine.state;
 
 /**
- * @description: 订单状态
+ * @description: order status
  */
 public enum OrderStatusEnum {
 
