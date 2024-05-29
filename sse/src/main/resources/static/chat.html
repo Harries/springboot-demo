@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatGpt test</title>
+    <link rel="stylesheet" href="lib/element-ui/index.css">
+
+    <style type="text/css">
+        body{
+            background-color:white;
+        }
+
+        #outputCard{
+            height: 300px;
+            overflow:auto;
+        }
+
+        #inputCard{
+            height: 100px;
+            overflow:auto;
+        }
+
+        #outputBody{
+            line-height:30px;
+        }
+
+        .cursor-img{
+            height:24px;
+            vertical-align: text-bottom;
+        }
+
+
+
+    </style>
+
+    <script src="lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="lib/vue/vue.min.js"></script>
+    <script src="lib/element-ui/index.js"></script>
+</head>
+<body>
+<h1 align="center">ChatGpt Test</h1>
+
+<div id="chatWindow">
+    <el-row id="outputArea">
+        <el-card id="inputCard">
+            <div id="inputTxt">
+            </div>
+        </el-card>
+        <el-card id="outputCard">
+            <div id="outputBody">
+                <span id="outputTxt"></span>
+                <img v-if="blink" class="cursor-img" src="img/cursor-text-blink.gif" v-show="cursorImgVisible">
+                <img v-if="!blink" class="cursor-img" src="img/cursor-text-black.png" v-show="cursorImgVisible">
+            </div>
+        </el-card>
+    </el-row>
+    <el-row id="inputArea">
+        <el-col :span="21">
+            <el-input id="sendTxt" v-model="input" placeholder="input content" @keyup.native="keyUp"></el-input>
+        </el-col>
+        <el-col :span="3">
+            <el-button id="sendBtn" type="primary" :disabled="sendBtnDisabled" @click="sendMsg">send</el-button>
+        </el-col>
+    </el-row>
+</div>
+
+</body>
+<script type="text/javascript">
+
+    var app = new Vue({
+      el: '#chatWindow',
+      data: {
+          input: '',
+          sendBtnDisabled: false,
+          cursorImgVisible: false,
+          blink: true
+      },
+      mounted: function(){
+
+      },
+      methods: {
+         keyUp: function(event){
+            if(event.keyCode==13){
+               this.sendMsg();
+            }
+         },
+         sendMsg: function(){
+             var that = this;
+
+             //init
+             $('#outputTxt').html('');
+             var sendTxt = $('#sendTxt').val();
+             $('#inputTxt').html(sendTxt);
+             $('#sendTxt').val('');
+             that.sendBtnDisabled = true;
+             that.cursorImgVisible = true;
+
+             //send request
+             $.ajax({
+                type: "post",
+                url:"/chat/sendMsg",
+                data:{
+                    msg: sendTxt
+                },
+                contentType: 'application/x-www-form-urlencoded',
+                success:function(data){
+                     var eventSource = new EventSource('/chat/conversation/'+data)
+                     eventSource.addEventListener('open', function(e) {
+                        console.log("EventSource连接成功");
+                     });
+
+                     var blinkTimeout = null;
+                     eventSource.addEventListener("message", function(evt){
+                        var data = evt.data;
+                        var json = JSON.parse(data);
+                        var content = json.content ? json.content : '';
+                        content = content.replaceAll('\n','<br/>');
+                        console.log(json)
+                        var outputTxt = $('#outputTxt');
+                        outputTxt.html(outputTxt.html()+content);
+                        var outputCard = $('#outputCard');
+                        var scrollHeight = outputCard[0].scrollHeight;
+                        outputCard.scrollTop(scrollHeight);
+
+                        //cusor blink
+                        that.blink = false;
+                        window.clearTimeout(blinkTimeout);
+
+                        //200ms blink=true
+                        blinkTimeout = window.setTimeout(function(){
+                            that.blink = true;
+                        }, 200)
+                    });
+                    eventSource.addEventListener('error', function (e) {
+                        console.log("EventSource error");
+                        if (e.target.readyState === EventSource.CLOSED) {
+                          console.log('Disconnected');
+                        } else if (e.target.readyState === EventSource.CONNECTING) {
+                          console.log('Connecting...');
+                        }
+                    });
+
+                    eventSource.addEventListener('stop', e => {
+                        console.log('EventSource连接结束');
+                        eventSource.close();
+                        that.sendBtnDisabled = false;
+                        that.cursorImgVisible = false;
+                    }, false);
+                },
+                error: function(){
+                     that.sendBtnDisabled = false;
+                     that.cursorImgVisible = false;
+                }
+             });
+         }
+      }
+    })
+
+
+
+
+</script>
+</html>

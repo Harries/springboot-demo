@@ -1,4 +1,4 @@
-package demo.et.demo.controller;
+package com.et.demo.controller;
 
 import java.util.HashMap;
 import java.util.Map;

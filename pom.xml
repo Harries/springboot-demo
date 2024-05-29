@@ -94,6 +94,8 @@
         <module>tidb</module>
         <module>Statemachine</module>
         <module>freemaker</module>
+        <module>sse</module>
+        <module>Spring-Task-Scheduler</module>
 
     </modules>
     <properties>
