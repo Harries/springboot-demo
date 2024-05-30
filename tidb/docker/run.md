@@ -1,24 +1,42 @@
-### 下载docker-compose项目
+### pull images
 ```shell
-git clone https://github.com/pingcap/tidb-docker-compose.git
+docker pull xuxuclassmate/tidb
 ```
 
-### 启动集群
+### start tidb
 ```shell
-cd tidb-docker-compose 
-docker-compose up -d
+docker run --name tidb -d --privileged=true -p 4000:4000 xuxuclassmate/tidb
+
 ```
-### docker ps查看集群
 
-可以看到，已经启动了三个tikv实例，一个tidb实例，三个pd实例，还有监控和tidb-vision。
-- 监控的访问地址是 http://localhost:3000，用户名/密码：admin/admin。
-- tidb-vision 的访问地址是 http://localhost:8010
 
-### 使用MySQL客户端访问TiDB
+### use mysql client to connect tidb
 ```shell
 mysql -h 127.0.0.1 -P 4000 -u root
 ```
-### 集群停止
+### init data
+
 ```shell
-docker-compose down
+
+CREATE DATABASE demo;
+
+CREATE USER 'test'@'%' IDENTIFIED BY 'test';
+GRANT ALL PRIVILEGES ON demo.* TO 'test'@'%';
+FLUSH PRIVILEGES;
+
+use mysql
+update user set authentication_string = password('123456') where User = 'root';
+FLUSH PRIVILEGES;
+
+CREATE TABLE `user` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(100) DEFAULT NULL,
+ `age` int(11) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB ;
+INSERT INTO demo.`user`(id, name, age)VALUES(1, 'jack', 18);
+INSERT INTO demo.`user`(id, name, age)VALUES(2, 'alyssa', 19);
+
+
+
 ```
