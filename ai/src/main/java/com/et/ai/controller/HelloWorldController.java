@@ -49,7 +49,7 @@ public class HelloWorldController {
         Prompt prompt = new Prompt(message);
         Flux<ChatResponse> flux= streamingChatClient.stream(prompt);
         SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
-        // 订阅流式数据并使用SseEmitter发送
+        //订阅流式数据并使用SseEmitter发送
         flux.subscribe(
                 data -> {
                     try {
