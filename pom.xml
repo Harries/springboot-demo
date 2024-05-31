@@ -96,6 +96,7 @@
         <module>freemaker</module>
         <module>sse</module>
         <module>Spring-Task-Scheduler</module>
+        <module>hana</module>
 
     </modules>
     <properties>

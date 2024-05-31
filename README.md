@@ -120,6 +120,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 107         | rss                   | springboot with  rss               | [CN](http://www.liuhaihua.cn/archives/710623.html) / [EN](https://jxausea.medium.com/spring-boot-integration-rss-quick-start-demo-e2a61c6ca26f)                                      | done   |
 | 108         | sse                   | springboot with  sse               | [CN](http://www.liuhaihua.cn/archives/710637.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-sse-to-implement-chatgpt-streaming-interaction-c8f218b7a330)             | done   |
 | 109         | Qwen1.5-7B-Chat       | springboot with  Qwen1.5-7B-Chat   | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 111         | hana                  | springboot with  hana              | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 
