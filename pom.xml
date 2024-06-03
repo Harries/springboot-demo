@@ -97,6 +97,7 @@
         <module>sse</module>
         <module>Spring-Task-Scheduler</module>
         <module>hana</module>
+        <module>thymeleaf</module>
 
     </modules>
     <properties>
