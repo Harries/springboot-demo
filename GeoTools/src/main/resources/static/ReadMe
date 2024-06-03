@@ -1,0 +1,12 @@
+本项目的测试shp均在shpTest文件夹下
+
+============== 一个shp只支持一种几何类型
+
+Point类型     ： 某地方的大棚数据
+LineString类型:  中国铁路网【部分】
+Polygon类型   :  中国建筑物【部分 -- 北京故宫】
+
+==============
+
+E:\Spring-boot\Spring-Boot-Shaper\src\main\resources\static\shpTest[Point]\dp_tl.shp
+E:\Spring-boot\Spring-Boot-Shaper\src\main\resources\static\shpTest[Polygon]\china_building_part.shp
