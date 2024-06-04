@@ -9,12 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * <p>shp接口请求处理器</p>
- * @author Appleyk
- * @blob https://blog.csdn.net/appleyk
- * @date Created on 下午 2018-10-24 16:27:22
- */
+
 @CrossOrigin
 @RequestMapping("/shper")
 @RestController

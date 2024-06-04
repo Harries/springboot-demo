@@ -45,12 +45,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * <p>ShapeFile文件读写工具类</p>
- * @author Appleyk
- * @blob https://blog.csdn.net/appleyk
- * @date Created on 上午 11:54 2018-10-12
- */
 public class ShpTools {
 
     /**几何对象构造器【自定义的】*/
