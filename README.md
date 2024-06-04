@@ -122,6 +122,9 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 109         | Qwen1.5-7B-Chat       | springboot with  Qwen1.5-7B-Chat   | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 111         | hana                  | springboot with  hana              | [CN](http://www.liuhaihua.cn/archives/710646.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-with-hana-quick-start-demo-64f60744a5bb)                               | done   |
 | 112         | geodesy               | springboot with  geodesy           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 113         | findbug               | springboot with  findbug           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 114         | checkstyle            | springboot with  checkstyle        | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 115         | jacoco                | springboot with  jacoco            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 
 
 
