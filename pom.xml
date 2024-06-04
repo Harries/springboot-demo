@@ -99,6 +99,7 @@
         <module>hana</module>
         <module>thymeleaf</module>
         <module>GeoTools</module>
+        <module>geodesy</module>
 
     </modules>
     <properties>
