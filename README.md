@@ -125,7 +125,6 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 113         | findbug               | springboot with  findbug           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 114         | checkstyle            | springboot with  checkstyle        | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 115         | jacoco                | springboot with  jacoco            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 116         | junit-jupiter         | springboot with  junit-jupiter     | [CN](###) / [EN](###)
 
 
 ### Remark
