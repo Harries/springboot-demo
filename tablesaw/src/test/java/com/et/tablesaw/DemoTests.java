@@ -7,12 +7,19 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.test.context.junit4.SpringRunner;
 import tech.tablesaw.api.StringColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.api.AreaPlot;
 import tech.tablesaw.plotly.Plot;
+
+import javax.annotation.Resource;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 @RunWith(SpringRunner.class)
@@ -103,6 +110,18 @@ public class DemoTests {
     public void write() throws IOException {
         tornadoes.write().csv("rev_tornadoes_1950-2014-test.csv");
 
+    }
+    @Resource
+    private JdbcTemplate jdbcTemplate;
+    @Test
+    public void datafrommysql() throws IOException {
+        Table table = jdbcTemplate.query("SELECT  user_id,username,age from user_info", new ResultSetExtractor<Table>() {
+            @Override
+            public Table extractData(ResultSet resultSet) throws SQLException, DataAccessException {
+                return Table.read().db(resultSet);
+            }
+        });
+        System.out.println(table);
     }
 
 
