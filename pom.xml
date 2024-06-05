@@ -101,6 +101,7 @@
         <module>GeoTools</module>
         <module>geodesy</module>
         <module>pmd</module>
+        <module>tablesaw</module>
 
     </modules>
     <properties>
