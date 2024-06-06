@@ -31,7 +31,7 @@ public class DemoTests {
     @Before
     public void before() throws IOException {
         log.info("init some data");
-        tornadoes = Table.read().csv("D:\\IdeaProjects\\ETFramework\\tablesaw\\src\\main\\resources\\data\\tornadoes_1950-2014.csv");
+        tornadoes = Table.read().csv("/Users/liuhaihua/IdeaProjects/springboot-demo/tablesaw/src/main/resources/data/tornadoes_1950-2014.csv");
 
     }
     @After

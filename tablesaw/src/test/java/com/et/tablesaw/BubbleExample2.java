@@ -24,7 +24,7 @@ public class BubbleExample2 {
 
   public static void main(String[] args) throws IOException {
 
-    Table wines = Table.read().csv("D:\\IdeaProjects\\ETFramework\\tablesaw\\src\\main\\resources\\data\\test_wines.csv");
+    Table wines = Table.read().csv("/Users/liuhaihua/IdeaProjects/springboot-demo/tablesaw/src/main/resources/data/test_wines.csv");
 
     Table champagne =
         wines.where(
@@ -36,7 +36,7 @@ public class BubbleExample2 {
     Figure figure =
         BubblePlot.create(
             "Average retail price for champagnes by year and rating",
-            champagne, // table name
+            champagne, // table namex
             "highest pro score", // x variable column name
             "year", // y variable column name
             "Mean Retail" // bubble size
