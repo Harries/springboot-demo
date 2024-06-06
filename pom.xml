@@ -102,6 +102,7 @@
         <module>geodesy</module>
         <module>pmd</module>
         <module>tablesaw</module>
+        <module>tika</module>
 
     </modules>
     <properties>
