@@ -103,6 +103,7 @@
         <module>pmd</module>
         <module>tablesaw</module>
         <module>tika</module>
+        <module>ANTLR</module>
 
     </modules>
     <properties>
