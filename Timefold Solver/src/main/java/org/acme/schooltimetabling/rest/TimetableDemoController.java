@@ -52,6 +52,7 @@ public class TimetableDemoController {
     @GetMapping(value = "/{demoDataId}")
     public ResponseEntity<Timetable> generate(@Parameter(description = "Unique identifier of the demo data.",
             required = true) @PathVariable("demoDataId") DemoData demoData) {
+		demoData =  DemoData.LARGE;
         List<Timeslot> timeslots = new ArrayList<>(10);
         long nextTimeslotId = 0L;
         timeslots.add(new Timeslot(Long.toString(nextTimeslotId++), DayOfWeek.MONDAY, LocalTime.of(8, 30), LocalTime.of(9, 30)));
