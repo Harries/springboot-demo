@@ -104,7 +104,8 @@
         <module>tablesaw</module>
         <module>tika</module>
         <module>ANTLR</module>
-      <!--  <module>vaadin</module>-->
+        <module>vavr</module>
+        <!--  <module>vaadin</module>-->
 
     </modules>
     <properties>
