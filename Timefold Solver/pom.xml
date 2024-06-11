@@ -7,6 +7,8 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.2.1</version>
+    <relativePath/>
+
   </parent>
 
   <groupId>org.acme</groupId>
@@ -132,7 +134,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${version.org.springframework.boot}</version>
         <executions>
           <!-- Repackage the archive produced by maven-jar-plugin into an executable JAR file. -->
           <execution>
