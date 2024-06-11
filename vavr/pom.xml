@@ -38,6 +38,12 @@
             <artifactId>vavr</artifactId>
             <version>0.10.4</version>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.20</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 </project>

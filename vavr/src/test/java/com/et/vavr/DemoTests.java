@@ -1,5 +1,9 @@
 package com.et.vavr;
 
+import cn.hutool.core.util.StrUtil;
+import io.vavr.Function1;
+import io.vavr.Function2;
+import io.vavr.Function3;
 import io.vavr.Function4;
 import org.junit.After;
 import org.junit.Before;
@@ -30,11 +34,7 @@ public class DemoTests {
         log.info("your method test Code");
 
     }
-    @Test
-    public void multiFunctionTest() {
-        Function4<String, String, Boolean, Integer, String> func =
-                (country, name, isMan, score) -> String.format("%s-%s-%s-%d", country, name, isMan ? "男" : "女", score);
-        System.out.println(func.apply("中国", "小明", true, 10));
-    }
+
+    //https://www.twblogs.net/a/5d4051e1bd9eee51fbf98d8a/?lang=zh-cn
 }
 
