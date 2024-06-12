@@ -99,7 +99,7 @@
     function WebSocketInit(){
         //判断当前浏览器是否支持WebSocket
         if ('WebSocket' in window) {
-            websocket = new WebSocket("ws://10.11.68.77:8088/webrtc/"+username);
+            websocket = new WebSocket("ws://127.0.0.1:8088/webrtc/"+username);
         } else {
             alert("当前浏览器不支持WebSocket！");
         }
