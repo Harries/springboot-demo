@@ -105,6 +105,7 @@
         <module>tika</module>
         <module>ANTLR</module>
         <module>vavr</module>
+        <module>WebRTC</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
