@@ -9,7 +9,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 
 ###  Module 
 
-| Module name | Module name           | Module description                 | docs                                                                                                                                                                                 | status |
+| Serial number | Module name           | Module description                 | docs                                                                                                                                                                                 | status |
 |-------------|-----------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
 | 1           | demo                  | springboot with web                | [CN](http://www.liuhaihua.cn/archives/710149.html) / [EN](https://jxausea.medium.com/%E4%B8%80-create-springboot-module-8ed28523a961)                                                | done   |
 | 2           | redis                 | springboot with redis              | [CN](http://www.liuhaihua.cn/archives/710158.html) / [EN](https://jxausea.medium.com/springboot-integrated-redis-entry-demo-ea8084843856)                                            | done   |
@@ -56,10 +56,10 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 43          | sharding-jdbc         | springboot with sharding-jdbc      | [CN](http://www.liuhaihua.cn/archives/710577.html) / [EN](https://jxausea.medium.com/spring-boot-integration-sharding-jdbc-quickstart-demo-a767443e164c)                             | done   |
 | 44          | freemaker             | springboot with freemaker          | [CN](http://www.liuhaihua.cn/archives/710629.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-freemaker-quick-start-demo-a3bb816fdfea)                               | done   |
 | 45          | thymeleaf             | springboot with thymeleaf          | [CN](http://www.liuhaihua.cn/archives/710652.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-thymeleaf-quicks-tart-demo-ea047355ff30)                                 | done   |
-| 46          | hystrix               | springboot with hystrix            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 47          | eureka                | springboot with eureka             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 46          | gemfire               | springboot with gemfire            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 47          | jacoco                | springboot with jacoco             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 48          | config                | springboot with config             | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 49          | azkaban               | springboot with azkaban            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 49          | checkstyle           | springboot with checkstyle            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 50          | Captcha               | springboot with Captcha            | [CN](http://www.liuhaihua.cn/archives/710384.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-aj-captcha-to-implement-sliding-verification-code-function-ed32fabcf7d9) | done   |
 | 51          | SpringRetry           | springboot with SpringRetry        | [CN](http://www.liuhaihua.cn/archives/710389.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-spring-retry-quick-start-demo-e70120a84551)                              | done   |
 | 52          | netty                 | springboot with netty              | [CN](http://www.liuhaihua.cn/archives/710299.html) / [EN](https://jxausea.medium.com/spring-boot-intergratd-netty-implements-websocket-communication-2302e09cf748)                   | done   |
@@ -122,10 +122,8 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 109         | Qwen1.5-7B-Chat       | springboot with  Qwen1.5-7B-Chat   | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
 | 111         | hana                  | springboot with  hana              | [CN](http://www.liuhaihua.cn/archives/710646.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-with-hana-quick-start-demo-64f60744a5bb)                               | done   |
 | 112         | geodesy               | springboot with  geodesy           | [CN](http://www.liuhaihua.cn/archives/710663.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-geodesy-to-implement-distance-calculation-92680c008417)                  | done   |
-| 113         | findbug               | springboot with  findbug           | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 114         | checkstyle            | springboot with  checkstyle        | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
-| 115         | jacoco                | springboot with  jacoco            | [CN](###) / [EN](###)   | todo   |
-| 116         | gemfire               | springboot with  gemfire           | [CN](###) / [EN](###)   | todo   |
+| 113         | findbug               | springboot with  findbug           | [CN](###) / [EN](###)   | todo   |
+
 
 ### Remark
 
