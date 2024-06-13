@@ -10,7 +10,6 @@ import java.util.List;
  * @version 1.0
  * @ClassName CustomerRepository
  * @Description todo
- * @date 2024年06月11日 10:07
  */
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
