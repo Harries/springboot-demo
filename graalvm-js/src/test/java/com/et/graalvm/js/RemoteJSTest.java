@@ -12,7 +12,7 @@ import javax.script.ScriptException;
 
 public class RemoteJSTest {
     public static void main(String[] args) throws IOException, ScriptException {
-        URL jsUrl = new URL("https://example.com/script.js"); // js文件的URL
+        URL jsUrl = new URL("http://127.0.0.1:8088/test.js"); // js文件的URL
         URLConnection connection = jsUrl.openConnection();
         InputStream inputStream = connection.getInputStream(); // 获取js文件的流
 

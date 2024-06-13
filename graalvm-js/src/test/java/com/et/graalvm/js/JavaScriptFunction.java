@@ -10,6 +10,8 @@ import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.SimpleScriptContext;
+import org.graalvm.polyglot.*;
+
 
 import org.junit.Test;
 
@@ -46,7 +48,7 @@ public class JavaScriptFunction {
     public void file() throws Exception{
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("JavaScript");
-        engine.eval(new java.io.FileReader(new File("F:/test/test.js")));
+        engine.eval(new java.io.FileReader(new File("D:\\IdeaProjects\\ETFramework\\graalvm-js\\src\\main\\resources\\static\\test.js")));
         Invocable inv = (Invocable) engine;
         Object obj = engine.get("obj");
         inv.invokeMethod(obj, "name", "知道了" );
@@ -59,12 +61,19 @@ public class JavaScriptFunction {
      */
     @Test
     public void scriptVar() throws Exception{
-        ScriptEngineManager manager = new ScriptEngineManager();
-        ScriptEngine engine = manager.getEngineByName("JavaScript");
-        File file = new File("F:/test/test.txt");
+
+        File file = new File("D:\\IdeaProjects\\ETFramework\\graalvm-js\\src\\main\\resources\\static\\test.txt");
         //将File对象f直接注入到js脚本中并可以作为全局变量使用
-        engine.put("files", file);
-        engine.eval("print(files.getPath());print(files.getName());");
+        Context context = Context.newBuilder("js")
+                .allowAllAccess(true)
+                .allowIO(true)
+                .allowPolyglotAccess(PolyglotAccess.ALL)
+                .build();
+
+        context.getPolyglotBindings().putMember("name", file);
+        context.eval("js", "var name = Polyglot.import('name');");
+        context.eval("js", "console.log(name.getName())");
+
     }
     
     /**
