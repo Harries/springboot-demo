@@ -1,0 +1,95 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="myApp">
+<div id="mapdiv"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <script>
+        var app = angular.module('myApp', ['ngMaterial'])
+        app.directive("ngFileSelect", function () {
+            return {
+                link: function ($scope, el) {
+                    el.bind("change", function (e) {
+                        $scope.file = (e.srcElement || e.target).files[0];
+                        $scope.getFile();
+                    })
+                }
+            }
+
+
+        });
+        app.controller('myCtrl', function ($scope, $http, fileReader) {
+            $scope.progress = 0;
+            $scope.labelVisiblity = {'visibility': 'hidden'};
+            $scope.submitDisable = true;
+            $scope.waitComputing = {'visibility': 'hidden'};
+
+            $scope.getFile = function () {
+                $scope.submitDisable = false;
+                $scope.labelVisiblity = {'visibility': 'hidden'};
+                $scope.progress = 0;
+                $scope.errMessage = "";
+                fileReader.readAsDataUrl($scope.file, $scope)
+                    .then(function (result) {
+                        $scope.imageSrc = result;
+                    });
+            };
+            $scope.$on("fileProgress", function (e, progress) {
+                $scope.progress = progress.loaded / progress.total;
+            });
+
+            $scope.doSaveNewDoc = function () {
+                var files = document.getElementById("newFile").files;
+                if (!files.length) {
+                    $scope.errMessage = "Select a file first";
+                    return;
+                }
+                $scope.waitComputing = {'visibility': 'visible'};
+                $scope.submitDisable = true;
+                var file = files[0]
+                var fd = new FormData();
+                fd.append('file', file);
+                $http.post('/api/classify', fd, {
+                        transformRequest: angular.identity,
+                        headers: {'Content-Type': undefined}
+                    }
+                ).success(function (result) {
+                    console.log(result)
+                    $scope.labelVisiblity = {'visibility': 'visible'};
+                    $scope.waitComputing = {'visibility': 'hidden'};
+                    $scope.classification = result
+                    $scope.submitDisable = false;
+                }).error(function () {
+                    $scope.submitDisable = false;
+                });
+            };
+        });
+    </script>
+    <script src="upload.js"></script>
+    <div layout="column" layout-align="center center">
+        <div>
+            <input class="ng-hide" type="file" id="newFile" name="file" ng-file-select="onFileSelect($files)"/>
+            <label for="newFile" class="md-button md-raised">Choose image</label>
+            <md-button class="md-raised md-primary" type="button" ng-click="doSaveNewDoc()" ng-disabled="submitDisable">Classify</md-button>
+            <md-button class="md-primary" target="_blank" href="/docs/index.html">API Doc</md-button>
+        </div>
+        <md-progress-linear md-mode="indeterminate" md-diameter="20px" ng-style="waitComputing"></md-progress-linear>
+
+        <br/>
+        <md-content style="color:darkblue" ng-style="labelVisiblity">
+            <b>{{classification.label}}</b> Probability {{classification.probability}}%. Took {{classification.elapsed}} ms
+        </md-content>
+        <br/>
+        <md-whiteframe class="md-whiteframe-4dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25"><img ng-src="{{imageSrc}}"/></md-whiteframe>
+        <p style="color:red">{{errMessage}}</p>
+    </div>
+</div>
+</body>
+</html>
+

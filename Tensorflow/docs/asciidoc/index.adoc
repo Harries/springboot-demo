@@ -1,0 +1,18 @@
+:doctype: book
+:icons: font
+:toc: left
+:toclevels: 4
+:sectlinks:
+:source-highlighter: highlightjs
+:operation-curl-request-title: Example request
+:operation-http-response-title: Example response
+
+= Image recognition API
+
+Upload and classify an image using Google's https://www.tensorflow.org/tutorials/image_recognition[Image Recognition] Inception Model v3.
+
+== Classify image
+
+include::{snippets}/classify-image-ok/1/http-request.adoc[]
+include::{snippets}/classify-image-ok/1/http-response.adoc[]
+
