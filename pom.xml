@@ -106,6 +106,7 @@
         <module>ANTLR</module>
         <module>vavr</module>
         <module>WebRTC</module>
+        <module>xstream</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
