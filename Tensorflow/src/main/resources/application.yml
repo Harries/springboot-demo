@@ -8,6 +8,8 @@ tf:
         mean: 0
         scale: 255
 
-spring.http.multipart.max-file-size: 5MB
-
 logging.level.net.sf.jmimemagic: WARN
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
