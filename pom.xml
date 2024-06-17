@@ -108,6 +108,7 @@
         <module>WebRTC</module>
         <module>xstream</module>
         <module>Tensorflow</module>
+        <module>MultiProfiles</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
