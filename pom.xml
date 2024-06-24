@@ -110,6 +110,7 @@
         <module>Tensorflow</module>
         <module>MultiProfiles</module>
         <module>jsoup</module>
+        <module>Blockchain</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
