@@ -109,6 +109,7 @@
         <module>xstream</module>
         <module>Tensorflow</module>
         <module>MultiProfiles</module>
+        <module>jsoup</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
