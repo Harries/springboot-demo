@@ -112,6 +112,7 @@
         <module>jsoup</module>
         <module>Blockchain</module>
         <module>SpringMobile</module>
+        <module>findbug</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
