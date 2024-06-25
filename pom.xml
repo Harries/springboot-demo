@@ -111,6 +111,7 @@
         <module>MultiProfiles</module>
         <module>jsoup</module>
         <module>Blockchain</module>
+        <module>SpringMobile</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
