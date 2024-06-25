@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match>
+        <Class name="com.et.findbug.MockError" />
+    </Match>
+    <Match>
+        <Package name="com.et.findbug.controller" />
+    </Match>
+    <Match>
+        <Class name="com.et.findbug.controller" />
+        <Method name="showHelloWorld"></Method>
+    </Match>
+    <Match>
+        <!--装箱后拆箱紧接着装箱，忽略不处理 -->
+        <!-- Boxed value is unboxed and then immediately reboxed-->
+        <Package name="~.*" />
+        <Bug pattern="BX_UNBOXING_IMMEDIATELY_REBOXED" />
+    </Match>
+
+</FindBugsFilter>
