@@ -113,6 +113,7 @@
         <module>Blockchain</module>
         <module>SpringMobile</module>
         <module>findbug</module>
+        <module>Deeplearning4j</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
