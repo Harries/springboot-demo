@@ -114,6 +114,7 @@
         <module>SpringMobile</module>
         <module>findbug</module>
         <module>Deeplearning4j</module>
+        <module>jasypt</module>
         <!--  <module>vaadin</module>-->
 
     </modules>

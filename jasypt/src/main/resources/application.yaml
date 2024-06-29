@@ -1,0 +1,8 @@
+server:
+  port: 8088
+username: ENC(SUfiOs8MvmAUjg+oWl/6dQ==)
+
+jasypt:
+  encryptor:
+    #password: pkslow
+    algorithm: PBEWithMD5AndTripleDES
