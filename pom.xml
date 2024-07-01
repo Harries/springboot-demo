@@ -116,6 +116,7 @@
         <module>Deeplearning4j</module>
         <module>jasypt</module>
         <module>gemfire</module>
+        <module>checkstyle</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
