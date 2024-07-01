@@ -33,8 +33,10 @@ gfsh> create region --name=hello --type=REPLICATE
 gfsh> create region --name=People --type=REPLICATE
 
 ```
-
-
+clean region
+```
+remove --all --region=People
+```
 Finally, shutdown the Geode server and locator:
 ```
 gfsh> shutdown --include-locators=true
