@@ -31,8 +31,12 @@ Create a region:
 ```
 gfsh> create region --name=hello --type=REPLICATE 
 gfsh> create region --name=People --type=REPLICATE
-
 ```
+query region
+```
+gfsh>query --query="select * from /hello"
+```
+
 clean region
 ```
 remove --all --region=People
