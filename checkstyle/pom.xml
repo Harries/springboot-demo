@@ -38,7 +38,8 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version> <!-- Use the latest version here -->
                 <configuration>
-                    <configLocation>/config/checkstyle.xml</configLocation>
+                    <configLocation>${basedir}/config/maven_checks.xml</configLocation>
+                    <suppressionsLocation>${basedir}/config/checkstyle-suppressions.xml</suppressionsLocation>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
