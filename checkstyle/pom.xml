@@ -38,7 +38,7 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version> <!-- Use the latest version here -->
                 <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
+                    <configLocation>/config/checkstyle.xml</configLocation>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>

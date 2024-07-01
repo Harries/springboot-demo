@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class HelloWorldController {
+public class HelloWorldController{
     @RequestMapping("/hello")
-    public Map<String, Object> showHelloWorld(){
+    public Map<String, Object> showHelloWorld() {
         Map<String, Object> map = new HashMap<>();
         map.put("msg", "HelloWorld");
         return map;
