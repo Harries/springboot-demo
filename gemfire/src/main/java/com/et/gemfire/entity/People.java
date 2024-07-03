@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class People implements Serializable {
 	@Id
 	private  String name;
-	private  int age;// 省略get\set方法
+	private  int age;
 
 	public String getName() {
 		return name;
