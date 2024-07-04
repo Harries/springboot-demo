@@ -117,6 +117,7 @@
         <module>jasypt</module>
         <module>gemfire</module>
         <module>checkstyle</module>
+        <module>fastjson2</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
