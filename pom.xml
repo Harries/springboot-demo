@@ -119,6 +119,7 @@
         <module>checkstyle</module>
         <module>jacoco</module>
         <module>fastjson2</module>
+        <module>olingo</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
