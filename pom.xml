@@ -121,6 +121,7 @@
         <module>fastjson2</module>
         <module>olingo</module>
         <module>webservice</module>
+        <module>atomix</module>
         <!--  <module>vaadin</module>-->
 
     </modules>

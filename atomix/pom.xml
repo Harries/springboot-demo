@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.et59.demo</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>atomix</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <atomix.version>3.1.12</atomix.version>
     </properties>
     <dependencies>
         <dependency>
@@ -31,10 +31,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>io.atomix</groupId>
+            <artifactId>atomix</artifactId>
+            <version>${atomix.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.atomix</groupId>
+            <artifactId>atomix-raft</artifactId>
+            <version>${atomix.version}</version>
+        </dependency>
+
     </dependencies>
-    <dependency>
-        <groupId>io.atomix</groupId>
-        <artifactId>atomix-all</artifactId>
-        <version>1.0.8</version>
-    </dependency>
 </project>
