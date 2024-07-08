@@ -1,9 +1,11 @@
 package com.et.webservice.client;
 
-import jakarta.jws.WebService;
+import javax.jws.WebService;
 
-@WebService // Webservice注解表明是一个Webservice的服务类
-        (targetNamespace = "http://liuhaihua.cn/mywebservice") // 指定服务的命名空间
+@WebService(
+		name = "MyWebService",
+		targetNamespace = "http://liuhaihua.cn/mywebservice"
+)
 public interface HelloService {
     // 接口名一样
 

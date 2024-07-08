@@ -19,7 +19,7 @@ public class Client {
         JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
 
         // 设置要访问的服务地址
-        jaxWsProxyFactoryBean.setAddress("http://localhost:8088/ws/hello");
+        jaxWsProxyFactoryBean.setAddress("http://localhost:8088/services/1?wsdl");
 
         // 设置服务接口类，即HelloService
         jaxWsProxyFactoryBean.setServiceClass(HelloService.class);
