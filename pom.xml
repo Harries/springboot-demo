@@ -122,6 +122,7 @@
         <module>olingo</module>
         <module>webservice</module>
         <module>atomix</module>
+        <module>rmi</module>
         <!--  <module>vaadin</module>-->
 
     </modules>
