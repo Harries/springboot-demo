@@ -123,6 +123,9 @@
         <module>webservice</module>
         <module>atomix</module>
         <module>rmi</module>
+        <module>grpc</module>
+        <module>drools</module>
+
         <!--  <module>vaadin</module>-->
 
     </modules>
