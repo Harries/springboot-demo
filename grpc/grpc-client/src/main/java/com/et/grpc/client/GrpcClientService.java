@@ -33,6 +33,7 @@ import net.devh.boot.grpc.client.inject.GrpcClient;
 public class GrpcClientService {
 
     @GrpcClient("local-grpc-server")
+    // @GrpcClient("cloud-grpc-server")
     private MyServiceGrpc.MyServiceBlockingStub myServiceStub;
 
     public String sendMessage(final String name) {
