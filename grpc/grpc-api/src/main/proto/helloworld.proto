@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package net.devh.boot.grpc.example;
+
+option java_multiple_files = true;
+option java_package = "com.et.grpc.api.protobuf.lib";
+option java_outer_classname = "HelloWorldProto";
+
+// The greeting service definition.
+service MyService {
+    // Sends a greeting
+    rpc SayHello (HelloRequest) returns (HelloReply) {
+    }
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+    string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+    string message = 1;
+}
