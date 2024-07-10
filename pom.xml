@@ -125,6 +125,7 @@
         <module>rmi</module>
         <module>grpc</module>
         <module>drools</module>
+        <module>pf4j</module>
 
         <!--  <module>vaadin</module>-->
 
