@@ -1,7 +1,10 @@
 package com.et.atomix.server;
 
+import io.atomix.cluster.Member;
 import io.atomix.cluster.discovery.BootstrapDiscoveryProvider;
 import io.atomix.core.Atomix;
+import io.atomix.core.election.AsyncLeaderElector;
+import io.atomix.core.election.Leadership;
 import io.atomix.core.map.AsyncAtomicMap;
 import io.atomix.primitive.Recovery;
 import io.atomix.protocols.raft.MultiRaftProtocol;
@@ -9,8 +12,10 @@ import io.atomix.protocols.raft.partition.RaftPartitionGroup;
 import io.atomix.utils.time.Versioned;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 //https://raft.github.io/
 public class AtomixCluster {
@@ -38,6 +43,30 @@ public class AtomixCluster {
         CompletableFuture<Versioned<Object>> myBlog = asyncAtomicMap.get("HBLOG");
         Versioned<Object> objectVersioned = myBlog.get();
         System.out.printf("value:%s version:%s%n", objectVersioned.value(), objectVersioned.version());
+
+		//Elector
+		AsyncLeaderElector leaderElector = atomix.leaderElectorBuilder("leader")
+				.withProtocol(MultiRaftProtocol.builder(groupName)
+						.withRecoveryStrategy(Recovery.RECOVER)
+						.withMaxRetries(MAX_RETRIES)
+						.withMaxTimeout(Duration.ofMillis(15000L))
+						.build())
+				.withReadOnly(false)
+				.build()
+				.async();
+		//获取出当前节点
+		Member localMember = atomix.getMembershipService().getLocalMember();
+		System.out.println("localMember:" + localMember.toString());
+		String topic = "this is a topic";
+		//根据某一topic选举出leader,返回的是选举为leader的节点
+		Leadership leadership = (Leadership) leaderElector.run(topic, localMember.toString()).get();
+		System.out.println("==========" + leadership);
+		//get leadership
+		Leadership topicLeadership = (Leadership) leaderElector.getLeadership(topic).get();
+		System.out.println("------------>" + topicLeadership);
+		//输出所有的topic对应的leader
+		Map topicLeadershipMaps = (Map) leaderElector.getLeaderships().get();
+		System.out.println("++++++++++++" + topicLeadershipMaps.toString());
     }
 
     private static Atomix buildAtomix() {
