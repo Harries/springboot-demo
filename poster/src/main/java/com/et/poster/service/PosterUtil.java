@@ -44,9 +44,9 @@ public class PosterUtil {
 				.postQrcode(qrcode)
 				.xuxian(xx)
 				.siteSlogon(siteSlogon)
-				.postTitle("Java5分钟制作海报")
-				.postDate("2022年11月14日 pm1:23 作者：Harries")
-				.posttitleDesc("需求背景\u200B 我们经常在多终端应用开发中会遇到这样的需求：用户在浏览商品时觉得不错，希望分享给朋友。此时终端（安卓、苹果、H5等）生成一张精美的商品海报，通过微信或者其他途径分享给他人。也可能会遇到需求：制作个人名片打印出来或者分享给他人。效果大概是这样的： 也可能是这样 （上面的图都是我...")
+				.postTitle("Java generate poster in 5 miniutes")
+				.postDate("2022年11月14日 pm1:23 Author：Harries")
+				.posttitleDesc("Demand Background\u200B We often encounter such a demand in multi-terminal application development: when users browse products, they feel good and want to share them with friends. At this time, the terminal (Android, Apple, H5, etc.) generates a beautiful product poster and shares it with others through WeChat or other channels. You may also encounter the demand: make a personal business card and print it out or share it with others. The effect is probably like this: It may also be like this (the above pictures are all mine...")
 				.mainImage(mainImage)
 				.build();
 
