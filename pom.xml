@@ -126,6 +126,7 @@
         <module>grpc</module>
         <module>drools</module>
         <module>pf4j</module>
+        <module>poster</module>
 
         <!--  <module>vaadin</module>-->
 
