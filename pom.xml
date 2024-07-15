@@ -129,7 +129,6 @@
         <module>poster</module>
         <module>groovy</module>
 
-        <!--  <module>vaadin</module>-->
 
     </modules>
     <properties>

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - 11434:11434
+    volumes:
+      - ./data:/root/.ollama

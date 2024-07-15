@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  ollama-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ollama-webui
+    restart: unless-stopped
+    ports:
+      - 11433:8080
+    volumes:
+      - ./data:/app/backend/data
+    environment:
+      - OLLAMA_API_BASE_URL=http://10.11.68.77:11434/api
+      - WEBUI_SECRET_KEY=TkjGEiQ@5K^j
