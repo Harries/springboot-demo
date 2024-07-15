@@ -123,7 +123,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 111           | hana                  | springboot with  hana              | [CN](http://www.liuhaihua.cn/archives/710646.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-with-hana-quick-start-demo-64f60744a5bb)                               | done   |
 | 112           | geodesy               | springboot with  geodesy           | [CN](http://www.liuhaihua.cn/archives/710663.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-geodesy-to-implement-distance-calculation-92680c008417)                  | done   |
 | 113           | findbug               | springboot with  findbug           | [CN](http://www.liuhaihua.cn/archives/710780.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-findbug-quick-start-demo-778905ef74d5)                                   | done   |
-| 114           | groovy                | springboot with  groovy            | [CN](###) / [EN](###)                                                                                                                                                                | todo   |
+| 114           | groovy                | springboot with  groovy            | [CN](http://www.liuhaihua.cn/archives/710885.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-groovy-quick-start-demo-35c7533c3304)   | done   |
 
 
 ### Remark
