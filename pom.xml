@@ -130,6 +130,7 @@
         <module>groovy</module>
         <module>kudu</module>
         <module>syslog</module>
+        <module>sftp</module>
 
 
     </modules>
