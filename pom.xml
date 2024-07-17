@@ -129,6 +129,7 @@
         <module>poster</module>
         <module>groovy</module>
         <module>kudu</module>
+        <module>syslog</module>
 
 
     </modules>

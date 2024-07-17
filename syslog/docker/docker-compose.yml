@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  syslog:
+    image: lscr.io/linuxserver/syslog-ng:latest
+    container_name: syslog-ng
+
+    ports:
+      - 514:5514/udp
+      - 601:6601/tcp
+      - 6514:6514/tcp
+    volumes:
+      - ./data/config:/config
+      - ./data/log:/var/log #optional
+    restart: unless-stopped
