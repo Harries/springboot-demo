@@ -1,6 +1,6 @@
 package com.et.sftp;
 
-import com.example.sftpdemo.service.SftpService;
+import com.et.sftp.service.SftpService;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,14 +28,14 @@ public class SftpServiceTest {
 
     @Test
     void testExistFile() {
-        boolean existFile = sftpService.existFile("/tmp/foo/home222.js");
+        boolean existFile = sftpService.existFile("/upload/home222.js");
         System.out.println(existFile);
     }
 
 
     @Test
     void listFileTest() {
-        sftpService.listALLFile("/tmp/foo").stream().forEach(System.out::println);
+        sftpService.listALLFile("/upload").stream().forEach(System.out::println);
     }
 
     @Test
@@ -46,12 +46,12 @@ public class SftpServiceTest {
 
     @Test
     void testDownLoad() throws Exception {
-        sftpService.downloadFile("/tmp/foo/home.js", "D:\\tmp\\c222c.js");
+        sftpService.downloadFile("/upload/home.js", "D:\\tmp\\c222c.js");
 //
 //        sftpService.uploadFile(new File("D:\\tmp\\cc.js"));
 
 
-//        InputStream inputStream = sftpService.readFile("/tmp/foo/cc.js");
+//        InputStream inputStream = sftpService.readFile("/upload/cc.js");
 //
 //        IOUtils.copy(inputStream, new FileOutputStream(new File("D:\\tmp\\" + UUID.randomUUID() + ".js")));
 
@@ -66,7 +66,7 @@ public class SftpServiceTest {
     @Test
     void nsltTest() {
 
-        Arrays.asList(sftpService.nlstFile("/tmp/foo").split(",")).stream().forEach(System.out::println);
+        Arrays.asList(sftpService.nlstFile("/upload").split(",")).stream().forEach(System.out::println);
     }
 
 

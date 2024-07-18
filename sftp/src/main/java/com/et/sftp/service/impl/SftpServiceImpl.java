@@ -1,7 +1,7 @@
 package com.et.sftp.service.impl;
 
-import com.example.sftpdemo.config.SftpConfiguration;
-import com.example.sftpdemo.service.SftpService;
+import com.et.sftp.config.SftpConfiguration;
+import com.et.sftp.service.SftpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.integration.file.remote.FileInfo;
 import org.springframework.integration.sftp.session.SftpRemoteFileTemplate;

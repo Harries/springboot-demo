@@ -1,6 +1,6 @@
 package com.et.sftp.config.file.sync;
 
-import com.example.sftpdemo.config.SftpProperties;
+import com.et.sftp.config.SftpProperties;
 import com.jcraft.jsch.ChannelSftp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

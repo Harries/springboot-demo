@@ -1,6 +1,6 @@
 package com.et.sftp;
 
-import com.example.sftpdemo.config.SftpConfiguration;
+import com.et.sftp.config.SftpConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
