@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springbatch
+    username: root
+    password: 123456
+
+  batch:
+    jdbc:
+      schema: classpath:org/springframework/batch/core/schema-mysql.sql
+    initialize-schema: always #Since Spring Boot 2.5.0 use spring.batch.jdbc.initialize-schema=never
+
+    job:
+      enabled: true
