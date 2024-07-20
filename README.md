@@ -124,6 +124,10 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 112           | geodesy               | springboot with  geodesy           | [CN](http://www.liuhaihua.cn/archives/710663.html) / [EN](https://jxausea.medium.com/spring-boot-integrates-geodesy-to-implement-distance-calculation-92680c008417)                  | done   |
 | 113           | findbug               | springboot with  findbug           | [CN](http://www.liuhaihua.cn/archives/710780.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-findbug-quick-start-demo-778905ef74d5)                                   | done   |
 | 114           | groovy                | springboot with  groovy            | [CN](http://www.liuhaihua.cn/archives/710885.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-groovy-quick-start-demo-35c7533c3304)                                   | done   |
+| 115           | kudu                  | springboot with  kudu              | [CN](http://www.liuhaihua.cn/archives/710904.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-with-kudu-quick-start-demo-4c40703a5175)                               | done   |
+| 116           | syslog                | springboot with  syslog            | [CN](http://www.liuhaihua.cn/archives/710916.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-syslog-quick-start-demo-45fbd5678c5a)                               | done   |
+| 117           | Sftp                  | springboot with  Sftp              | [CN](http://www.liuhaihua.cn/archives/710920.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-sftp-quick-start-demo-5d183448d5f5)                               | done   |
+| 118           | Spring Batch          | springboot with  Spring Batch      | [CN](http://www.liuhaihua.cn/archives/710929.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-spring-batch-quick-start-demo-292c7e4eacb9)                               | done   |
 
 
 ### Remark
