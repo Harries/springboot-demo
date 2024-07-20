@@ -1,6 +1,7 @@
 package com.et.jacoco;
 
 public class ShippingService {
+
     public int calculateShippingFee(int weight) {
         if (weight < 0) {
             throw new IllegalStateException("Please provide correct weight");
@@ -12,4 +13,5 @@ public class ShippingService {
         }
         return 15;
     }
+
 }
