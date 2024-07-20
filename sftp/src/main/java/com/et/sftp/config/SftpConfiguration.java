@@ -29,12 +29,6 @@ import javax.annotation.Resource;
 import java.io.File;
 import java.util.List;
 
-/**
- * @author ：qiushicai
- * @date ：Created in 2020/11/20
- * @description： inbound channel adapter, outbound channel adapter, and outbound gateway
- * @version:
- */
 
 
 @Configuration
@@ -82,16 +76,6 @@ public class SftpConfiguration {
         return sftpOutboundGateway;
     }
 
-//    @Bean
-//    @ServiceActivator(outputChannel = "testChannel")
-//    public MessageHandler handler() {
-//        // 同步时打印文件信息
-//        return (m) -> {
-//            System.out.println(m.getPayload());
-//            m.getHeaders()
-//                    .forEach((key, value) -> System.out.println("\t\t|---" + key + "=" + value));
-//        };
-//    }
 
     @Bean
     @ServiceActivator(inputChannel = "uploadChannel", outputChannel = "testChannel")
@@ -154,7 +138,6 @@ public class SftpConfiguration {
 
     /**
      * create by: qiushicai
-     * description: 通过messagingTemplate向abc通道发消息，此处接收改消息
      * create time: 2020/11/20
      *
      * @return
@@ -166,7 +149,7 @@ public class SftpConfiguration {
         handler.setRemoteDirectoryExpression(new LiteralExpression(properties.getRemoteDir()));
         handler.setFileNameGenerator(message -> {
             if (message.getPayload() instanceof byte[]) {
-                System.out.println("收到消息:" + new String((byte[]) message.getPayload()));
+                System.out.println("receive message:" + new String((byte[]) message.getPayload()));
                 message.getHeaders().forEach((k, v) -> System.out.println("\t\t|---" + k + "=" + v));
                 return "ok";
             } else {
@@ -177,7 +160,7 @@ public class SftpConfiguration {
     }
 
     /**
-     * 动态设置目录:
+     *
      *  the #root object is the Message, which has two properties (headers and payload) that allow such expressions as payload, payload.thing, headers['my.header'], and so on
      *
      *  link{ https://stackoverflow.com/questions/46650004/spring-integration-ftp-create-dynamic-directory-with-remote-directory-expressi}
@@ -225,25 +208,12 @@ public class SftpConfiguration {
         @Gateway(requestChannel = "lsChannel")
         List<FileInfo> listFile(String dir);
 
-        /**
-         * nlst (list file names)
-         * 相当于：ls -1
-         * 可选项：-f 文件名不排序
-         * 返回值：文件名列表
-         */
+
         @Gateway(requestChannel = "nlstChannel")
         String nlstFile(String dir);
 
 
-        /*
-        *该命令由于获取一个远程的文件，支持如下的选项：
-            -P：文件下载之后，保持文件在本地的时间戳同远程服务器一致；
-            -stream：以流的方式获取远程文件；
-            -D：文件成功转移之后，删除远程文件；如果FileExistsMode设置为IGNORE，远程文件不会删除。
-        * file_remoteDirectory 头包含了文件的远程路径，file_remoteFile属性为文件名；
-        *
-        *返回值：使用get方法获取的message的payload是一个File对象，如果使用-straem，则payload就是一个InputStream文件流。
-         */
+
         @Gateway(requestChannel = "getChannel")
         File getFile(String dir);
 

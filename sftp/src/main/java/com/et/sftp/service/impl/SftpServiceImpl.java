@@ -12,11 +12,7 @@ import javax.annotation.Resource;
 import java.io.*;
 import java.util.List;
 
-/**
- * @author : qiushicai
- * @date : Created in 2020/11/20
- * @description :
- */
+
 @Slf4j
 @Component
 public class SftpServiceImpl implements SftpService {
@@ -28,7 +24,7 @@ public class SftpServiceImpl implements SftpService {
     private SftpConfiguration.SftpGateway gateway;
 
     /**
-     * 单文件上传
+     * single file upload
      *
      * @param file File
      */
@@ -38,7 +34,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 单文件上传 byte字节流直接上传
+     * single file upload by byte[]
      *
      * @param bytes bytes
      */
@@ -52,7 +48,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 指定上传路劲
+     * uopload by path
      *
      * @param bytes
      * @param filename
@@ -68,7 +64,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 查询某个路径下所有文件
+     * list files by path
      *
      * @param path
      * @return List<String>
@@ -87,7 +83,7 @@ public class SftpServiceImpl implements SftpService {
 
 
     /**
-     * 查询某个路径下所有文件包括文件夹
+     * list file and directory by path
      *
      * @param path
      * @return List<String>
@@ -98,10 +94,10 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 下载文件
+     * download
      *
-     * @param fileName 文件名
-     * @param savePath 本地文件存储位置
+     * @param fileName
+     * @param savePath
      * @return File
      */
     @Override
@@ -124,7 +120,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 读取文件
+     * read file
      *
      * @param fileName
      * @return InputStream
@@ -138,9 +134,9 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 文件是否存在
+     * files is exists
      *
-     * @param filePath 文件名
+     * @param filePath
      * @return boolean
      */
     @Override
@@ -166,7 +162,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 创建文件夹
+     * create directory
      *
      * @param dirName
      * @return
@@ -185,9 +181,9 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 删除文件
+     * delete file
      *
-     * @param fileName 待删除文件名
+     * @param fileName
      * @return boolean
      */
     @Override
@@ -204,7 +200,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 批量上传 (MultipartFile)
+     * batch upload (MultipartFile)
      *
      * @param files List<MultipartFile>
      * @throws IOException
@@ -228,7 +224,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 批量上传 (MultipartFile)
+     * batch upload (MultipartFile)
      *
      * @param files List<MultipartFile>
      * @throws IOException
@@ -239,7 +235,7 @@ public class SftpServiceImpl implements SftpService {
     }
 
     /**
-     * 单文件上传 (MultipartFile)
+     * single file upload (MultipartFile)
      *
      * @param multipartFile MultipartFile
      * @throws IOException
