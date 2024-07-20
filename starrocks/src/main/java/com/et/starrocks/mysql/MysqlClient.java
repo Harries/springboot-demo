@@ -23,15 +23,15 @@ package com.et.starrocks.mysql;
 
 import java.sql.*;
 
-public class Client {
+public class MysqlClient {
 
     public static void main(String[] args) {
-        String host = "172.30.17.1";
+        String host = "127.0.0.1";
         //query_port in fe.conf
-        String port = "32501";
+        String port = "9030";
         String user = "root";
         //password is empty by default
-        String password = "hk12345";
+        String password = "";
 
         //connect to starrocks
         Connection conn = null;
@@ -141,7 +141,7 @@ public class Client {
     }
 
     public static Connection getConn(String host, String port, String user, String password, String database) throws Exception {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + user + "&password=" + password;
         return DriverManager.getConnection(url);
     }

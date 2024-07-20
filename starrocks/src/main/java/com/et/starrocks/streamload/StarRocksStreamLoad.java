@@ -102,11 +102,11 @@ import java.nio.charset.StandardCharsets;
  *   some stream problem unless you see the output with 'ok' message
  */
 public class StarRocksStreamLoad {
-    private final static String STARROCKS_HOST = "kube-starrocks-be-0.kube-starrocks-be-search.starrocks.svc.cluster.local";
+    private final static String STARROCKS_HOST = "127.0.0.1";
     private final static String STARROCKS_DB = "db_test";
     private final static String STARROCKS_TABLE = "stream_test";
     private final static String STARROCKS_USER = "root";
-    private final static String STARROCKS_PASSWORD = "hk12345";
+    private final static String STARROCKS_PASSWORD = "";
     private final static int STARROCKS_HTTP_PORT = 8040;
 
     private void sendData(String content) throws Exception {
