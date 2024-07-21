@@ -128,6 +128,7 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 116           | syslog                | springboot with  syslog            | [CN](http://www.liuhaihua.cn/archives/710916.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-syslog-quick-start-demo-45fbd5678c5a)                               | done   |
 | 117           | Sftp                  | springboot with  Sftp              | [CN](http://www.liuhaihua.cn/archives/710920.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-sftp-quick-start-demo-5d183448d5f5)                               | done   |
 | 118           | Spring Batch          | springboot with  Spring Batch      | [CN](http://www.liuhaihua.cn/archives/710929.html) / [EN](https://medium.com/@jxausea/spring-boot-integration-spring-batch-quick-start-demo-292c7e4eacb9)                               | done   |
+| 119           | starrocks             | springboot with  starrocks         | [CN](http://www.liuhaihua.cn/archives/710936.html) / [EN](https://jxausea.medium.com/spring-boot-integrated-starrocks-quick-start-demo-319787567881)                               | done   |
 
 
 ### Remark
