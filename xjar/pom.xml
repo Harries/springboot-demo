@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot-demo</artifactId>
+        <groupId>com.et</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>xjar</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+        <!-- 设置 jitpack.io 插件仓库 -->
+        <pluginRepositories>
+            <pluginRepository>
+                <id>jitpack.io</id>
+                <url>https://jitpack.io</url>
+            </pluginRepository>
+        </pluginRepositories>
+        <!-- 添加 XJar Maven 插件 -->
+        <build>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.core-lib</groupId>
+                    <artifactId>xjar-maven-plugin</artifactId>
+                    <version>4.0.2</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                            <!--可以改成 install-->
+                            <phase>package</phase>
+                            <configuration>
+                                <password>xxxx</password>
+                                <!-- 需要加密的资源路径表达式 -->
+                                <includes>　　　　　　　　　
+                                    <include>com/et/**</include>
+                                    <include>mapper/*Mapper.xml</include>
+                                    <include>config/**</include>
+                                </includes>
+                                <!-- 无需加密的资源路径表达式 -->
+                                <excludes>
+                                    <exclude>static/**</exclude>
+                                    <exclude>META-INF/**</exclude>
+                                </excludes>
+                                <!-- 目标jar存放目录 -->
+                                <targetDir>${project.build.directory}\xJarDir\</targetDir>
+                                <!-- 目标jar名称,也可以用表达式（参考官网） -->
+                                <targetJar>zsplat.jar</targetJar>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+
+
+</project>
