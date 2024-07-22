@@ -134,6 +134,7 @@
         <module>SpringBatch</module>
         <module>starrocks</module>
         <module>xjar</module>
+        <module>spire-doc</module>
 
 
     </modules>
