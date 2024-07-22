@@ -30,17 +30,27 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.core-lib</groupId>
+            <artifactId>xjar</artifactId>
+            <version>4.0.2</version>
+            <!-- <scope>test</scope> -->
+        </dependency>
     </dependencies>
-
-        <!-- 设置 jitpack.io 插件仓库 -->
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+        <!-- set  jitpack.io pluginresponsitory -->
         <pluginRepositories>
             <pluginRepository>
                 <id>jitpack.io</id>
                 <url>https://jitpack.io</url>
             </pluginRepository>
         </pluginRepositories>
-        <!-- 添加 XJar Maven 插件 -->
+        <!-- add XJar Maven plugin -->
         <build>
             <plugins>
 
@@ -64,24 +74,24 @@
                             <goals>
                                 <goal>build</goal>
                             </goals>
-                            <!--可以改成 install-->
+                            <!--yoou can change install-->
                             <phase>package</phase>
                             <configuration>
                                 <password>xxxx</password>
-                                <!-- 需要加密的资源路径表达式 -->
+                                <!-- need enc resources -->
                                 <includes>　　　　　　　　　
                                     <include>com/et/**</include>
                                     <include>mapper/*Mapper.xml</include>
                                     <include>config/**</include>
                                 </includes>
-                                <!-- 无需加密的资源路径表达式 -->
+                                <!-- no need enc resources -->
                                 <excludes>
                                     <exclude>static/**</exclude>
                                     <exclude>META-INF/**</exclude>
                                 </excludes>
-                                <!-- 目标jar存放目录 -->
+                                <!--target jar dir -->
                                 <targetDir>${project.build.directory}\xJarDir\</targetDir>
-                                <!-- 目标jar名称,也可以用表达式（参考官网） -->
+                                <!-- target jar name -->
                                 <targetJar>zsplat.jar</targetJar>
                             </configuration>
                         </execution>
