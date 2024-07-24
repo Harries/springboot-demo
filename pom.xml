@@ -135,6 +135,9 @@
         <module>starrocks</module>
         <module>xjar</module>
         <module>spire-doc</module>
+        <module>Screw</module>
+        <module>maven-yourfirst-plugin</module>
+        <module>canal</module>
 
 
     </modules>
