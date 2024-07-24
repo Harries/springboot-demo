@@ -136,6 +136,7 @@
         <module>xjar</module>
         <module>Screw</module>
         <module>maven-yourfirst-plugin</module>
+        <module>canal</module>
 
 
     </modules>
