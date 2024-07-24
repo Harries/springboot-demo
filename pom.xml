@@ -134,6 +134,8 @@
         <module>SpringBatch</module>
         <module>starrocks</module>
         <module>xjar</module>
+        <module>Screw</module>
+        <module>maven-yourfirst-plugin</module>
 
 
     </modules>
