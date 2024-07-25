@@ -1,4 +1,4 @@
-// Generated from com\et\antlr\LabeledExpr.g4 by ANTLR 4.9.1
+// Generated from com/et/antlr/LabeledExpr.g4 by ANTLR 4.9.1
 package com.et.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
