@@ -1,0 +1,10 @@
+canal:
+  mode: simple
+  filter: # 过滤表名，可以为空
+  batch-size: 1
+  timeout: 1
+  server: 127.0.0.1:11111
+  destination: example # canal-server中定义的实例名，不可以为空
+  user-name: root
+  password: root
+  async: true # 必须是true，设为false在启动时会报MessageHandler bean找不到，具体原因没看
