@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7
+    container_name: mysql_3306
+    restart: unless-stopped
+    volumes:
+      - "./mysql/my.cnf:/etc/mysql/my.cnf"
+      - "./mysql/init-file.sql:/etc/mysql/init-file.sql"
+      - "./mysql/data:/var/lib/mysql"
+#      - "./mysql/conf.d:/etc/mysql/conf.d"
+      - "./mysql/log/mysql/error.log:/var/log/mysql/error.log"
+      - "./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d" # init sql script directory -- tips: it can be excute  when `/var/lib/mysql` is empty
+    environment:                        # set environment,equals docker run -e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      MYSQL_ROOT_PASSWORD: root         # set root password
+      MYSQL_DATABASE: root              # init database name
+    ports:                              # port mappping
+      - "3306:3306"
