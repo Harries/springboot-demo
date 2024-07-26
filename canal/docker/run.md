@@ -1,34 +1,6 @@
-## pull image
-```shell
-docker pull canal/canal-server:v1.1.1
-```
-## down shell
-```shell
-wget https://github.com/alibaba/canal/blob/master/docker/run.sh
-```
-## run
-```shell
-# build destination queue which named "test"
-sh run.sh -e canal.auto.scan=false 
-		  -e canal.destinations=test 
-		  -e canal.instance.master.address=127.0.0.1:3306  
-		  -e canal.instance.dbUsername=root  
-		  -e canal.instance.dbPassword=123456  
-		  -e canal.instance.connectionCharset=UTF-8 
-		  -e canal.instance.tsdb.enable=true 
-		  -e canal.instance.gtidon=false  
-```
+先执行mysql启动，然后在执行canal-server监听mysql
+## downloaa
+https://objects.githubusercontent.com/github-production-release-asset-2e65be/7587038/1fd8002a-5102-48bf-ab4f-e285eda8b12f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240725%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240725T052803Z&X-Amz-Expires=300&X-Amz-Signature=b67ad1ea7492c2025cbef607cc44018a12604f8ed27ea7f4cd035d681986c230&X-Amz-SignedHeaders=host&actor_id=2899098&key_id=0&repo_id=7587038&response-content-disposition=attachment%3B%20filename%3Dcanal.deployer-1.1.7.tar.gz&response-content-type=application%2Foctet-stream
 
-## test
-```
-mysql> use test;
-Database changed
-mysql> CREATE TABLE `xdual` (
-->   `ID` int(11) NOT NULL AUTO_INCREMENT,
-->   `X` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-->   PRIMARY KEY (`ID`)
--> ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ;
-Query OK, 0 rows affected (0.06 sec)
-mysql> insert into xdual(id,x) values(null,now());Query OK, 1 row affected (0.06 sec)
-
-```
+## example/instance.properties
+instance.properties 基本上只用改动 dbUsername 和 dbPassword就可以了
