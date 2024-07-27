@@ -138,6 +138,7 @@
         <module>Screw</module>
         <module>maven-yourfirst-plugin</module>
         <module>canal</module>
+        <module>echarts</module>
 
 
     </modules>
