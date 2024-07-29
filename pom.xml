@@ -139,6 +139,7 @@
         <module>maven-yourfirst-plugin</module>
         <module>canal</module>
         <module>echarts</module>
+        <module>JMH</module>
 
 
     </modules>
