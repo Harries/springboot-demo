@@ -140,7 +140,6 @@
         <module>canal</module>
         <module>echarts</module>
 
-
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
