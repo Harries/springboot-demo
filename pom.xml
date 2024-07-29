@@ -141,7 +141,6 @@
         <module>echarts</module>
         <module>JMH</module>
 
-
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
