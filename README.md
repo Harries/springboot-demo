@@ -132,6 +132,10 @@ a simple springboot demo with some components for example: redis,solr,rockmq and
 | 120           | xjar                  | springboot with  xjar              | [CN](http://www.liuhaihua.cn/archives/710957.html) / [EN](https://medium.com/@jxausea/spring-boot-integrates-screw-to-generate-database-documents-5377deceb8fa)                      | done   |
 | 121           | canal                 | springboot with  canal             | [CN](http://www.liuhaihua.cn/archives/710969.html) / [EN](https://medium.com/@jxausea/spring-boot-integrated-canal-quick-start-demo-3566628137c7)                                    | done   |
 | 122           | mavenplugin           | springboot with  mavenplugin       | [CN](http://www.liuhaihua.cn/archives/710963.html) / [EN](https://medium.com/@jxausea/how-do-i-develop-my-first-maven-plugin-8d8c9a7a67f4)                                           | done   |
+| 123           | jmh                   | springboot with  jmh       | [CN](http://www.liuhaihua.cn/archives/710989.html) / [EN](https://medium.com/@jxausea/springboot-integrates-with-jmh-for-benchmarking-89a046ab3838)                                           | done   |
+| 124           | springnative          | springboot with  springnative       | [CN](http://www.liuhaihua.cn/archives/711012.html) / [EN](hhttps://medium.com/@jxausea/how-to-create-high-performance-native-images-for-springboot-011c2053c99c)                                           | done   |
+| 125           | Thumbnailator           | springboot with  Thumbnailator       | [CN](http://www.liuhaihua.cn/archives/711021.html) / [EN](https://medium.com/@jxausea/use-thumbnail-to-generate-thumbnails-b6f4c3c890ab)                                           | done   |
+| 126           | Resilience4J           | springboot with  Resilience4J       | [CN](http://www.liuhaihua.cn/archives/711028.html) / [EN](https://medium.com/@jxausea/spring-boot-integrates-resilience4j-to-implement-the-circuit-breaker-b944bedbc42b)                                           | done   |
 
 
 ### Remark
