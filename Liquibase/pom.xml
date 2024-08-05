@@ -46,5 +46,27 @@
             <version>8.0.33</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <configuration>
+                    <!--生成Changelog的输出目录-->
+                    <outputChangeLogFile>${basedir}/src/main/resources/liquibase/generate/changeLog.xml</outputChangeLogFile>
+                    <!--DB连接信息-->
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/demo?useSSL=false</url>
+                    <username>root</username>
+                    <password>root</password>
+                    <dropFirst>false</dropFirst>
+                    <verbose>true</verbose>
+                    <logging>debug</logging>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <outputFileEncoding>UTF-8</outputFileEncoding>
+                    <propertyFileWillOverride>true</propertyFileWillOverride>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

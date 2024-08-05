@@ -1,3 +1,4 @@
+/*
 package com.et.liquibase.config;
 
 import liquibase.change.DatabaseChange;
@@ -16,4 +17,4 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 )
 @AutoConfigureAfter({DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class LiquibaseAutoConfiguration {
-}
+}*/
