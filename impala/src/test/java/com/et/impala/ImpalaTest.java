@@ -15,7 +15,6 @@ public class ImpalaTest {
         ResultSet resultSet = null;
 
         try {
-            // 加载HANA JDBC驱动程序
             Class.forName("com.cloudera.impala.jdbc41.Driver");
             Properties p = new Properties();
             p.setProperty( "user", "System" );
