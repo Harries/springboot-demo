@@ -15,8 +15,8 @@ import java.util.Map;
 public class HelloWorldController {
     @Autowired
     private OrderService orderService;
-    @PostMapping("/hello")
-    public Map<String, Object> showHelloWorld(@RequestParam("userId") Long userId,
+    @PostMapping("/create")
+    public Map<String, Object> createOrder(@RequestParam("userId") Long userId,
                                               @RequestParam("productId") Long productId,
                                               @RequestParam("price") Integer price) throws IOException {
         Map<String, Object> map = new HashMap<>();

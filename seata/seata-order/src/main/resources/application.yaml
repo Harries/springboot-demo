@@ -1,8 +1,16 @@
 server:
-  port: 8081
+  port: 8081 # 端口
+
 spring:
   application:
     name: order-service
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/seata_order?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+
 # Seata 配置项，对应 SeataProperties 类
 seata:
   application-id: ${spring.application.name} # Seata 应用编号，默认为 ${spring.application.name}
