@@ -140,6 +140,7 @@
         <module>canal</module>
         <module>echarts</module>
         <module>JMH</module>
+        <module>seata</module>
 
     </modules>
     <properties>
