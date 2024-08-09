@@ -28,6 +28,7 @@ public class HelloWorldController {
             ip = IPOfflineUtil.getIpAddr(httpServletRequest);
             addr= AddressUtils.getRealAddressByIP(ip);
             log.info("IP >> {},Address >> {}", ip, addr);
+			// you can filter by country or province
         }
         Map<String, Object> map = new HashMap<>();
         map.put("msg", "HelloWorld");
