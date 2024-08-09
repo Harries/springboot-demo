@@ -141,6 +141,7 @@
         <module>echarts</module>
         <module>JMH</module>
         <module>seata</module>
+        <module>ipfilter</module>
 
     </modules>
     <properties>
