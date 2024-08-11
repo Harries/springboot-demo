@@ -142,6 +142,7 @@
         <module>JMH</module>
         <module>seata</module>
         <module>ipfilter</module>
+        <module>annotations</module>
 
     </modules>
     <properties>
