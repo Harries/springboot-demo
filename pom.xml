@@ -143,6 +143,7 @@
         <module>seata</module>
         <module>ipfilter</module>
         <module>annotations</module>
+        <module>desensitization</module>
 
     </modules>
     <properties>
