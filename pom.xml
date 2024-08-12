@@ -145,6 +145,7 @@
         <module>annotations</module>
         <module>desensitization</module>
         <module>Undertow</module>
+        <module>sentinel</module>
 
     </modules>
     <properties>
