@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService {
 
-    @SentinelResource(value = "sayHello")
+    @SentinelResource(value = "HelloWorld",blockHandler = "sayHello block")
     public String sayHello(String name) {
+
         return "Hello, " + name;
     }
 }

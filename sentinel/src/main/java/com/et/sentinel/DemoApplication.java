@@ -20,7 +20,7 @@ public class DemoApplication {
 
 		// 配置规则.
 		initFlowRules();
-		while (true) {
+		/*while (true) {
 			// 1.5.0 版本开始可以直接利用 try-with-resources 特性
 			try (Entry entry = SphU.entry("HelloWorld")) {
 				// 被保护的逻辑
@@ -30,7 +30,7 @@ public class DemoApplication {
 				// 处理被流控的逻辑
 				System.out.println("blocked!");
 			}
-		}
+		}*/
 
 	}
 
@@ -40,7 +40,7 @@ public class DemoApplication {
 		rule.setResource("HelloWorld");
 		rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
 		// Set limit QPS to 20.
-		rule.setCount(20);
+		rule.setCount(2);
 		rules.add(rule);
 		FlowRuleManager.loadRules(rules);
 	}
