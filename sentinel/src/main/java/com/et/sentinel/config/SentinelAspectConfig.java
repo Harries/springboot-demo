@@ -11,4 +11,5 @@ public class SentinelAspectConfig {
     public SentinelResourceAspect sentinelResourceAspect(){
         return new SentinelResourceAspect();
     }
+
 }
