@@ -147,6 +147,7 @@
         <module>Undertow</module>
         <module>sentinel</module>
         <module>Selenium</module>
+        <module>devtools</module>
 
     </modules>
     <properties>
