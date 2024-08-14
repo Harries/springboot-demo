@@ -146,6 +146,7 @@
         <module>desensitization</module>
         <module>Undertow</module>
         <module>sentinel</module>
+        <module>Selenium</module>
 
     </modules>
     <properties>
