@@ -148,6 +148,7 @@
         <module>sentinel</module>
         <module>Selenium</module>
         <module>devtools</module>
+        <module>InterfaceSecurity</module>
 
     </modules>
     <properties>

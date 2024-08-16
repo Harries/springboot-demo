@@ -28,7 +28,7 @@ public class GoogleSearch1Test extends SpringBaseTestNGTest {
         Assert.assertTrue(this.googlePage.getSearchResult().getCount() > 2);
         System.out.println("Number of Results: " + this.googlePage.getSearchResult().getCount());
         // wait 3 seconds
-         Thread.sleep(3000);
+        // Thread.sleep(3000);
         //take screenshot
         this.screenShotUtil.takeScreenShot("Test.png");
         this.googlePage.close();
