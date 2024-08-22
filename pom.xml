@@ -150,6 +150,7 @@
         <module>devtools</module>
         <module>Puppeteer</module>
         <module>InterfaceSecurity</module>
+        <module>Exception</module>
 
     </modules>
     <properties>
