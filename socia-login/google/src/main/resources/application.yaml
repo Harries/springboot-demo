@@ -1,0 +1,7 @@
+server:
+  port: 8088
+
+google:
+  client-id: 569231843579-n9ju3t7f2ag7g814dlj4d0julnfvt3es.apps.googleusercontent.com
+  client-secret: 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
+  redirect-uri: http://127.0.0.1:8088/oauth/callback
