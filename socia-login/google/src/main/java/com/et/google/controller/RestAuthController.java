@@ -47,7 +47,7 @@ public class RestAuthController {
                 .redirectUri(redirecturi)
                 .httpConfig(HttpConfig.builder()
                         .timeout(15000)
-                        // host 和 port 请修改为开发环境的参数
+                        //proxy host and port
                         .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 1087)))
                         .build())
                 .build());
