@@ -152,6 +152,7 @@
         <module>InterfaceSecurity</module>
         <module>Exception</module>
         <module>gzip</module>
+        <module>cors</module>
 
     </modules>
     <properties>
