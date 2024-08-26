@@ -151,6 +151,7 @@
         <module>Puppeteer</module>
         <module>InterfaceSecurity</module>
         <module>Exception</module>
+        <module>gzip</module>
 
     </modules>
     <properties>
