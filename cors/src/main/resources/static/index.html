@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<!-- jquery库可百度jquery cdn -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    function btnClick() {
+        $.get('http://localhost:8088/hello', function (msg) {
+            $("#app").html(msg);
+        });
+    }
+
+    function btnClick2() {
+        $.post('http://localhost:8088/hello', function (msg) {
+            $("#app").html(msg);
+        });
+    }
+</script>
+
+<body>
+
+<div id="app"></div>
+<input type="button" onclick="btnClick()" value="get_button">
+<input type="button" onclick="btnClick2()" value="post_button">
+
+</body>
+</html>

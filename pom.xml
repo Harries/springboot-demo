@@ -152,6 +152,8 @@
         <module>InterfaceSecurity</module>
         <module>Exception</module>
         <module>socia-login</module>
+        <module>gzip</module>
+        <module>cors</module>
 
     </modules>
     <properties>
