@@ -154,6 +154,7 @@
         <module>socia-login</module>
         <module>gzip</module>
         <module>cors</module>
+        <module>Kubernetes</module>
 
     </modules>
     <properties>
