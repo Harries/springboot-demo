@@ -31,7 +31,7 @@ public class K8sClientTest {
     public void createServiceTest() {
         String kubeConfigPath = "C:\\Users\\Dell\\.kube\\config";
         if (!new File(kubeConfigPath).exists()) {
-            System.out.println("kubeConfig不存在，跳过");
+            System.out.println("kubeConfig not exist，jump over");
             return;
         }
         K8sClient k8sClient = new K8sClient(kubeConfigPath);
@@ -48,7 +48,7 @@ public class K8sClientTest {
     public void createV1IngressTest() {
         String kubeConfigPath = "C:\\Users\\Dell\\.kube\\config";
         if (!new File(kubeConfigPath).exists()) {
-            System.out.println("kubeConfig不存在，跳过");
+            System.out.println("kubeConfig not exist，jump over");
             return;
         }
         K8sClient k8sClient = new K8sClient(kubeConfigPath);
@@ -67,7 +67,7 @@ public class K8sClientTest {
     public void createExtensionIngressTest() {
         String kubeConfigPath = "C:\\Users\\Dell\\.kube\\config";
         if (!new File(kubeConfigPath).exists()) {
-            System.out.println("kubeConfig不存在，跳过");
+            System.out.println("kubeConfig not exist，jump over");
             return;
         }
         K8sClient k8sClient = new K8sClient(kubeConfigPath);

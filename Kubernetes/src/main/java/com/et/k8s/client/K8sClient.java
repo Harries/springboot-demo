@@ -22,7 +22,6 @@ public class K8sClient {
     private ApiClient apiClient;
 
     /**
-     * 构建集群POD内通过SA访问的客户端
      * loading the in-cluster config, including:
      * 1. service-account CA
      * 2. service-account bearer-token
@@ -33,31 +32,30 @@ public class K8sClient {
         try {
             this.apiClient = ClientBuilder.cluster().build();
         } catch (IOException e) {
-            log.error("构建K8s-Client异常", e);
-            throw new RuntimeException("构建K8s-Client异常");
+            log.error("build K8s-Client error", e);
+            throw new RuntimeException("build K8s-Client error");
         }
     }
 
     /**
-     * 构建集群外通过UA访问的客户端
      * loading the out-of-cluster config, a kubeconfig from file-system
      *
-     * @param kubeConfigPath kube连接配置文件
+     * @param kubeConfigPath 
      */
     public K8sClient(String kubeConfigPath) {
         try {
             this.apiClient = ClientBuilder.kubeconfig(KubeConfig.loadKubeConfig(new FileReader(kubeConfigPath))).build();
         } catch (IOException e) {
-            log.error("读取kubeConfigPath异常", e);
-            throw new RuntimeException("读取kubeConfigPath异常");
+            log.error("read kubeConfigPath error", e);
+            throw new RuntimeException("read kubeConfigPath error");
         } catch (Exception e) {
-            log.error("构建K8s-Client异常", e);
-            throw new RuntimeException("构建K8s-Client异常");
+            log.error("build K8s-Client error", e);
+            throw new RuntimeException("build K8s-Client error");
         }
     }
 
     /**
-     * 获取所有的Pod
+     * get all Pods
      *
      * @return podList
      */
@@ -70,22 +68,21 @@ public class K8sClient {
             V1PodList list = api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null);
             return list;
         } catch (ApiException e) {
-            log.error("获取podlist异常:" + e.getResponseBody(), e);
+            log.error("get podlist error:" + e.getResponseBody(), e);
         }
         return null;
     }
 
     /**
-     * 创建k8s service
+     * create k8s service
      *
-     * @param namespace   命名空间
-     * @param serviceName 服务名称
-     * @param port        服务端口号（和目标pod的端口号一致）
-     * @param selector    pod标签选择器
-     * @return 创建成功的service对象
+     * @param namespace   
+     * @param serviceName 
+     * @param port        
+     * @param selector    
+     * @return 
      */
     public V1Service createService(String namespace, String serviceName, Integer port, Map<String, String> selector) {
-        //构建service的yaml对象
         V1Service svc = new V1ServiceBuilder()
                 .withNewMetadata()
                 .withName(serviceName)
@@ -106,27 +103,27 @@ public class K8sClient {
         try {
             v1Service = api.createNamespacedService(namespace, svc, null, null, null);
         } catch (ApiException e) {
-            log.error("创建service异常:" + e.getResponseBody(), e);
+            log.error("create service error:" + e.getResponseBody(), e);
         } catch (Exception e) {
-            log.error("创建service系统异常:", e);
+            log.error("create service system error:", e);
         }
         return v1Service;
     }
 
     /**
-     * 创建k8s V1Ingress
+     * create k8s V1Ingress
      *
-     * @param namespace   命名空间
-     * @param ingressName ingress名称
-     * @param annotations ingress注解
-     * @param path        匹配的路径
-     * @param serviceName 路由到的服务名称
-     * @param servicePort 路由到的服务端口
-     * @return 创建成功的ingress对象
+     * @param namespace
+     * @param ingressName
+     * @param annotations
+     * @param path
+     * @param serviceName
+     * @param servicePort
+     * @return
      */
     public V1Ingress createV1Ingress(String namespace, String ingressName, Map<String, String> annotations, String path,
                                      String serviceName, Integer servicePort) {
-        //构建ingress的yaml对象
+        //build ingress yaml
         V1Ingress ingress = new V1IngressBuilder()
                 .withNewMetadata()
                 .withName(ingressName)
@@ -146,34 +143,34 @@ public class K8sClient {
                 .endSpec()
                 .build();
 
-        //调用对应的API执行创建ingress的操作
+
         NetworkingV1Api api = new NetworkingV1Api(apiClient);
         V1Ingress v1Ingress = null;
         try {
             v1Ingress = api.createNamespacedIngress(namespace, ingress, null, null, null);
         } catch (ApiException e) {
-            log.error("创建ingress异常:" + e.getResponseBody(), e);
+            log.error("create ingress error:" + e.getResponseBody(), e);
         } catch (Exception e) {
-            log.error("创建ingress系统异常:", e);
+            log.error("create ingress system error:", e);
         }
         return v1Ingress;
     }
 
 
     /**
-     * 创建k8s ExtensionIngress
+     * create k8s ExtensionIngress
      *
-     * @param namespace   命名空间
-     * @param ingressName ingress名称
-     * @param annotations ingress注解
-     * @param path        匹配的路径
-     * @param serviceName 路由到的服务名称
-     * @param servicePort 路由到的服务端口
-     * @return 创建成功的ingress对象
+     * @param namespace
+     * @param ingressName
+     * @param annotations
+     * @param path
+     * @param serviceName
+     * @param servicePort
+     * @return
      */
     public ExtensionsV1beta1Ingress createExtensionIngress(String namespace, String ingressName, Map<String, String> annotations, String path,
                                                            String serviceName, Integer servicePort) {
-        //构建ingress的yaml对象
+        //build ingress yaml
         ExtensionsV1beta1Ingress ingress = new ExtensionsV1beta1IngressBuilder()
                 .withNewMetadata()
                 .withName(ingressName)
@@ -190,15 +187,14 @@ public class K8sClient {
                 .endSpec()
                 .build();
 
-        //调用对应的API执行创建ingress的操作
         ExtensionsV1beta1Api api = new ExtensionsV1beta1Api(apiClient);
         ExtensionsV1beta1Ingress extensionsV1beta1Ingress = null;
         try {
             extensionsV1beta1Ingress = api.createNamespacedIngress(namespace, ingress, null, null, null);
         } catch (ApiException e) {
-            log.error("创建ingress异常:" + e.getResponseBody(), e);
+            log.error("create ingress error:" + e.getResponseBody(), e);
         } catch (Exception e) {
-            log.error("创建ingress系统异常:", e);
+            log.error("create ingress system error:", e);
         }
         return extensionsV1beta1Ingress;
     }
