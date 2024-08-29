@@ -15,3 +15,6 @@ server:
   # 修改端口号，避免端口冲突
   port: 8081
 
+
+logging:
+  config: classpath:logback-spring.xml

@@ -155,6 +155,7 @@
         <module>gzip</module>
         <module>cors</module>
         <module>Kubernetes</module>
+        <module>stripe</module>
 
     </modules>
     <properties>

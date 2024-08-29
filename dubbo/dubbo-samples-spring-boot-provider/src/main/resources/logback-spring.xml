@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- JMX 管理 支持 重载logback.xml 或单独设置某个package的level -->
+	<jmxConfigurator />
+	<!-- 控制台输出日志 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{TRACKING_LOG_SESSION_TOKEN_ID}] [%thread] %-5level %logger{36} [%file:%line] - %msg%n</Pattern>
+		</layout>
+	</appender>
+	<!-- 尽量别用绝对路径，如果带参数不同容器路径解释可能不同 -->
+	<property name="LOG_HOME" value="../logs" />
+	<!-- 文件输出日志， 文件日期策略进行文件输出 -->
+	<appender name="FILE_DAILY_SIZE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 支持多个JVM 同时操作同一个日志文件 -->
+		<prudent>true</prudent>
+		<!-- 按天来回滚，如果需要按小时来回滚，则设置为{yyyy-MM-dd_HH} -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/dubbo-provider.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<!-- 日志历史保存时间 30天 -->
+			<!-- 如果按天来回滚，则最大保存时间为1天，1天之前的都将被清理掉 -->
+			<maxHistory>30</maxHistory>
+
+			<!-- 按时间回滚的同时，按文件大小来回滚 -->
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>500MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<!-- 日志输出格式 -->
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{TRACKING_LOG_SESSION_TOKEN_ID}] [%thread] %-5level %logger{36} [%file:%line] - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<!-- logger主要用于存放日志对象，也可以定义日志类型、级别 name：表示匹配的logger类型前缀，也就是包的前半部分 level：要记录的日志级别，包括 
+		TRACE < DEBUG < INFO < WARN < ERROR additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，false：表示只用当前logger的appender-ref，true：表示当前logger的appender-ref和rootLogger的appender-ref都有效 -->
+
+	<logger name="com.et" level="DEBUG" />
+
+	<!--这里指定logger name 是为jmx设置日志级别做铺垫 -->
+	<!-- 定义日志输出级别 -->
+	<!-- root与logger是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应， 要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。 -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE_DAILY_SIZE" />
+	</root>
+</configuration>

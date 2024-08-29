@@ -10,7 +10,12 @@ dubbo:
   registry:
     # 注册中心地址
     address: zookeeper://127.0.0.1:2181
+  consumer:
+    filter: ConsumerFilter
 
 server:
   # 修改端口号，避免端口冲突
   port: 8080
+
+logging:
+  config: classpath:logback-spring.xml

@@ -15,7 +15,7 @@ public class ConsumerController {
     /**
      *  @Reference invoker dubbo-provider
      */
-    @Reference
+    @Reference(filter = {"ConsumerFilter"})
     private UserService userService;
 
 
