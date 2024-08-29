@@ -1,9 +1,9 @@
 package com.et.provider.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.et.api.UserService;
 import com.et.api.entity.User;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 /**

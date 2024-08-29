@@ -1,9 +1,10 @@
 package com.et.consumer.controller;
 
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.et.api.UserService;
 import com.et.api.entity.User;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,13 @@ public class ConsumerController {
     /**
      *  @Reference invoker dubbo-provider
      */
-    @Reference(filter = {"ConsumerFilter"})
+    @Reference
     private UserService userService;
 
 
     @GetMapping("/info")
     public String getUserById() {
-        return userService.getUserInfo();
+		return userService.getUserInfo();
     }
 
 

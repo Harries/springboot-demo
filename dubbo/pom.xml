@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <dubbo.version>2.7.5</dubbo.version>
+        <dubbo.version>2.6.4</dubbo.version>
         <curator.version>4.2.0</curator.version>
         <zookeeper.version>3.4.12</zookeeper.version>
 
