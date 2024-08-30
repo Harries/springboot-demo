@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Homepage</title>
+    <!--Bootstrap 4 CSS-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Bootstrap 4 JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-light pt-5">
+
+<!--hero section-->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-10 col-12 my-auto mx-auto text-center">
+                <h1>
+                    Stripe Payment Examples
+                </h1>
+                <p class="lead mb-4">
+                    What would you like to do?
+                </p>
+                <a class="btn btn-primary" th:href="@{/subscription}">Create Recurring Subscription</a>
+                <a class="btn btn-success" th:href="@{/charge}">Create One-Time Charge</a>
+                <p class="mt-5 text-muted">
+                    <small>An example project by <a target="_blank"
+                                                    th:href="@{https://attacomsian.com}">Atta</a>.</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
