@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"/>
+
+    <title>Login</title>
+</head>
+<body>
+
+<div class="custom-container container">
+    <h2 align="center">Login</h2>
+    <div class="alert alert-danger collapse" id="msgLoginFailed" role="alert">
+        Provided login or password could not be recognized
+    </div>
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input class="form-control" id="login" placeholder="Enter login" type="text"/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password: </label>
+        <input class="form-control" id="password" placeholder="Enter password" type="password"/>
+    </div>
+    <button class="btn btn-primary" id="btnLogin" type="button">Login</button>
+    <button class="btn btn-outline-primary" id="btnCancelLogin" type="button">Cancel</button>
+</div>
+
+<div class="modal fade" id="modalLoginCheckToken" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Verify your token</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger collapse" id="msgTokenCheckFailed" role="alert">
+                    Provided token could not be recognized
+                </div>
+                <p>
+                    To complete login you should verify your token generated in Google Authenticator application.
+                    Please, enter the currently generated token to the field below
+                </p>
+                <div class="text-center">
+                    <input id="loginToken" placeholder="Enter token" type="text"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="btnTokenVerify" type="button">Verify</button>
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src="scripts.js" type="application/javascript"></script>
+</body>
+</html>

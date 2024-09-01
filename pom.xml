@@ -156,6 +156,7 @@
         <module>cors</module>
         <module>Kubernetes</module>
         <module>stripe</module>
+        <module>MFA</module>
 
     </modules>
     <properties>
