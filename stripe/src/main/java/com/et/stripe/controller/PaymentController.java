@@ -11,15 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Created by IntelliJ IDEA.
- * Project : springboot-stripe-example
- * User: hendisantika
- * Email: hendisantika@gmail.com
- * Telegram : @hendisantika34
- * Date: 03/01/20
- * Time: 07.08
- */
 @Controller
 public class PaymentController {
 

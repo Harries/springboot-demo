@@ -157,6 +157,7 @@
         <module>Kubernetes</module>
         <module>stripe</module>
         <module>SoftwareLicense</module>
+        <module>MFA</module>
 
     </modules>
     <properties>
