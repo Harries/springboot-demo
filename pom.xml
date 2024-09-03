@@ -158,6 +158,7 @@
         <module>stripe</module>
         <module>SoftwareLicense</module>
         <module>MFA</module>
+        <module>file</module>
 
     </modules>
     <properties>
