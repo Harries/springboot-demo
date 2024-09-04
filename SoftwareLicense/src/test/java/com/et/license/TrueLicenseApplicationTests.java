@@ -16,3 +16,5 @@ class TrueLicenseApplicationTests {
         System.out.println("licese是否有效：" + licenseVerify.verify());
     }
 }
+
+

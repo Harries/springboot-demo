@@ -90,14 +90,18 @@ public class LinuxServerInfos extends AbstractServerInfos {
         process.getOutputStream().close();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		if(null!=reader.readLine()) {
+        	String line = reader.readLine().trim();
+			if (StringUtils.hasText(line)) {
+				serialNumber = line;
+			}
 
-        String line = reader.readLine().trim();
-        if (StringUtils.hasText(line)) {
-            serialNumber = line;
-        }
-
-        reader.close();
-        return serialNumber;
+			reader.close();
+			return serialNumber;
+		}else{
+			reader.close();
+			return null;
+		}
     }
 
     /**
@@ -120,11 +124,16 @@ public class LinuxServerInfos extends AbstractServerInfos {
         process.getOutputStream().close();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String line = reader.readLine().trim();
-        if (StringUtils.hasText(line)) {
-            serialNumber = line;
-        }
-        reader.close();
-        return serialNumber;
+		if(null!=reader.readLine()) {
+			String line = reader.readLine().trim();
+			if (StringUtils.hasText(line)) {
+				serialNumber = line;
+			}
+			reader.close();
+			return serialNumber;
+		}else{
+			reader.close();
+			return null;
+		}
     }
 }

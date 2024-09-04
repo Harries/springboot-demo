@@ -9,8 +9,8 @@ license:
   # 访问公钥的密码
   storePass: pubwd123456
   # license 位置
-  licensePath: D:/IdeaProjects/ETFramework/SoftwareLicense/src/main/resources/license/license.lic
+  licensePath: /Users/liuhaihua/IdeaProjects/springboot-demo/SoftwareLicense/src/main/resources/license/license.lic
   # licensePath: /root/license-test/license.lic
   # 公钥位置
-  publicKeysStorePath: D:/IdeaProjects/ETFramework/SoftwareLicense/src/main/resources/license/publicCerts.keystore
+  publicKeysStorePath: /Users/liuhaihua/IdeaProjects/springboot-demo/SoftwareLicense/src/main/resources/license/publicCerts.keystore
   # publicKeysStorePath: /root/license-test/publicCerts.keystore

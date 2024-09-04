@@ -26,10 +26,10 @@ public class HelloWorldController {
 
 
     /**
-     * 上传文件
+     * upload
      *
-     * @param files 文件
-     * @return 响应消息
+     * @param files
+     * @return
      */
     @PostMapping("/upload")
     public ResponseEntity<String> upload(@RequestParam("files") MultipartFile[] files) {
@@ -38,9 +38,9 @@ public class HelloWorldController {
     }
 
     /**
-     * 获取文件列表
+     *  files
      *
-     * @return 文件列表
+     * @return
      */
     @GetMapping("/files")
     public ResponseEntity<List<FileInfo>> list() {
@@ -48,10 +48,10 @@ public class HelloWorldController {
     }
 
     /**
-     * 获取指定文件
+     * get file by name
      *
-     * @param fileName 文件名称
-     * @return 文件
+     * @param fileName
+     * @return
      */
     @GetMapping("/files/{fileName:.+}")
     public ResponseEntity<Resource> getFile(@PathVariable("fileName") String fileName) {
