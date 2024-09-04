@@ -21,12 +21,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * 文件上传
- *
- * @author yuanzhihao
- * @since 2023/3/27
- */
+
 @Service
 @Slf4j
 public class FileUploadServiceImpl implements FileUploadService {
