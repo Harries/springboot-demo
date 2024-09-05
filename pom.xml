@@ -159,6 +159,7 @@
         <module>SoftwareLicense</module>
         <module>MFA</module>
         <module>file</module>
+        <module>aspect</module>
 
     </modules>
     <properties>
