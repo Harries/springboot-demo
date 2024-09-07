@@ -160,6 +160,7 @@
         <module>MFA</module>
         <module>file</module>
         <module>aspect</module>
+        <module>Tess4j</module>
 
     </modules>
     <properties>

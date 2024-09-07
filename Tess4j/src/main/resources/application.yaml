@@ -1,0 +1,7 @@
+server:
+  port: 8088
+
+tess4j:
+  datapath: /Users/liuhaihua/tmp
+
+  #https://www.cnblogs.com/fulongyuanjushi/p/17760957.html
