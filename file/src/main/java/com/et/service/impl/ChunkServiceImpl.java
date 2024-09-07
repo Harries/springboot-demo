@@ -5,7 +5,6 @@ import com.et.bean.ChunkProcess;
 import com.et.bean.FileInfo;
 import com.et.service.ChunkService;
 import com.et.service.FileClient;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -21,6 +20,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
+
+
 @Service
 @Slf4j
 public class ChunkServiceImpl implements ChunkService {
@@ -30,8 +31,10 @@ public class ChunkServiceImpl implements ChunkService {
     // file list
     private static final List<FileInfo> FILE_STORAGE = new CopyOnWriteArrayList<>();
 
+
     @Autowired
     private FileClient fileClient;
+
 
     @Override
     public void chunk(Chunk chunk) {
