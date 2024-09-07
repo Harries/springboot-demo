@@ -17,18 +17,12 @@ public class OcrService {
 
     private final Tesseract tesseract;
 
-   /**
-    * 识别图片中的文字
-    * @param imageFile 图片文件
-    * @return 文字信息
-    */
+
     public String recognizeText(MultipartFile imageFile) throws TesseractException, IOException {
 
-        // 转换
         InputStream sbs = new ByteArrayInputStream(imageFile.getBytes());
         BufferedImage bufferedImage = ImageIO.read(sbs);
 
-        // 对图片进行文字识别
         return tesseract.doOCR(bufferedImage);
     }
 }

@@ -16,9 +16,7 @@ public class TesseractOcrConfiguration {
    public Tesseract tesseract() {
 
       Tesseract tesseract = new Tesseract();
-      // 设置训练数据文件夹路径
       tesseract.setDatapath(dataPath);
-      // 设置为中文简体
       tesseract.setLanguage("chi_sim");
       return tesseract;
    }
