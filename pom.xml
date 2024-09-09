@@ -162,6 +162,7 @@
         <module>aspect</module>
         <module>Tess4j</module>
         <module>hazelcast-jet</module>
+        <module>Mockito</module>
 
     </modules>
     <properties>
