@@ -1,4 +1,4 @@
-package com.et.mockito.controller.service;
+package com.et.mockito.service;
 
 public interface HelloService {
     public  String sayhi(String name);
