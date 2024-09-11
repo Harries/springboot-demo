@@ -163,6 +163,7 @@
         <module>Tess4j</module>
         <module>hazelcast-jet</module>
         <module>Mockito</module>
+        <module>akka</module>
 
     </modules>
     <properties>
