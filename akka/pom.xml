@@ -35,6 +35,13 @@
             <artifactId>akka-actor_2.13</artifactId>
             <version>2.6.0</version>
         </dependency>
+
+        <!-- Akka Streams -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-stream_2.13</artifactId>
+            <version>2.6.0</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
