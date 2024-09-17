@@ -11,7 +11,7 @@ public class ClusterApp {
 
     public static void main(String[] args) {
         // 读取外部配置文件 node1.conf 启动第一个节点
-        Config configNode1 = ConfigFactory.parseFile(new File("D:/IdeaProjects/ETFramework/akka/src/main/resources/node1.conf"))
+        Config configNode1 = ConfigFactory.parseFile(new File("/Users/liuhaihua/IdeaProjects/springboot-demo/akka/src/main/resources/node1.conf"))
             .withFallback(ConfigFactory.load());
 
         ActorSystem<ClusterEvent.ClusterDomainEvent> systemNode1 = ActorSystem.create(ClusterListener.create(), "ClusterSystem", configNode1);
