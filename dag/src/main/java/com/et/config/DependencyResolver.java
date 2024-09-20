@@ -31,7 +31,7 @@ public class DependencyResolver {
             Field[] fields = beanClass.getDeclaredFields();
             for (Field field : fields) {
                 if (field.isAnnotationPresent(Autowired.class)) {
-                    dependencies.add(field.getType().getName()); // 添加依赖的类型
+                    dependencies.add(field.getType().getName());
                 }
             }
         } catch (ClassNotFoundException e) {

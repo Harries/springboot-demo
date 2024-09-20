@@ -40,7 +40,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- 配置 Maven Compiler 插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -51,7 +50,6 @@
                     </configuration>
                 </plugin>
 
-                <!-- 配置 Maven Surefire 插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>

@@ -47,7 +47,7 @@ public class DAGBeanInitializer implements BeanFactoryPostProcessor {
                 String[] dependencies = beanDefinitionMap.get(beanName).getDependsOn();
                 if (dependencies != null) {
                     for (String dependency : dependencies) {
-                        dag.addEdge(dependency, beanName); // 使用 addEdge 方法将依赖关系加到 DAG 中
+                        dag.addEdge(dependency, beanName);
                     }
                 }
                 // get @Autowired dependencies
