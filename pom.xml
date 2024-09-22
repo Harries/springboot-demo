@@ -164,6 +164,7 @@
         <module>hazelcast-jet</module>
         <module>Mockito</module>
         <module>akka</module>
+        <module>Lombok</module>
 
     </modules>
     <properties>
