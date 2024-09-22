@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring Boot Doc Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav class="bg-dark text-white py-3">
+    <div class="text-center d-flex justify-content-center align-items-center">
+        <img src="/logo.png" alt="Logo" style="width:60px; margin-right: 10px;">
+        <h2 style="margin: 0;">Welcome to Spring Boot Documentation Bot</h2>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h3 class="text-center mb-3">Ask your Spring related queries here!</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="questionInput" class="form-label">Question</label>
+                    <input type="text" class="form-control" id="questionInput" name="question" placeholder="Enter your question" required>
+                </div>
+                <div class="mb-3 text-center">
+                    <button id="submitBtn" type="button" class="btn btn-primary">Ask!</button>
+                    <button id="clearBtn" type="button" class="btn btn-secondary">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-md-8 offset-md-2">
+            <label for="answerBox" class="form-label"><h5>Answer</h5></label>
+            <div class="position-relative my-3">
+                <textarea class="form-control" rows="10" id="answerBox" disabled></textarea>
+                <a href="#" class="position-absolute top-0 end-0 m-2" id="copyBtn">
+                    <i class="far fa-copy"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#submitBtn").click(function () {
+            let questionValue = $("#questionInput").val();
+            if (!questionValue) {
+                alert('Please enter your question');
+                return;
+            }
+
+            $("#answerBox").val('Please wait... fetching answer...');
+
+            $.ajax({
+                type: "POST",
+                url: "/ask",
+                data: JSON.stringify({ question: $("#questionInput").val() }),
+                //contentType: "application/json; charset=utf-8",
+                dataType: "text",
+                success: function (data) {
+                    //console.log(typeof data);
+                    //console.log(data);
+                    $("#answerBox").val(data);
+                },
+                error: function (errMsg) {
+                    alert(errMsg);
+                }
+            });
+        });
+
+        $("#clearBtn").click(function () {
+            $("#questionInput").val('');
+            $("#answerBox").val('');
+        });
+
+        document.getElementById("copyBtn").addEventListener("click", function() {
+            var copyText = document.getElementById("answerBox");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+
+            document.execCommand("copy");
+
+            alert("Copied: " + copyText.value);
+        });
+    });
+</script>
+</body>
+</html>

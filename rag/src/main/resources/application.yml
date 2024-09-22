@@ -1,0 +1,7 @@
+langchain:
+  api:
+    # "demo" is a free API key for testing purposes only. Please replace it with your own API key.
+    key: demo
+    # key: OPEN_API_KEY
+  # API call to complete before it is timed out.
+  timeout: 30
