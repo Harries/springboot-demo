@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis-stack-server:
+    image: redis/redis-stack-server:latest
+    ports:
+      - 6379:6379
+
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - 8001:8001
