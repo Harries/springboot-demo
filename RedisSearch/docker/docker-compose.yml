@@ -1,6 +1,6 @@
 version: '3'
 services:
-  redis-stack-server:
+  redis-stack:
     image: redis/redis-stack
     ports:
       - 6379:6379
