@@ -8,4 +8,4 @@ services:
   redis-insight:
     image: redislabs/redisinsight:latest
     ports:
-      - 8001:8001
+      - 5540:5540
