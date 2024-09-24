@@ -13,9 +13,9 @@ public class HelloWorldController {
     @Autowired
     SearchService searchService;
     @RequestMapping("/hello")
-    public Map<String, Object> showHelloWorld(){
+    public Map<String, Object> showHelloWorld(String message){
         Map<String, Object> map = new HashMap<>();
-        map.put("msg", searchService.retrieve("beer"));
+        map.put("msg", searchService.retrieve(message));
         return map;
     }
 }

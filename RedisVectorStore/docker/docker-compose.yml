@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis-stack:
+    image: redis/redis-stack
+    ports:
+      - 6379:6379
+
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - 5540:5540

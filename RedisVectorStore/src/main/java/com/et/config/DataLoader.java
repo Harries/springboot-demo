@@ -37,7 +37,8 @@ public class DataLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		Map<String, Object> indexInfo = vectorStore.getJedis().ftInfo(properties.getIndex());
-		int numDocs = Integer.parseInt((String) indexInfo.getOrDefault("num_docs", "0"));
+		Long sss= (Long) indexInfo.getOrDefault("num_docs", "0");
+		int numDocs=sss.intValue();
 		if (numDocs > 20000) {
 			logger.info("Embeddings already loaded. Skipping");
 			return;
