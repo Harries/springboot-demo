@@ -25,7 +25,7 @@
         <dependency>
             <groupId>com.redis.om</groupId>
             <artifactId>redis-om-spring</artifactId>
-            <version>0.8.2</version>
+            <version>0.8.6</version>
         </dependency>
       <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
