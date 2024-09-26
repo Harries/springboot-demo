@@ -165,6 +165,7 @@
         <module>Mockito</module>
         <module>akka</module>
         <module>Lombok</module>
+        <module>xss</module>
 
     </modules>
     <properties>
