@@ -166,6 +166,7 @@
         <module>akka</module>
         <module>Lombok</module>
         <module>xss</module>
+        <module>ehcache</module>
 
     </modules>
     <properties>
