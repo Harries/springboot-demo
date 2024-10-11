@@ -168,7 +168,6 @@
         <module>xss</module>
         <module>ehcache</module>
         <module>BloomFilter</module>
-        <module>djl</module>
 
     </modules>
     <properties>
