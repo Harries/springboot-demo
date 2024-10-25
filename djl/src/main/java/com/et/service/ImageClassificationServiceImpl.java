@@ -33,9 +33,7 @@ import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**
- * @author lakudouzi
- */
+
 @Slf4j
 @Service
 public class ImageClassificationServiceImpl implements ImageClassificationService {
@@ -73,7 +71,7 @@ public class ImageClassificationServiceImpl implements ImageClassificationServic
             try (Predictor<Image, Classifications> predictor = model.newPredictor(translator)) {
                 // holds the probability score per label
                 Classifications predictResult = predictor.predict(img);
-                log.info("结果={}",predictResult.toJson());
+                log.info("reusult={}",predictResult.toJson());
                 return predictResult.toJson();
             }
         }
@@ -81,7 +79,7 @@ public class ImageClassificationServiceImpl implements ImageClassificationServic
 
     @Override
     public String training(String datasetRoot, String modePath) throws TranslateException, IOException {
-        log.info("图片数据集训练开始......图片数据集地址路径：{}",datasetRoot);
+        log.info("Image dataset training started...Image dataset address path：{}",datasetRoot);
         // the location to save the model
         Path modelDir = Paths.get(modePath);
 
@@ -124,7 +122,7 @@ public class ImageClassificationServiceImpl implements ImageClassificationServic
             model.save(modelDir, Models.MODEL_NAME);
             // save labels into model directory
             Models.saveSynset(modelDir, dataset.getSynset());
-            log.info("图片数据集训练结束......");
+            log.info("Image dataset training completed......");
             return String.join("\n", dataset.getSynset());
         }
     }
