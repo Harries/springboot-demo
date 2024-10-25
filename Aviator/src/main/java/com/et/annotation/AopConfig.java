@@ -22,15 +22,15 @@ public class AopConfig {
 	/**
 	 * Aspects monitor multiple annotations, because one annotation is Check and multiple annotations are compiled to CheckContainer
 	 */
-	@Pointcut("@annotation(com.ler.jcheck.annation.CheckContainer) || @annotation(com.ler.jcheck.annation.Check)")
+	@Pointcut("@annotation(com.et.annotation.CheckContainer) || @annotation(com.et.annotation.Check)")
 	public void pointcut() {
 	}
 
 	@Before("pointcut()")
 	public Object before(JoinPoint point) {
-		//获取参数
+		//get params
 		Object[] args = point.getArgs();
-		//用于获取参数名字
+		//get param name
 		Method method = ((MethodSignature) point.getSignature()).getMethod();
 		LocalVariableTableParameterNameDiscoverer u = new LocalVariableTableParameterNameDiscoverer();
 		String[] paramNames = u.getParameterNames(method);
