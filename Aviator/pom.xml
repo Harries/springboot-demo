@@ -35,13 +35,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--AOP依赖-->
+        <!--AOP-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!--Aviator依赖-->
+        <!--Aviator-->
         <dependency>
             <groupId>com.googlecode.aviator</groupId>
             <artifactId>aviator</artifactId>
