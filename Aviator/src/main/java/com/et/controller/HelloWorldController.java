@@ -21,7 +21,7 @@ public class HelloWorldController {
     @Check(ex = "name != null", msg = "Name cannot be empty")
     @Check(ex = "age != null", msg = "Age cannot be empty")
     @Check(ex = "age > 18", msg = "Age must be over 18 years old")
-    @Check(ex = "phone != null", msg = "mobilehone cannot be empty")
+    @Check(ex = "phone != null", msg = "phone cannot be empty")
     @Check(ex = "phone =~ /^(1)[0-9]{10}$/", msg = "The phone number format is incorrect")
     @Check(ex = "string.startsWith(phone,\"1\")", msg = "The phone number must start with 1")
     @Check(ex = "idCard != null", msg = "ID number cannot be empty")
