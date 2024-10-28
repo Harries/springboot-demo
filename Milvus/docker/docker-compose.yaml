@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  milvus:
+    image: milvusdb/milvus:latest
+    container_name: milvus
+    ports:
+      - "19530:19530"
+      - "19121:19121"
+    volumes:
+      - ./volumes/db:/var/lib/milvus/db
+      - ./volumes/conf:/var/lib/milvus/conf
+      - ./volumes/logs:/var/lib/milvus/logs
+      - ./volumes/wal:/var/lib/milvus/wal
+    environment:
+      TZ: UTC

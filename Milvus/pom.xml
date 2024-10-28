@@ -14,6 +14,8 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <deeplearning4j.version>1.0.0-M2.1</deeplearning4j.version>
+        <nd4j.version>1.0.0-M2.1</nd4j.version>
     </properties>
     <dependencies>
 
@@ -38,7 +40,27 @@
             <artifactId>milvus-sdk-java</artifactId>
             <version>2.4.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-zoo</artifactId>
+            <version>${deeplearning4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-native-platform</artifactId>
+            <version>${nd4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.datavec</groupId>
+            <artifactId>datavec-data-image</artifactId>
+            <version>${deeplearning4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-api</artifactId>
+            <version>1.0.0-beta7</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
