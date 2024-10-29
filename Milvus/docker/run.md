@@ -6,13 +6,24 @@ https://zilliz.com/
 
 ## local 
 ```shell
-
-
 curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o standalone_embed.sh
 
 bash standalone_embed.sh start
 
-
 ```
+ou can stop and delete this container as follows
 
-open url: http://127.0.0.1:19530
+### Stop Milvus
+```shell
+$ bash standalone_embed.sh stop
+```
+### Delete Milvus data
+```shell
+$ bash standalone_embed.sh delete
+```
+You can upgrade the latest version Milvus as follows
+
+### upgrade Milvus
+```shell
+$ bash standalone_embed.sh upgrade
+```
