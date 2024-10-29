@@ -15,7 +15,7 @@ public class Main {
         milvusManager.createCollection();
 
         // 假设有一个图像文件列表
-        File[] imageFiles = new File("path/to/cifar-10").listFiles();
+        File[] imageFiles = new File("D:\\tmp\\cifar-100-python").listFiles();
         if (imageFiles != null) {
             for (int i = 0; i < imageFiles.length; i++) {
                 INDArray features = extractor.extractFeatures(imageFiles[i]);
@@ -24,7 +24,7 @@ public class Main {
         }
 
         // 查询图像
-        File queryImage = new File("path/to/query/image.jpg");
+        File queryImage = new File("D:\\tmp\\sync-files\\111.png");
         INDArray queryFeatures = extractor.extractFeatures(queryImage);
         searcher.search(queryFeatures);
     }
