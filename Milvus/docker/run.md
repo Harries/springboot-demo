@@ -6,13 +6,7 @@ https://zilliz.com/
 
 ## local 
 ```shell
-
-
-curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o standalone_embed.sh
-
-bash standalone_embed.sh start
-
+docker-compose -f  doker-compose.yaml  up -d
 
 ```
 
-open url: http://127.0.0.1:19530

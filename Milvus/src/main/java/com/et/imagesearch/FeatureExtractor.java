@@ -13,20 +13,21 @@ import java.io.IOException;
 public class FeatureExtractor {
     private ComputationGraph model;
 
-    public FeatureExtractor() throws IOException {
-        // 加载预训练模型
-        ZooModel<ComputationGraph> zooModel = ResNet50.builder().build();
-        model = (ComputationGraph) zooModel.initPretrained();
-    }
+	public FeatureExtractor() throws IOException {
+		try {
+			ZooModel<ComputationGraph> zooModel = ResNet50.builder().build();
+			model = (ComputationGraph) zooModel.initPretrained();
+		} catch (Exception e) {
+			throw new IOException("Failed to initialize the pre-trained model: " + e.getMessage(), e);
+		}
+	}
 
     public INDArray extractFeatures(File imageFile) throws IOException {
-        // 加载和预处理图像
         NativeImageLoader loader = new NativeImageLoader(224, 224, 3);
         INDArray image = loader.asMatrix(imageFile);
         ImagePreProcessingScaler scaler = new ImagePreProcessingScaler(0, 1);
         scaler.transform(image);
 
-        // 提取特征
         return model.outputSingle(image);
     }
 }

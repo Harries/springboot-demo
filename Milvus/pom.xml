@@ -38,7 +38,7 @@
         <dependency>
             <groupId>io.milvus</groupId>
             <artifactId>milvus-sdk-java</artifactId>
-            <version>2.4.1</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.deeplearning4j</groupId>
@@ -55,13 +55,22 @@
             <artifactId>datavec-data-image</artifactId>
             <version>${deeplearning4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-core</artifactId>
+            <version>${deeplearning4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-modelimport</artifactId>
+            <version>${deeplearning4j.version}</version>
+        </dependency>
 
     </dependencies>
 
     <build>
         <pluginManagement>
             <plugins>
-                <!-- 配置 Maven Compiler 插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -72,7 +81,6 @@
                     </configuration>
                 </plugin>
 
-                <!-- 配置 Maven Surefire 插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
