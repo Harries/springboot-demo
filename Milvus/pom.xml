@@ -55,12 +55,7 @@
             <artifactId>datavec-data-image</artifactId>
             <version>${deeplearning4j.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.nd4j</groupId>
-            <artifactId>nd4j-api</artifactId>
-            <version>1.0.0-beta7</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
 
     <build>

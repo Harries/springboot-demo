@@ -16,7 +16,7 @@ public class FeatureExtractor {
     public FeatureExtractor() throws IOException {
         // 加载预训练模型
         ZooModel<ComputationGraph> zooModel = ResNet50.builder().build();
-        model = zooModel.initPretrained();
+        model = (ComputationGraph) zooModel.initPretrained();
     }
 
     public INDArray extractFeatures(File imageFile) throws IOException {

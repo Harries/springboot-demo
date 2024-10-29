@@ -1,27 +1,45 @@
 package com.et.imagesearch;
 
+import io.milvus.client.MilvusServiceClient;
+import io.milvus.grpc.SearchResults;
+import io.milvus.param.ConnectParam;
+import io.milvus.param.MetricType;
+import io.milvus.param.R;
+import io.milvus.param.dml.SearchParam;
+import io.milvus.response.SearchResultsWrapper;
+import org.nd4j.linalg.api.ndarray.INDArray;
+
+import java.util.Collections;
+import java.util.List;
+
 public class ImageSearcher {
-    private MilvusClient client;
+    private  MilvusServiceClient milvusClient;
 
     public ImageSearcher() {
-        // 连接到Milvus
-        client = new MilvusGrpcClient(MilvusServiceClientConfig.builder().build());
+        ConnectParam connectParam = ConnectParam.newBuilder()
+                .withHost("localhost") // 设置Milvus服务器的主机地址
+                .withPort(19530)       // 设置Milvus服务器的端口
+                .build();
+
+        // 创建Milvus客户端
+        milvusClient = new MilvusServiceClient(connectParam);
     }
 
     public void search(INDArray queryFeatures) {
         // 在Milvus中进行相似性搜索
+
         SearchParam searchParam = SearchParam.newBuilder()
                 .withCollectionName("image_collection")
                 .withMetricType(MetricType.L2)
                 .withTopK(5)
-                .addVectorField("embedding", queryFeatures.toFloatVector())
+                .withVectors(Collections.singletonList(queryFeatures.toFloatVector()))
+                .withVectorFieldName("embedding")
                 .build();
 
-        SearchResults searchResults = client.search(searchParam);
+        R<SearchResults> searchResults = milvusClient.search(searchParam);
 
         // 输出结果
-        for (SearchResultsWrapper.IDScore idScore : searchResults.getIDScore(0)) {
-            System.out.println("ID: " + idScore.getID() + ", Distance: " + idScore.getScore());
-        }
+        System.out.println("Searching vector: " + queryFeatures.toFloatVector());
+        System.out.println("Result: " + searchResults.getData().getResults().getFieldsDataList());
     }
 }
