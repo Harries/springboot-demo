@@ -15,16 +15,19 @@ public class Main {
         milvusManager.createCollection();
 
         // 假设有一个图像文件列表
-        File[] imageFiles = new File("D:\\tmp\\cifar-100-python").listFiles();
+        File[] imageFiles = new File("/Users/liuhaihua/ai/ut-zap50k-images-square/Boots/Ankle/Columbia").listFiles();
         if (imageFiles != null) {
             for (int i = 0; i < imageFiles.length; i++) {
                 INDArray features = extractor.extractFeatures(imageFiles[i]);
                 milvusManager.insertData(i, features);
             }
         }
+		milvusManager.flush();
+		milvusManager.buildindex();
+
 
         // 查询图像
-        File queryImage = new File("D:\\tmp\\sync-files\\111.png");
+        File queryImage = new File("/Users/liuhaihua/ai/ut-zap50k-images-square/Boots/Ankle/Columbia/7247580.16952.jpg");
         INDArray queryFeatures = extractor.extractFeatures(queryImage);
         searcher.search(queryFeatures);
     }

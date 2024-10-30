@@ -6,24 +6,7 @@ https://zilliz.com/
 
 ## local 
 ```shell
-curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o standalone_embed.sh
-
-bash standalone_embed.sh start
+docker-compose -f  doker-compose.yaml  up -d
 
 ```
-ou can stop and delete this container as follows
 
-### Stop Milvus
-```shell
-$ bash standalone_embed.sh stop
-```
-### Delete Milvus data
-```shell
-$ bash standalone_embed.sh delete
-```
-You can upgrade the latest version Milvus as follows
-
-### upgrade Milvus
-```shell
-$ bash standalone_embed.sh upgrade
-```

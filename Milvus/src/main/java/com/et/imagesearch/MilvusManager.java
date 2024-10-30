@@ -1,10 +1,11 @@
 package com.et.imagesearch;
 
 import io.milvus.client.*;
-import io.milvus.param.ConnectParam;
+import io.milvus.param.*;
 import io.milvus.param.collection.*;
 import io.milvus.param.dml.*;
 import io.milvus.grpc.*;
+import io.milvus.param.index.CreateIndexParam;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 import java.util.ArrayList;
@@ -17,13 +18,12 @@ public class MilvusManager {
     private  MilvusServiceClient milvusClient;
 
     public MilvusManager() {
-        ConnectParam connectParam = ConnectParam.newBuilder()
-                .withHost("localhost") // 设置Milvus服务器的主机地址
-                .withPort(19530)       // 设置Milvus服务器的端口
-                .build();
-
-        // 创建Milvus客户端
-        milvusClient = new MilvusServiceClient(connectParam);
+		// 连接到Milvus
+		milvusClient = new MilvusServiceClient(
+				ConnectParam.newBuilder()
+						.withUri("https://in03-xxx.serverless.gcp-us-west1.cloud.zilliz.com")
+						.withToken("xxx")
+						.build());
     }
 
     public void createCollection() {
@@ -37,7 +37,7 @@ public class MilvusManager {
         FieldType vectorField = FieldType.newBuilder()
                 .withName("embedding")
                 .withDataType(DataType.FloatVector)
-                .withDimension(2048)
+                .withDimension(1000)
                 .build();
 
         CreateCollectionParam createCollectionParam = CreateCollectionParam.newBuilder()
@@ -74,5 +74,33 @@ public class MilvusManager {
                 .build();
 
         milvusClient.insert(insertParam);
+
     }
+	public void flush() {
+		milvusClient.flush(FlushParam.newBuilder()
+				.withCollectionNames(Collections.singletonList("image_collection"))
+				.withSyncFlush(true)
+				.withSyncFlushWaitingInterval(50L)
+				.withSyncFlushWaitingTimeout(30L)
+				.build());
+	}
+
+	public void buildindex() {
+		// build index
+		System.out.println("Building AutoIndex...");
+		final IndexType INDEX_TYPE = IndexType.AUTOINDEX;   // IndexType
+		long startIndexTime = System.currentTimeMillis();
+		R<RpcStatus> indexR = milvusClient.createIndex(
+				CreateIndexParam.newBuilder()
+						.withCollectionName("image_collection")
+						.withFieldName("embedding")
+						.withIndexType(INDEX_TYPE)
+						.withMetricType(MetricType.L2)
+						.withSyncMode(Boolean.TRUE)
+						.withSyncWaitingInterval(500L)
+						.withSyncWaitingTimeout(30L)
+						.build());
+		long endIndexTime = System.currentTimeMillis();
+		System.out.println("Succeed in " + (endIndexTime - startIndexTime) / 1000.00 + " seconds!");
+	}
 }
