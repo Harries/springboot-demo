@@ -37,6 +37,7 @@ public class MqManager {
     //@PreDestroy
     public void shutdownDisruptor() {
         if (disruptor != null) {
+            System.out.println("close Disruptor...");
             disruptor.shutdown(); //cl0se Disruptor
         }
     }
