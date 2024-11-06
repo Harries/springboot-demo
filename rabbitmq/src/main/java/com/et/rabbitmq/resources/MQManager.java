@@ -11,7 +11,7 @@ public class MQManager {
     public void unsubscribeFromMQ() throws InterruptedException {
         // stop mq resource
         System.out.println("Stopping RabbitMQ listener container...");
-        //
+        //mock
         Thread.sleep(100000);
     }
 }
