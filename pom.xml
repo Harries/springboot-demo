@@ -169,6 +169,7 @@
         <module>ehcache</module>
         <module>BloomFilter</module>
         <module>Aviator</module>
+        <module>sqlserver</module>
 
     </modules>
     <properties>
