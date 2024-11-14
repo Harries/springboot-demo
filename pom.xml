@@ -169,7 +169,8 @@
         <module>ehcache</module>
         <module>BloomFilter</module>
         <module>Aviator</module>
-        <module>accessDB</module>
+        <module>sqlserver</module>
+        <module>easyexcel</module>
 
     </modules>
     <properties>
