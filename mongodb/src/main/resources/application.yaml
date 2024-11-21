@@ -5,9 +5,19 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://admin:123456@127.0.0.1:27017/admin
+      uri: mongodb://admin:123456@127.0.0.1:27017/test
       # 需要用户名和密码认证
       #uri:  mongodb://username:password@ip:port/admin
 
       #不需要用户名和密码认证
       #uri:  mongodb://ip:port/admin
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: your-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
