@@ -171,6 +171,7 @@
         <module>Aviator</module>
         <module>sqlserver</module>
         <module>easyexcel</module>
+        <module>JSON-Schema-Validator</module>
 
     </modules>
     <properties>
