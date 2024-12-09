@@ -173,6 +173,7 @@
         <module>easyexcel</module>
         <module>JSON-Schema-Validator</module>
 
+
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
