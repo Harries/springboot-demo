@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internationalization Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        select {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="greeting"></h1>
+
+<label for="language-select">Choose a language:</label>
+<select id="language-select">
+    <option value="en">English</option>
+    <option value="zh">中文</option>
+    <option value="fr">Français</option>
+</select>
+
+<script>
+        function fetchGreeting(lang) {
+            fetch('/greeting', {
+                method: 'GET',
+                headers: {
+                    'Accept-Language': lang
+                }
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('greeting').innerText = data;
+            });
+
+
+        }
+
+        // Fetch greeting based on selected language
+        document.getElementById('language-select').addEventListener('change', function() {
+            const selectedLang = this.value;
+            fetchGreeting(selectedLang);
+        });
+
+        // Initial fetch in English
+        fetchGreeting('en');
+    </script>
+</body>
+</html>

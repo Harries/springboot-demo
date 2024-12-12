@@ -172,6 +172,7 @@
         <module>sqlserver</module>
         <module>easyexcel</module>
         <module>JSON-Schema-Validator</module>
+        <module>i18n</module>
 
 
     </modules>
