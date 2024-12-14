@@ -19,7 +19,7 @@ public class StaticResourceFilter implements Filter {
 
         // validate Referer
        String referer = httpRequest.getHeader("Referer");
-        String allowedDomain = "http://localhost:8080";
+        String allowedDomain = "http://localhost:8088";
         if (referer == null || !referer.startsWith(allowedDomain)) {
             httpResponse.getWriter().write("403 Forbidden: Hotlinking not allowed");
             return;
