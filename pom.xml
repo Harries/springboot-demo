@@ -173,6 +173,7 @@
         <module>easyexcel</module>
         <module>JSON-Schema-Validator</module>
         <module>i18n</module>
+        <module>antihotlinking</module>
 
 
     </modules>
