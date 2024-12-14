@@ -7,7 +7,7 @@ import java.time.Instant;
 
 public class TimeValidator {
 
-    private static final long ALLOWED_TIME_DIFF = 300; // 允许偏移时间（秒）
+    private static final long ALLOWED_TIME_DIFF = 300; // offset in seconds( 300 seconds)
 
     public static boolean validateTimestamp(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String timestampStr = request.getParameter("timestamp");

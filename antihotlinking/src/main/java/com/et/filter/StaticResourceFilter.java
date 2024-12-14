@@ -17,20 +17,20 @@ public class StaticResourceFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        // 验证 Referer
-      /* HttpServletResponse String referer = httpRequest.getHeader("Referer");
+        // validate Referer
+       String referer = httpRequest.getHeader("Referer");
         String allowedDomain = "http://localhost:8080";
         if (referer == null || !referer.startsWith(allowedDomain)) {
             httpResponse.getWriter().write("403 Forbidden: Hotlinking not allowed");
             return;
-        }*/
+        }
 
-        // 验证 Token
+        // validate Token
         if (!TokenValidator.validateToken(httpRequest, httpResponse)) {
             return;
         }
 
-        // 验证时间戳
+        // validate Timestamp
         if (!TimeValidator.validateTimestamp(httpRequest, httpResponse)) {
             return;
         }
