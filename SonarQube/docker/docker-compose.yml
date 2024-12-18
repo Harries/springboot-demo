@@ -12,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   sonarqube:
-    image: 10.4.1-community
+    image: sonarqube:9.9-community
     restart: always
     ports:
       - "9000:9000"
