@@ -175,6 +175,7 @@
         <module>i18n</module>
         <module>antihotlinking</module>
         <module>SonarQube</module>
+        <module>Alipay-facetoface</module>
 
 
     </modules>

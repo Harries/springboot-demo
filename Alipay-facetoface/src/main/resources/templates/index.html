@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付</title>
+</head>
+<body>
+<h1>订单支付</h1>
+<form action="/createOrder" method="post">
+    <label for="totalAmount">订单金额:</label>
+    <input type="text" id="totalAmount" name="totalAmount" required><br><br>
+    <label for="subject">产品名称:</label>
+    <input type="text" id="subject" name="subject" required><br><br>
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

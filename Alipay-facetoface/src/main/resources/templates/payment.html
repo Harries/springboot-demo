@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付宝支付二维码</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        .order-info {
+            margin: 20px 0;
+        }
+        .qr-code {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>支付宝支付二维码</h1>
+    <img class="logo" src="https://gw.alipayobjects.com/zos/bmw-prod/f466695f-f426-4e79-ae69-ecdf64a03c71.svg" alt="支付宝 Logo" />
+
+    <div class="order-info">
+        <p>订单号: <strong><span th:text="${outTradeNo}"></span></strong></p>
+        <p>产品名称: <strong><span th:text="${subject}"></span></strong></p>
+        <p>金额: <strong><span th:text="${totalAmount}"></span></strong></p>
+    </div>
+
+    <div class="qr-code">
+        <img width="200" height="200" th:src="'https://api.qrserver.com/v1/create-qr-code/?data=' + ${qrCodeUrl}" alt="支付宝二维码" />
+    </div>
+
+    <p>请扫描二维码完成支付</p>
+</div>
+</body>
+</html>

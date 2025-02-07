@@ -1,0 +1,9 @@
+server:
+  port: 8088
+alipay:
+  app_id: 应用ID
+  merchant_private_key: 应用私钥
+  alipay_public_key: 支付宝公钥
+  gateway_url: https://openapi.alipay.com/gateway.do
+  notify_url: 你的回调通知地址
+  return_url: 你的返回地址
