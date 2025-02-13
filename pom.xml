@@ -177,6 +177,7 @@
         <module>SonarQube</module>
         <module>Alipay-facetoface</module>
         <module>aws-s3</module>
+        <module>clerk</module>
 
 
     </modules>
