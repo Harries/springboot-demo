@@ -178,6 +178,7 @@
         <module>Alipay-facetoface</module>
         <module>aws-s3</module>
         <module>clerk</module>
+        <module>Twilio</module>
 
 
     </modules>
