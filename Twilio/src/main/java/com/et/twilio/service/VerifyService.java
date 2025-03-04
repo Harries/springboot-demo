@@ -8,16 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VerifyService {
-    @Value("${twilio.account-sid}")
-    private String accountsid;
 
-    @Value("${twilio.auth-token}")
-    private String authtoken;
     @Value("${twilio.verify-service-sid}")
     private String verifyServiceSid;
 
     public void sendVerificationCode(String toPhoneNumber) {
-        Twilio.init(accountsid,authtoken);
         Verification verification = Verification.creator(
                 verifyServiceSid,
                 toPhoneNumber,
@@ -26,7 +21,6 @@ public class VerifyService {
     }
 
     public boolean verifyCode(String toPhoneNumber, String code) {
-        Twilio.init(accountsid,authtoken,verifyServiceSid);
         VerificationCheck verificationCheck = VerificationCheck.creator(
                 verifyServiceSid,
                 code)
