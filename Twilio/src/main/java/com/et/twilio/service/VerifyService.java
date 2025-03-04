@@ -21,7 +21,7 @@ public class VerifyService {
         Verification verification = Verification.creator(
                 verifyServiceSid,
                 toPhoneNumber,
-                "sms") // 发送方式可以是 sms 或 voice
+                "sms")
                 .create();
     }
 
