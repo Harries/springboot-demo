@@ -1,3 +1,4 @@
 /kafka/target/
 /canal/docker/mysql5.7/mysql/
 /djl/src/main/resources/dataset/
+/twilio/src/main/resources/application.properties

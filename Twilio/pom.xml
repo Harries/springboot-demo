@@ -33,7 +33,12 @@
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
-            <version>8.25.0</version> <!-- 请检查最新版本 -->
+            <version>8.25.0</version> <!-- please check latest version -->
+        </dependency>
+        <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>4.10.1</version> <!-- please check latest version -->
         </dependency>
     </dependencies>
 </project>
