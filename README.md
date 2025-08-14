@@ -220,9 +220,7 @@ I'm a full stack developer...
 - [HBLOG](http://www.liuhaihua.cn/)
 - [Medium](https://jxausea.medium.com/)
 
-## Sponsor this project
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/harries)
-
-
+## Sponsors
 CDN acceleration and security protection for this project are sponsored by Tencent EdgeOne
+[!["Tencent EdgeOne"](https://edgeone.ai/media/34fe3a45-492d-4ea4-ae5d-ea1087ca7b4b.png)](https://edgeone.ai/?from=github)
+
