@@ -225,3 +225,4 @@ I'm a full stack developer...
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/harries)
 
 
+CDN acceleration and security protection for this project are sponsored by Tencent EdgeOne
